@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us — Accliv Group</title>
+  <title>Contact Us | Accliv Group</title>
   <meta name="description" content="Get in touch with Accliv Group. Ottawa real estate and investment advisory."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -108,10 +108,33 @@
 
     @media(max-width:1024px){.contact-wrap{grid-template-columns:1fr;gap:4rem;}.why-grid{grid-template-columns:1fr 1fr;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
     @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.f2{grid-template-columns:1fr;}.form-card{padding:2.5rem 1.75rem;}.why-grid{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}}
+    @keyframes bodyFade{from{opacity:0}to{opacity:1}}
+    body{animation:bodyFade 0.5s ease both;}
+    #sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear;}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal.d1{transition-delay:0.1s;}.reveal.d2{transition-delay:0.2s;}.reveal.d3{transition-delay:0.3s;}.reveal.d4{transition-delay:0.4s;}
+    .reveal.rl{transform:translateX(-34px);}.reveal.rr{transform:translateX(34px);}
+    .reveal.rl.visible,.reveal.rr.visible{transform:translateX(0);}
+    .nav-links a{position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:50%;right:50%;height:1px;background:var(--gold);transition:left 0.3s ease,right 0.3s ease;}
+    .nav-links a:hover::after,.nav-links a.active::after{left:0;right:0;}
+    .nav-cta::after{display:none!important;}
+    .btn-gold{position:relative;overflow:hidden;}
+    .btn-gold::before{content:'';position:absolute;top:0;left:-110%;width:55%;height:100%;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,0.28) 50%,transparent 80%);transform:skewX(-20deg);transition:left 0.55s ease;pointer-events:none;}
+    .btn-gold:hover::before{left:170%;}
+    .why-card{transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),box-shadow 0.35s ease;}
+    .why-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,0,0,0.1);}
+    .fg input,.fg textarea,.fg select{transition:border-color 0.3s ease,box-shadow 0.3s ease;}
+    .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.12);}
+    .c-row{transition:transform 0.25s ease;}
+    .c-row:hover{transform:translateX(5px);}
+    .logo-ring{transition:transform 0.4s ease,box-shadow 0.4s ease;}
+    .nav-logo:hover .logo-ring{transform:rotate(15deg);box-shadow:0 0 18px rgba(201,168,76,0.35);}
   </style>
 </head>
 <body>
-
+<div id="sprog"></div>
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
@@ -140,10 +163,10 @@
 <section id="contact-main">
   <div class="container">
     <div class="contact-wrap">
-      <div class="contact-info">
+      <div class="contact-info reveal rl">
         <p class="eyebrow">Contact Details</p>
         <h2>We're Based in Ottawa. We Answer Fast.</h2>
-        <p>Whether you have a quick question or you're ready to start your search — send us a message or give us a call. We respond to every inquiry within 24 hours.</p>
+        <p>Whether you have a quick question or you're ready to start your search, send us a message or give us a call. We respond to every inquiry within 24 hours.</p>
         <div class="c-items">
           <div class="c-row">
             <div class="c-icon"><svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round"/></svg></div>
@@ -167,7 +190,7 @@
         </div>
       </div>
 
-      <div class="form-card">
+      <div class="form-card reveal rr">
         <h3>Send Us a Message</h3>
         <p class="sub">Fill out the form below and we'll be in touch within 24 hours.</p>
         <form id="cform">
@@ -190,7 +213,7 @@
           <div class="fg"><label>Your Message</label><textarea placeholder="Tell us about your goals, timeline, and any questions you have..."></textarea></div>
           <button type="submit" class="f-btn">Send Message</button>
         </form>
-        <div class="f-ok" id="fok">Thank you — we'll be in touch within 24 hours.</div>
+        <div class="f-ok" id="fok">Thank you. We'll be in touch within 24 hours.</div>
       </div>
     </div>
   </div>
@@ -203,9 +226,9 @@
         <p class="eyebrow">Why Clients Choose Accliv</p>
         <h2>What You Can Expect<br>When You Work With Us</h2>
       </div>
-      <div class="why-card"><div class="why-num">01</div><div class="why-title">Fast Responses</div><p class="why-desc">We respond to every inquiry within 24 hours — usually faster. In real estate, being slow costs you. We don't let that happen.</p></div>
-      <div class="why-card"><div class="why-num">02</div><div class="why-title">No Pressure</div><p class="why-desc">Your first consultation is free and obligation-free. We give you honest information and let you decide what's right for you.</p></div>
-      <div class="why-card"><div class="why-num">03</div><div class="why-title">Full Transparency</div><p class="why-desc">We show you the data, the comps, the risks. No spin. No inflated numbers. Just the truth — so you can decide with confidence.</p></div>
+      <div class="why-card reveal d1"><div class="why-num">01</div><div class="why-title">Fast Responses</div><p class="why-desc">We respond to every inquiry within 24 hours, usually faster. In real estate, being slow costs you. We don't let that happen.</p></div>
+      <div class="why-card reveal d2"><div class="why-num">02</div><div class="why-title">No Pressure</div><p class="why-desc">Your first consultation is free and obligation-free. We give you honest information and let you decide what's right for you.</p></div>
+      <div class="why-card reveal d3"><div class="why-num">03</div><div class="why-title">Full Transparency</div><p class="why-desc">We show you the data, the comps, the risks. No spin. No inflated numbers. Just the truth, so you can decide with confidence.</p></div>
     </div>
   </div>
 </section>
@@ -236,6 +259,10 @@
   ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':'';});
   document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
   document.getElementById('cform').addEventListener('submit',e=>{e.preventDefault();e.target.style.display='none';document.getElementById('fok').style.display='block';});
+  const sp=document.getElementById('sprog');
+  window.addEventListener('scroll',()=>{if(sp)sp.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';},{passive:true});
+  const ro=new IntersectionObserver((entries)=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
 </script>
 </body>
 </html>

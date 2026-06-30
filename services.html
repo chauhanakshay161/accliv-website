@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services — Accliv Group</title>
-  <meta name="description" content="Real estate and investment services in Ottawa. Accliv Group — Clear. Transparent. Fast. Reliable." />
+  <title>Services | Accliv Group</title>
+  <meta name="description" content="Real estate and investment services in Ottawa. Accliv Group: Clear. Transparent. Fast. Reliable." />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -103,10 +103,38 @@
 
     @media(max-width:1024px){.srv-spread{grid-template-columns:1fr;min-height:auto;}.srv-spread.flip .srv-img{order:0;}.srv-spread.flip .srv-copy{order:0;}.srv-img{height:320px;}.srv-copy{padding:3.5rem 2.5rem;}.faq-grid{grid-template-columns:1fr;gap:3rem;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
     @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}}
+    @keyframes bodyFade{from{opacity:0}to{opacity:1}}
+    body{animation:bodyFade 0.5s ease both;}
+    #sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear;}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal.d1{transition-delay:0.1s;}.reveal.d2{transition-delay:0.2s;}.reveal.d3{transition-delay:0.3s;}.reveal.d4{transition-delay:0.4s;}
+    .reveal.rl{transform:translateX(-34px);}.reveal.rr{transform:translateX(34px);}
+    .reveal.rl.visible,.reveal.rr.visible{transform:translateX(0);}
+    .nav-links a{position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:50%;right:50%;height:1px;background:var(--gold);transition:left 0.3s ease,right 0.3s ease;}
+    .nav-links a:hover::after,.nav-links a.active::after{left:0;right:0;}
+    .nav-cta::after{display:none!important;}
+    .btn-gold{position:relative;overflow:hidden;}
+    .btn-gold::before{content:'';position:absolute;top:0;left:-110%;width:55%;height:100%;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,0.28) 50%,transparent 80%);transform:skewX(-20deg);transition:left 0.55s ease;pointer-events:none;}
+    .btn-gold:hover::before{left:170%;}
+    .srv-img img{transition:transform 0.7s cubic-bezier(0.22,1,0.36,1);}
+    .srv-spread:hover .srv-img img{transform:scale(1.05);}
+    .srv-features li{transition:transform 0.25s ease,color 0.25s ease;}
+    .srv-features li:hover{transform:translateX(5px);color:var(--navy);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.48s cubic-bezier(0.22,1,0.36,1),opacity 0.35s ease,margin-top 0.3s ease;opacity:0;margin-top:0;margin-bottom:0;}
+    .faq-item.open .faq-a{max-height:300px;opacity:1;margin-top:0.65rem;}
+    .faq-q{cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+    .faq-q::after{content:'+';font-size:1.4rem;color:var(--gold);font-weight:300;flex-shrink:0;margin-left:1rem;transition:transform 0.35s ease,color 0.25s ease;}
+    .faq-item.open .faq-q::after{transform:rotate(45deg);}
+    .faq-item{cursor:pointer;transition:background 0.3s ease;}
+    .faq-item:hover{background:rgba(201,168,76,0.03);}
+    .logo-ring{transition:transform 0.4s ease,box-shadow 0.4s ease;}
+    .nav-logo:hover .logo-ring{transform:rotate(15deg);box-shadow:0 0 18px rgba(201,168,76,0.35);}
   </style>
 </head>
 <body>
-
+<div id="sprog"></div>
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
@@ -132,7 +160,7 @@
   <div class="container ph-inner">
     <p class="eyebrow">What We Offer</p>
     <h1>Services Built for <em>Ottawa.</em></h1>
-    <p>Accliv Group focuses on what we do best — helping Ottawa clients buy, sell, and invest with precision, honesty, and a genuine edge from deep market preparation.</p>
+    <p>Accliv Group focuses on what we do best: helping Ottawa clients buy, sell, and invest with precision, honesty, and a genuine edge from deep market preparation.</p>
   </div>
 </div>
 
@@ -145,8 +173,8 @@
   <div class="srv-copy">
     <p class="eyebrow">Buy &amp; Sell</p>
     <h3>Finding the Right Property. At the Right Price.</h3>
-    <p>Whether you're buying your first home, upsizing, downsizing, or listing a property — Accliv brings the same level of preparation to every transaction. We study the Ottawa market so you don't have to guess.</p>
-    <p>Ottawa is a city of distinct neighbourhoods. Knowing the difference between Westboro and Barrhaven isn't just geography — it's the difference between a good deal and a great one.</p>
+    <p>Whether you're buying your first home, upsizing, downsizing, or listing a property, Accliv brings the same level of preparation to every transaction. We study the Ottawa market so you don't have to guess.</p>
+    <p>Ottawa is a city of distinct neighbourhoods. Knowing the difference between Westboro and Barrhaven isn't just geography. It's the difference between a good deal and a great one.</p>
     <ul class="srv-features">
       <li>Buyer representation &amp; market search</li>
       <li>Seller strategy, pricing &amp; listing support</li>
@@ -167,7 +195,7 @@
   <div class="srv-copy bg-off">
     <p class="eyebrow">Build Wealth</p>
     <h3>Property as a Vehicle for Long-Term Growth.</h3>
-    <p>Real estate is one of the most reliable paths to building lasting wealth — when approached with the right strategy. Accliv helps you identify the right properties, in the right Ottawa locations, at the right time.</p>
+    <p>Real estate is one of the most reliable paths to building lasting wealth when approached with the right strategy. Accliv helps you identify the right properties, in the right Ottawa locations, at the right time.</p>
     <p>From single-family rentals to multi-unit acquisitions, we analyze cash flow, market trends, and neighbourhood dynamics to help your portfolio grow intelligently over time.</p>
     <ul class="srv-features">
       <li>Investment property identification</li>
@@ -187,21 +215,21 @@
       <div class="faq-head">
         <p class="eyebrow">Common Questions</p>
         <h2>Everything You Need to Know</h2>
-        <p>New to buying or selling in Ottawa? Here are the questions we get asked most — answered honestly.</p>
+        <p>New to buying or selling in Ottawa? Here are the questions we get asked most, answered honestly.</p>
         <a href="contact.html" class="btn btn-gold" style="margin-top:1rem;">Ask Us Anything <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
       <div class="faq-list">
         <div class="faq-item">
           <div class="faq-q">Do I need a realtor to buy a home?</div>
-          <p class="faq-a">Technically no — but working with a realtor costs you nothing as a buyer (the seller pays the commission) and gives you market insight, negotiation expertise, and someone in your corner through the entire process.</p>
+          <p class="faq-a">Technically, no. But working with a realtor costs you nothing as a buyer (the seller pays the commission) and gives you market insight, negotiation expertise, and someone in your corner through the entire process.</p>
         </div>
         <div class="faq-item">
           <div class="faq-q">How long does it take to buy a home in Ottawa?</div>
-          <p class="faq-a">From initial search to closing, the typical Ottawa purchase takes 60–90 days — though it can be faster or slower depending on your financing, how competitive the market is, and the property type.</p>
+          <p class="faq-a">From initial search to closing, the typical Ottawa purchase takes 60–90 days, though it can be faster or slower depending on your financing, how competitive the market is, and the property type.</p>
         </div>
         <div class="faq-item">
           <div class="faq-q">What neighbourhoods do you cover?</div>
-          <p class="faq-a">We serve all of Ottawa and the surrounding communities — including Westboro, Barrhaven, Kanata, Nepean, Orleans, Glebe, Stittsville, Manotick, and Riverside South.</p>
+          <p class="faq-a">We serve all of Ottawa and the surrounding communities, including Westboro, Barrhaven, Kanata, Nepean, Orleans, Glebe, Stittsville, Manotick, and Riverside South.</p>
         </div>
         <div class="faq-item">
           <div class="faq-q">Is now a good time to invest in Ottawa real estate?</div>
@@ -209,7 +237,7 @@
         </div>
         <div class="faq-item">
           <div class="faq-q">What makes Accliv different from other agents?</div>
-          <p class="faq-a">Founder Akshay Chauhan brings an engineering background to every transaction — structured research, data-backed pricing, and zero guesswork. You also work directly with him, not a rotating team, from first call to closing.</p>
+          <p class="faq-a">Founder Akshay Chauhan brings an engineering background to every transaction: structured research, data-backed pricing, and zero guesswork. You also work directly with him, not a rotating team, from first call to closing.</p>
         </div>
       </div>
     </div>
@@ -251,6 +279,12 @@
   const ham=document.getElementById('hamburger'),mob=document.getElementById('mobNav');
   ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':'';});
   document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+  const sp=document.getElementById('sprog');
+  window.addEventListener('scroll',()=>{if(sp)sp.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';},{passive:true});
+  const ro=new IntersectionObserver((entries)=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
+  document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const it=q.parentElement;const was=it.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!was)it.classList.add('open');});});
+  document.querySelector('.faq-item') && document.querySelector('.faq-item').classList.add('open');
 </script>
 </body>
 </html>

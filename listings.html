@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Active Listings — Accliv Group</title>
-  <meta name="description" content="Ottawa real estate listings — Accliv Group. Properties added as they become available."/>
+  <title>Active Listings | Accliv Group</title>
+  <meta name="description" content="Ottawa real estate listings. Accliv Group. Properties added as they become available."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -145,10 +145,37 @@
 
     @media(max-width:1024px){.honest-wrap{grid-template-columns:1fr;gap:3rem;}.listings-grid{grid-template-columns:1fr 1fr;}.om-grid{grid-template-columns:1fr;gap:4rem;}.om-float{right:0;}.criteria-grid{grid-template-columns:1fr 1fr;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
     @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.listings-grid{grid-template-columns:1fr;}.criteria-grid{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}.om-float{position:relative;right:0;bottom:0;margin-top:1.5rem;}}
+    @keyframes bodyFade{from{opacity:0}to{opacity:1}}
+    body{animation:bodyFade 0.5s ease both;}
+    #sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear;}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal.d1{transition-delay:0.1s;}.reveal.d2{transition-delay:0.2s;}.reveal.d3{transition-delay:0.3s;}.reveal.d4{transition-delay:0.4s;}
+    .reveal.rl{transform:translateX(-34px);}.reveal.rr{transform:translateX(34px);}
+    .reveal.rl.visible,.reveal.rr.visible{transform:translateX(0);}
+    .nav-links a{position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:50%;right:50%;height:1px;background:var(--gold);transition:left 0.3s ease,right 0.3s ease;}
+    .nav-links a:hover::after,.nav-links a.active::after{left:0;right:0;}
+    .nav-cta::after{display:none!important;}
+    .btn-gold{position:relative;overflow:hidden;}
+    .btn-gold::before{content:'';position:absolute;top:0;left:-110%;width:55%;height:100%;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,0.28) 50%,transparent 80%);transform:skewX(-20deg);transition:left 0.55s ease;pointer-events:none;}
+    .btn-gold:hover::before{left:170%;}
+    .listing-card{transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),box-shadow 0.35s ease;}
+    .listing-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,0,0,0.1);}
+    .listing-thumb img{transition:transform 0.65s cubic-bezier(0.22,1,0.36,1),filter 0.45s ease;}
+    .listing-card:hover .listing-thumb img{transform:scale(1.08);filter:brightness(0.58);}
+    .crit-card{transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),box-shadow 0.35s ease;}
+    .crit-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,0,0,0.1);}
+    .om-img{transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);}
+    .om-visual:hover .om-img{transform:scale(1.03);}
+    .om-float{transition:transform 0.35s ease,box-shadow 0.35s ease;}
+    .om-float:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.3);}
+    .logo-ring{transition:transform 0.4s ease,box-shadow 0.4s ease;}
+    .nav-logo:hover .logo-ring{transform:rotate(15deg);box-shadow:0 0 18px rgba(201,168,76,0.35);}
   </style>
 </head>
 <body>
-
+<div id="sprog"></div>
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
@@ -174,7 +201,7 @@
   <div class="container ph-inner">
     <p class="eyebrow">Properties</p>
     <h1>Active <em>Listings.</em></h1>
-    <p>Ottawa properties — curated, researched, and represented with the care they deserve. New listings added as they become available.</p>
+    <p>Ottawa properties, curated, researched, and represented with the care they deserve. New listings added as they become available.</p>
   </div>
 </div>
 
@@ -188,15 +215,15 @@
       </div>
       <div class="honest-copy">
         <p class="eyebrow">Transparency First</p>
-        <h2>No Listings Yet — and We're Not Going to Pretend Otherwise.</h2>
-        <p>Accliv Group is building its portfolio the right way — one well-represented property at a time. We're not here to pad a list with expired listings or properties we don't genuinely represent.</p>
-        <p>When a listing goes live, it will be here. In the meantime, if you're looking to buy in Ottawa, reach out directly — we can identify opportunities that aren't even publicly listed yet.</p>
+        <h2>No Listings Yet, and We're Not Going to Pretend Otherwise.</h2>
+        <p>Accliv Group is building its portfolio the right way: one well-represented property at a time. We're not here to pad a list with expired listings or properties we don't genuinely represent.</p>
+        <p>When a listing goes live, it will be here. In the meantime, if you're looking to buy in Ottawa, reach out directly. We can identify opportunities that aren't even publicly listed yet.</p>
         <div id="nform">
           <div class="notify-form">
-            <input type="email" id="nemail" placeholder="Your email — we'll notify you when new listings go live" />
+            <input type="email" id="nemail" placeholder="Your email. We'll notify you when new listings go live" />
             <button type="button" onclick="handleNotify()">Notify Me</button>
           </div>
-          <p class="notify-ok" id="nok">You're on the list — we'll reach out the moment something hits the market.</p>
+          <p class="notify-ok" id="nok">You're on the list. We'll reach out the moment something hits the market.</p>
         </div>
       </div>
     </div>
@@ -213,7 +240,7 @@
     </div>
     <div class="listings-grid">
 
-      <div class="listing-card">
+      <div class="listing-card reveal d1">
         <div class="listing-thumb">
           <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=700&q=80" alt="Westboro Family Home" loading="lazy"/>
           <div class="listing-badge">Coming Soon</div>
@@ -235,7 +262,7 @@
         </div>
       </div>
 
-      <div class="listing-card">
+      <div class="listing-card reveal d2">
         <div class="listing-thumb">
           <img src="https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?w=700&q=80" alt="Barrhaven New Build" loading="lazy"/>
           <div class="listing-badge">Coming Soon</div>
@@ -257,7 +284,7 @@
         </div>
       </div>
 
-      <div class="listing-card">
+      <div class="listing-card reveal d3">
         <div class="listing-thumb">
           <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80" alt="Kanata Investment Property" loading="lazy"/>
           <div class="listing-badge">Coming Soon</div>
@@ -271,7 +298,7 @@
         <div class="listing-body">
           <div class="listing-area">Kanata, Ottawa</div>
           <div class="listing-title">Investment Property</div>
-          <p class="listing-desc">Income-generating properties in Ottawa's tech corridor — strong rental demand, stable appreciation.</p>
+          <p class="listing-desc">Income-generating properties in Ottawa's tech corridor: strong rental demand, stable appreciation.</p>
           <div class="listing-meta">
             <span><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"/></svg> Investment</span>
             <span><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round"/></svg> Kanata</span>
@@ -291,7 +318,7 @@
         <p class="eyebrow" style="color:var(--gold)">Off-Market Access</p>
         <h2>The Best Properties<br>Never Hit <em>MLS.</em></h2>
         <p>In Ottawa's competitive market, the most sought-after properties are often sold before they're ever publicly listed. Sellers value their privacy. Buyers with the right connections get first access.</p>
-        <p>As your representative, Accliv Group works to uncover these opportunities — through networking, direct outreach, and relationships built specifically for Ottawa neighbourhoods you care about.</p>
+        <p>As your representative, Accliv Group works to uncover these opportunities through networking, direct outreach, and relationships built specifically for Ottawa neighbourhoods you care about.</p>
         <ul class="om-features">
           <li>Pre-market and private sale access</li>
           <li>Targeted outreach to property owners in your desired area</li>
@@ -333,7 +360,7 @@
           <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div class="crit-title">Market Value Accuracy</div>
-        <p class="crit-desc">We study the comparables. Every offer we make or listing we set is backed by recent data — not guesswork or wishful thinking.</p>
+        <p class="crit-desc">We study the comparables. Every offer we make or listing we set is backed by recent data, not guesswork or wishful thinking.</p>
       </div>
       <div class="crit-card">
         <div class="crit-icon">
@@ -347,7 +374,7 @@
           <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div class="crit-title">Long-Term Return</div>
-        <p class="crit-desc">Whether you're buying to live or buying to grow, we consider the 5–10 year outlook — appreciation potential, rental yield, and exit strategy.</p>
+        <p class="crit-desc">Whether you're buying to live or buying to grow, we consider the 5–10 year outlook: appreciation potential, rental yield, and exit strategy.</p>
       </div>
     </div>
   </div>
@@ -358,7 +385,7 @@
   <div class="container"><div class="cta-inner">
     <p class="eyebrow" style="justify-content:center">Find Your Property</p>
     <h2>Don't Wait for a Listing.<br><em>Tell Us What You Want.</em></h2>
-    <p>The Ottawa market moves fast. Rather than waiting for the right property to appear, let us go find it — on-market, off-market, or not yet listed at all.</p>
+    <p>The Ottawa market moves fast. Rather than waiting for the right property to appear, let us go find it: on-market, off-market, or not yet listed at all.</p>
     <div class="cta-btns">
       <a href="contact.html" class="btn btn-gold">Book a Free Consult <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       <a href="services.html" class="btn btn-ghost">View Our Services <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -398,6 +425,10 @@
     document.getElementById('nok').style.display='block';
   }
   document.querySelectorAll('.listing-overlay .tag').forEach(t=>t.addEventListener('click',()=>{document.getElementById('nemail').focus();document.getElementById('honest').scrollIntoView({behavior:'smooth'});}));
+  const sp=document.getElementById('sprog');
+  window.addEventListener('scroll',()=>{if(sp)sp.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';},{passive:true});
+  const ro=new IntersectionObserver((entries)=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
 </script>
 </body>
 </html>

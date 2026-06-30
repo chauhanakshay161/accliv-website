@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Client Reviews — Accliv Group</title>
-  <meta name="description" content="Client reviews and stories — Accliv Group Ottawa."/>
+  <title>Client Reviews | Accliv Group</title>
+  <meta name="description" content="Client reviews and stories. Accliv Group Ottawa."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -114,10 +114,35 @@
 
     @media(max-width:1024px){.intro-grid{grid-template-columns:1fr;gap:4rem;}.lr-grid{grid-template-columns:1fr;gap:3rem;}.exp-timeline{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
     @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}}
+    @keyframes bodyFade{from{opacity:0}to{opacity:1}}
+    body{animation:bodyFade 0.5s ease both;}
+    #sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear;}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal.d1{transition-delay:0.1s;}.reveal.d2{transition-delay:0.2s;}.reveal.d3{transition-delay:0.3s;}.reveal.d4{transition-delay:0.4s;}
+    .reveal.rl{transform:translateX(-34px);}.reveal.rr{transform:translateX(34px);}
+    .reveal.rl.visible,.reveal.rr.visible{transform:translateX(0);}
+    .nav-links a{position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:50%;right:50%;height:1px;background:var(--gold);transition:left 0.3s ease,right 0.3s ease;}
+    .nav-links a:hover::after,.nav-links a.active::after{left:0;right:0;}
+    .nav-cta::after{display:none!important;}
+    .btn-gold{position:relative;overflow:hidden;}
+    .btn-gold::before{content:'';position:absolute;top:0;left:-110%;width:55%;height:100%;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,0.28) 50%,transparent 80%);transform:skewX(-20deg);transition:left 0.55s ease;pointer-events:none;}
+    .btn-gold:hover::before{left:170%;}
+    .exp-card{transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),box-shadow 0.35s ease,background 0.3s ease;}
+    .exp-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,0,0,0.25);background:rgba(255,255,255,0.07);}
+    .platform-btn{transition:transform 0.25s ease,border-color 0.25s ease,color 0.25s ease;}
+    .platform-btn:hover{transform:translateX(7px);border-color:var(--gold);color:var(--gold);}
+    .intro-img,.lr-img{transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);}
+    .intro-grid:hover .intro-img,.lr-grid:hover .lr-img{transform:scale(1.03);}
+    .promise-item{transition:transform 0.25s ease;}
+    .promise-item:hover{transform:translateX(5px);}
+    .logo-ring{transition:transform 0.4s ease,box-shadow 0.4s ease;}
+    .nav-logo:hover .logo-ring{transform:rotate(15deg);box-shadow:0 0 18px rgba(201,168,76,0.35);}
   </style>
 </head>
 <body>
-
+<div id="sprog"></div>
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
@@ -139,7 +164,7 @@
   <div class="container ph-inner">
     <p class="eyebrow">Client Stories</p>
     <h1>Building Trust, <em>One Client</em> at a Time.</h1>
-    <p>We'd rather you judge us on our standards than scroll past a wall of quotes you can't verify. Here's exactly what to expect — and how to hear from clients directly.</p>
+    <p>We'd rather you judge us on our standards than scroll past a wall of quotes you can't verify. Here's exactly what to expect, and how to hear from clients directly.</p>
   </div>
 </div>
 
@@ -149,13 +174,13 @@
       <div class="intro-copy">
         <p class="eyebrow">Our Commitment</p>
         <h2>We'd Rather Earn Trust Than Manufacture It.</h2>
-        <p>Plenty of agencies fill their homepage with five-star quotes that are impossible to verify. We don't do that. If you want to know what working with Accliv Group is actually like, we'll tell you directly — and point you to the same platforms where you can read unfiltered feedback yourself.</p>
-        <p>What we can promise is this: every client who works with Accliv Group receives our absolute best — founder-led, start to close. Not divided attention from a busy team. Not a junior agent on a crowded roster. Just direct, accountable service from the person whose name is on the door.</p>
+        <p>Plenty of agencies fill their homepage with five-star quotes that are impossible to verify. We don't do that. If you want to know what working with Accliv Group is actually like, we'll tell you directly, and point you to the same platforms where you can read unfiltered feedback yourself.</p>
+        <p>What we can promise is this: every client who works with Accliv Group receives our absolute best: founder-led, start to close. Not divided attention from a busy team. Not a junior agent on a crowded roster. Just direct, accountable service from the person whose name is on the door.</p>
         <div class="divider"></div>
         <div class="promise-list">
           <div class="promise-item">
             <div class="p-icon"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div class="p-text"><strong>We respond within 24 hours — always</strong><span>No unanswered emails. No missed calls without a callback.</span></div>
+            <div class="p-text"><strong>We respond within 24 hours, always</strong><span>No unanswered emails. No missed calls without a callback.</span></div>
           </div>
           <div class="promise-item">
             <div class="p-icon"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -181,25 +206,25 @@
         <p>Instead of asking you to take our word for it, here's a direct breakdown of exactly what happens at every stage of working with us.</p>
       </div>
       <div class="exp-timeline">
-        <div class="exp-card">
+        <div class="exp-card reveal d1">
           <div class="exp-card-num">01</div>
           <div class="exp-card-title">You're Heard First</div>
-          <p class="exp-card-desc">Before we say a single thing about listings or strategy, we listen. We want to understand your situation, your goals, and what success looks like for you — not for us.</p>
+          <p class="exp-card-desc">Before we say a single thing about listings or strategy, we listen. We want to understand your situation, your goals, and what success looks like for you, not for us.</p>
         </div>
-        <div class="exp-card">
+        <div class="exp-card reveal d2">
           <div class="exp-card-num">02</div>
           <div class="exp-card-title">You Get the Full Picture</div>
-          <p class="exp-card-desc">We share the market data, the comparable sales, the risks — everything. No cherry-picked numbers. You make decisions with complete information.</p>
+          <p class="exp-card-desc">We share the market data, the comparable sales, the risks: everything. No cherry-picked numbers. You make decisions with complete information.</p>
         </div>
-        <div class="exp-card">
+        <div class="exp-card reveal d3">
           <div class="exp-card-num">03</div>
           <div class="exp-card-title">You Stay Informed Throughout</div>
           <p class="exp-card-desc">Real estate involves a lot of waiting. We make sure you're never left wondering what's happening. Every update, every step, communicated clearly and promptly.</p>
         </div>
-        <div class="exp-card">
+        <div class="exp-card reveal d4">
           <div class="exp-card-num">04</div>
           <div class="exp-card-title">You Finish Confident</div>
-          <p class="exp-card-desc">Whether buying or selling, you close knowing you made the right call with the right information — not just the fastest deal. That's the Accliv standard.</p>
+          <p class="exp-card-desc">Whether buying or selling, you close knowing you made the right call with the right information, not just the fastest deal. That's the Accliv standard.</p>
         </div>
       </div>
     </div>
@@ -212,7 +237,7 @@
       <div class="lr-copy">
         <p class="eyebrow">Share Your Experience</p>
         <h2>Been a Client? We'd Love to Hear From You.</h2>
-        <p>If you've worked with Accliv Group, your honest review means everything — not just for us, but for the next person trying to decide if we're the right fit for them.</p>
+        <p>If you've worked with Accliv Group, your honest review means everything, not just for us, but for the next person trying to decide if we're the right fit for them.</p>
         <p>You can leave a review on any of the platforms below. It takes 2 minutes and makes a real difference.</p>
         <div class="review-platforms">
           <a href="#" class="platform-btn">
@@ -233,7 +258,7 @@
             <div class="platform-icon">
               <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round"/></svg>
             </div>
-            <div class="platform-label"><strong>Send Us Your Feedback Directly</strong><span>Email or contact form — we read every one</span></div>
+            <div class="platform-label"><strong>Send Us Your Feedback Directly</strong><span>Email or contact form. We read every one.</span></div>
             <svg style="margin-left:auto;opacity:0.4;" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -248,7 +273,7 @@
   <div class="container"><div class="cta-inner">
     <p class="eyebrow" style="justify-content:center">Become a Client</p>
     <h2>Become Our <em>Next Story.</em></h2>
-    <p>If you're looking for a real estate partner who will give you direct access, full transparency, and everything they have — let's talk.</p>
+    <p>If you're looking for a real estate partner who will give you direct access, full transparency, and everything they have, let's talk.</p>
     <a href="contact.html" class="btn btn-gold">Book a Free Consultation <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div></div>
 </section>
@@ -278,6 +303,10 @@
   const ham=document.getElementById('hamburger'),mob=document.getElementById('mobNav');
   ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':'';});
   document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+  const sp=document.getElementById('sprog');
+  window.addEventListener('scroll',()=>{if(sp)sp.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';},{passive:true});
+  const ro=new IntersectionObserver((entries)=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
 </script>
 </body>
 </html>

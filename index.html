@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Accliv Group — Ottawa Real Estate</title>
-  <meta name="description" content="Accliv Group — Ottawa's real estate and investment advisory. Clear. Transparent. Fast. Reliable." />
+  <title>Accliv Group | Ottawa Real Estate</title>
+  <meta name="description" content="Accliv Group: Ottawa's real estate and investment advisory. Clear. Transparent. Fast. Reliable." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -229,10 +229,42 @@
       .process-steps { grid-template-columns: 1fr; }
     }
     @media (max-width: 500px) { .hero-btns { flex-direction: column; } .btn { width: 100%; justify-content: center; } .stats-row { grid-template-columns: 1fr 1fr; } }
+    /* == ANIMATIONS == */
+    @keyframes bodyFade{from{opacity:0}to{opacity:1}}
+    body{animation:bodyFade 0.5s ease both;}
+    #sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear;}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal.d1{transition-delay:0.1s;}.reveal.d2{transition-delay:0.2s;}.reveal.d3{transition-delay:0.3s;}.reveal.d4{transition-delay:0.4s;}
+    .reveal.rl{transform:translateX(-34px);}.reveal.rr{transform:translateX(34px);}
+    .reveal.rl.visible,.reveal.rr.visible{transform:translateX(0);}
+    .nav-links a{position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:50%;right:50%;height:1px;background:var(--gold);transition:left 0.3s ease,right 0.3s ease;}
+    .nav-links a:hover::after,.nav-links a.active::after{left:0;right:0;}
+    .nav-cta::after{display:none!important;}
+    .btn-gold{position:relative;overflow:hidden;}
+    .btn-gold::before{content:'';position:absolute;top:0;left:-110%;width:55%;height:100%;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,0.28) 50%,transparent 80%);transform:skewX(-20deg);transition:left 0.55s ease;pointer-events:none;}
+    .btn-gold:hover::before{left:170%;}
+    .tsr-card{transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),box-shadow 0.35s ease;}
+    .tsr-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,0,0,0.18);}
+    .tsr-card img{transition:transform 0.65s cubic-bezier(0.22,1,0.36,1);}
+    .tsr-card:hover img{transform:scale(1.07);}
+    .v-item{transition:border-color 0.3s ease;}
+    .v-item:hover{border-color:rgba(201,168,76,0.25);}
+    .m img{transition:transform 0.6s cubic-bezier(0.22,1,0.36,1),filter 0.4s ease;}
+    .m:hover img{transform:scale(1.08);filter:brightness(1)!important;}
+    .logo-ring{transition:transform 0.4s ease,box-shadow 0.4s ease;}
+    .nav-logo:hover .logo-ring{transform:rotate(15deg);box-shadow:0 0 18px rgba(201,168,76,0.35);}
+    .s-cell{transition:background 0.3s ease;}
+    .s-cell:hover{background:rgba(201,168,76,0.06);}
+    .about-img-wrap:hover .about-img-main{transform:scale(1.03);}
+    .about-img-main{transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);}
+    .ottawa-img-main{transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);}
+    .ottawa-grid:hover .ottawa-img-main{transform:scale(1.03);}
   </style>
 </head>
 <body>
-
+<div id="sprog"></div>
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
@@ -278,7 +310,7 @@
     <div class="container">
       <div class="stats-row">
         <div class="s-cell"><div class="s-num">Ottawa</div><div class="s-lbl">Primary Market</div></div>
-        <div class="s-cell"><div class="s-num">100%</div><div class="s-lbl">Client Commitment</div></div>
+        <div class="s-cell" data-countable><div class="s-num" data-count="100" data-sfx="%">0%</div><div class="s-lbl">Client Commitment</div></div>
         <div class="s-cell"><div class="s-num">Deep</div><div class="s-lbl">Market Knowledge</div></div>
         <div class="s-cell"><div class="s-num">Direct</div><div class="s-lbl">Founder-Led, Every Step</div></div>
       </div>
@@ -294,11 +326,11 @@
 <section id="services-teaser">
   <div class="container">
     <div class="teaser-head">
-      <div><p class="eyebrow">What We Do</p><h2>Focused. Expert.<br>Built for Ottawa.</h2></div>
-      <p class="body-text" style="font-size:0.96rem;line-height:1.85;color:var(--dim);">Accliv Group specialises in helping Ottawa clients buy, sell, and invest in property — with the precision and preparation that comes from deep market knowledge and a genuine commitment to your success.</p>
+      <div class="reveal"><p class="eyebrow">What We Do</p><h2>Focused. Expert.<br>Built for Ottawa.</h2></div>
+      <p class="reveal d1 body-text" style="font-size:0.96rem;line-height:1.85;color:var(--dim);">Accliv Group specialises in helping Ottawa clients buy, sell, and invest in property, with the precision and preparation that comes from deep market knowledge and a genuine commitment to your success.</p>
     </div>
     <div class="teaser-cards">
-      <div class="tsr-card">
+      <div class="tsr-card reveal d1">
         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=85" alt="Real Estate" loading="lazy"/>
         <div class="tsr-card-body">
           <div class="tsr-card-name">Real Estate</div>
@@ -306,11 +338,11 @@
           <a href="services.html" class="btn btn-gold">Learn More <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-      <div class="tsr-card">
+      <div class="tsr-card reveal d2">
         <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=85" alt="Investment" loading="lazy"/>
         <div class="tsr-card-body">
           <div class="tsr-card-name">Investment</div>
-          <p class="tsr-card-desc">Build lasting wealth through strategic property investment. Cash flow analysis, ROI modelling, and neighbourhood research — all done for you.</p>
+          <p class="tsr-card-desc">Build lasting wealth through strategic property investment. Cash flow analysis, ROI modelling, and neighbourhood research, all done for you.</p>
           <a href="services.html" class="btn btn-gold">Learn More <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
@@ -322,7 +354,7 @@
   <div class="manifesto-inner">
     <div class="mf-rule"></div>
     <p class="mf-q">"Real estate isn't a transaction.<br>It's the foundation every <em>next chapter</em> is built on."</p>
-    <p class="mf-attr">— The Accliv Philosophy</p>
+    <p class="mf-attr">The Accliv Philosophy</p>
     <div class="mf-rule" style="margin-top:3rem;margin-bottom:0;"></div>
   </div>
 </section>
@@ -330,20 +362,20 @@
 <section id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-img-wrap">
+      <div class="about-img-wrap reveal rl">
         <div class="about-gold-bar"></div>
         <img class="about-img-main" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=85" alt="Akshay Chauhan, Accliv Group"/>
         <img class="about-img-secondary" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Ottawa property" loading="lazy"/>
       </div>
-      <div class="about-copy">
+      <div class="about-copy reveal rr">
         <p class="eyebrow">The Founder</p>
         <h2>An Engineer's Approach to Real Estate.</h2>
-        <p>Accliv Group is led directly by Akshay Chauhan, who brings an engineering background — and the analytical rigor that comes with it — to every property decision. Comparable sales, market trends, and pricing models replace guesswork at every step.</p>
+        <p>Accliv Group is led directly by Akshay Chauhan, who brings an engineering background, and the analytical rigor that comes with it, to every property decision. Comparable sales, market trends, and pricing models replace guesswork at every step.</p>
         <p>No rotating team, no junior agent on a busy roster. You work with the founder, start to close.</p>
         <div class="divider"></div>
         <div class="founder-row">
           <img class="founder-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Akshay Chauhan"/>
-          <div><div class="founder-name">Akshay Chauhan</div><div class="founder-title">Founder &amp; Advisor — Ottawa, Ontario</div></div>
+          <div><div class="founder-name">Akshay Chauhan</div><div class="founder-title">Founder &amp; Advisor, Ottawa, Ontario</div></div>
         </div>
         <a href="about.html" class="btn btn-dark" style="margin-top:2rem;">Meet the Founder <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
@@ -354,11 +386,11 @@
 <section id="ottawa">
   <div class="container">
     <div class="ottawa-grid">
-      <div class="ottawa-copy">
+      <div class="ottawa-copy reveal rl">
         <p class="eyebrow">Why Ottawa</p>
         <h2>A Market Built on Stability and Growth.</h2>
-        <p>As Canada's capital, Ottawa is anchored by federal employment — a foundation that keeps the real estate market stable even when other cities fluctuate. That security attracts families, professionals, and investors alike.</p>
-        <p>Beyond government, Ottawa's tech corridor in Kanata North has made the city one of Canada's most dynamic growth stories — pushing demand across urban and suburban neighbourhoods simultaneously.</p>
+        <p>As Canada's capital, Ottawa is anchored by federal employment, a foundation that keeps the real estate market stable even when other cities fluctuate. That security attracts families, professionals, and investors alike.</p>
+        <p>Beyond government, Ottawa's tech corridor in Kanata North has made the city one of Canada's most dynamic growth stories, pushing demand across urban and suburban neighbourhoods simultaneously.</p>
         <div class="divider"></div>
         <p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:0.75rem;">Areas We Serve</p>
         <div class="hood-list">
@@ -367,7 +399,7 @@
           <span class="hood">Stittsville</span><span class="hood">Riverside South</span><span class="hood">Manotick</span>
         </div>
       </div>
-      <img class="ottawa-img-main" src="https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=800&q=85" alt="Ottawa" loading="lazy"/>
+      <img class="ottawa-img-main reveal rr" src="https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=800&q=85" alt="Ottawa" loading="lazy"/>
     </div>
   </div>
 </section>
@@ -376,25 +408,25 @@
   <div class="container">
     <div class="process-header">
       <div><p class="eyebrow" style="color:var(--gold)">How We Work</p><h2>A Process Engineered for Certainty</h2></div>
-      <p>Every client follows the same clear, structured journey — no surprises, no confusion. Just a proven system built to deliver results.</p>
+      <p>Every client follows the same clear, structured journey. No surprises, no confusion. Just a proven system built to deliver results.</p>
     </div>
     <div class="process-steps">
-      <div class="pstep"><div class="pstep-dot"></div><h4>Free Consult</h4><p>We learn your goals, timeline, and situation — and give you an honest read on your options.</p></div>
-      <div class="pstep"><div class="pstep-dot"></div><h4>Market Analysis</h4><p>Deep research into Ottawa conditions, comparables, and neighbourhoods to build your strategy.</p></div>
-      <div class="pstep"><div class="pstep-dot"></div><h4>Execution</h4><p>We handle negotiations, paperwork, and coordination — keeping you fully informed at every step.</p></div>
-      <div class="pstep"><div class="pstep-dot"></div><h4>Successful Close</h4><p>You sign, you move forward. The relationship doesn't end at the closing table.</p></div>
+      <div class="pstep reveal d1"><div class="pstep-dot"></div><h4>Free Consult</h4><p>We learn your goals, timeline, and situation, and give you an honest read on your options.</p></div>
+      <div class="pstep reveal d2"><div class="pstep-dot"></div><h4>Market Analysis</h4><p>Deep research into Ottawa conditions, comparables, and neighbourhoods to build your strategy.</p></div>
+      <div class="pstep reveal d3"><div class="pstep-dot"></div><h4>Execution</h4><p>We handle negotiations, paperwork, and coordination, keeping you fully informed at every step.</p></div>
+      <div class="pstep reveal d4"><div class="pstep-dot"></div><h4>Successful Close</h4><p>You sign, you move forward. The relationship doesn't end at the closing table.</p></div>
     </div>
   </div>
 </section>
 
 <section id="values">
   <div class="container">
-    <div class="values-header"><p class="eyebrow">Our Principles</p><h2>The Standards We Refuse to Compromise</h2><p>Four words define how Accliv operates — in every email, every showing, every negotiation.</p></div>
+    <div class="values-header"><p class="eyebrow">Our Principles</p><h2>The Standards We Refuse to Compromise</h2><p>Four words define how Accliv operates: in every email, every showing, every negotiation.</p></div>
     <div class="values-list">
-      <div class="v-item"><div class="v-num">01</div><div class="v-name">Clear</div><p class="v-desc">No jargon, no fine-print surprises. We explain every step in plain language so you always know where things stand.</p></div>
-      <div class="v-item"><div class="v-num">02</div><div class="v-name">Transparent</div><p class="v-desc">We show you the numbers, the comps, the risks. Full visibility so every decision is made from confidence.</p></div>
-      <div class="v-item"><div class="v-num">03</div><div class="v-name">Fast</div><p class="v-desc">In Ottawa's market, timing matters. Our systems and communication keep every deal moving at the speed it needs to.</p></div>
-      <div class="v-item"><div class="v-num">04</div><div class="v-name">Reliable</div><p class="v-desc">We follow through — every single time. When we say we'll do something, we do it. No exceptions.</p></div>
+      <div class="v-item reveal d1"><div class="v-num">01</div><div class="v-name">Clear</div><p class="v-desc">No jargon, no fine-print surprises. We explain every step in plain language so you always know where things stand.</p></div>
+      <div class="v-item reveal d2"><div class="v-num">02</div><div class="v-name">Transparent</div><p class="v-desc">We show you the numbers, the comps, the risks. Full visibility so every decision is made from confidence.</p></div>
+      <div class="v-item reveal d3"><div class="v-num">03</div><div class="v-name">Fast</div><p class="v-desc">In Ottawa's market, timing matters. Our systems and communication keep every deal moving at the speed it needs to.</p></div>
+      <div class="v-item reveal d4"><div class="v-num">04</div><div class="v-name">Reliable</div><p class="v-desc">We follow through, every single time. When we say we'll do something, we do it. No exceptions.</p></div>
     </div>
   </div>
 </section>
@@ -421,7 +453,7 @@
     <div class="cta-inner">
       <p class="eyebrow" style="justify-content:center">Take the First Step</p>
       <h2>Ready to <em>Rise?</em></h2>
-      <p>Whether you're buying, selling, or investing — let's start with a conversation. No pressure, no obligation. Just honesty.</p>
+      <p>Whether you're buying, selling, or investing, let's start with a conversation. No pressure, no obligation. Just honesty.</p>
       <a href="contact.html" class="btn btn-gold">Book a Free Consultation <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </div>
@@ -462,6 +494,16 @@
   function type() { const w = words[wi]; if (!del) { el.textContent = w.substring(0, ++ci); if (ci === w.length) { del = true; setTimeout(type, 2400); return; } setTimeout(type, 95); } else { el.textContent = w.substring(0, --ci); if (ci === 0) { del = false; wi = (wi + 1) % words.length; setTimeout(type, 500); return; } setTimeout(type, 48); } }
   type();
   document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function(e) { const t = document.querySelector(this.getAttribute('href')); if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); } }); });
+  // Scroll progress
+  const sp=document.getElementById('sprog');
+  window.addEventListener('scroll',()=>{if(sp)sp.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';},{passive:true});
+  // Reveal on scroll
+  const ro=new IntersectionObserver((entries)=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
+  // Animated stat counter
+  function animCount(el,to,sfx,dur){let t0=null;const run=ts=>{if(!t0)t0=ts;const p=Math.min((ts-t0)/dur,1);const ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*to)+sfx;if(p<1)requestAnimationFrame(run);};requestAnimationFrame(run);}
+  const co=new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting){const el=x.target.querySelector('[data-count]');if(el)animCount(el,+el.dataset.count,el.dataset.sfx||'',1800);co.unobserve(x.target);}}),{threshold:0.5});
+  document.querySelectorAll('[data-countable]').forEach(e=>co.observe(e));
 </script>
 </body>
 </html>
