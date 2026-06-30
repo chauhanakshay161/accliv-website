@@ -89,56 +89,36 @@
     .hero-right { position: relative; overflow: hidden; }
     .hero-right-img { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=85'); background-size: cover; background-position: center; }
     .hero-right-grad { position: absolute; inset: 0; background: linear-gradient(to right, var(--navy) 0%, rgba(10,22,40,0.15) 50%, transparent 100%); }
-    .hero-tag { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 2.2rem; }
-    .hero-tag-line { width: 36px; height: 1px; background: var(--gold); }
-    .hero-tag-txt { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); }
-    .hero-h1 { font-family: var(--serif); font-size: clamp(3.2rem, 5.5vw, 6rem); font-weight: 300; line-height: 1.03; color: var(--white); margin-bottom: 0.6rem; }
+    .hero-h1 { font-family: var(--serif); font-size: clamp(3.8rem, 7vw, 9rem); font-weight: 300; line-height: 1; color: var(--white); margin-bottom: 0.5rem; }
     .hero-h1 .typed-gold { color: var(--gold); font-style: italic; }
-    .cursor { display: inline-block; width: 3px; height: 0.78em; background: var(--gold); vertical-align: middle; margin-left: 3px; animation: blink 0.9s step-end infinite; }
+    .cursor { display: inline-block; width: 2px; height: 0.82em; background: var(--gold); vertical-align: middle; margin-left: 4px; animation: blink 0.9s step-end infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-    .hero-sub { font-family: var(--serif); font-size: clamp(1.05rem, 1.8vw, 1.45rem); font-weight: 300; font-style: italic; color: rgba(255,255,255,0.48); margin-bottom: 3rem; }
+    .hero-sub { font-family: var(--serif); font-size: clamp(1rem, 1.6vw, 1.3rem); font-weight: 300; font-style: italic; color: rgba(255,255,255,0.4); margin-bottom: 3.5rem; }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .hero-float { position: absolute; bottom: 3rem; left: -2rem; z-index: 3; background: rgba(10,22,40,0.94); border: 1px solid var(--border); backdrop-filter: blur(14px); padding: 1.4rem 1.9rem; border-radius: 4px; }
-    .hf-lbl { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
-    .hf-val { font-family: var(--serif); font-size: 1.7rem; font-weight: 500; color: var(--gold); line-height: 1; }
-    .hf-sub { font-size: 0.72rem; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
-    .hero-stats { position: absolute; bottom: 0; left: 0; right: 0; border-top: 1px solid var(--border); background: rgba(10,22,40,0.92); backdrop-filter: blur(12px); z-index: 10; }
-    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .s-cell { padding: 1.3rem 1.5rem; border-right: 1px solid var(--border); text-align: center; }
-    .s-cell:last-child { border-right: none; }
-    .s-num { font-family: var(--serif); font-size: 1.75rem; font-weight: 500; color: var(--gold); line-height: 1; }
-    .s-lbl { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
+    .hero-loc { font-size: 0.64rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-top: 3rem; }
 
-    /* TICKER */
-    .ticker { background: var(--gold); overflow: hidden; white-space: nowrap; padding: 0.75rem 0; }
-    .ticker-t { display: inline-block; animation: tick 28s linear infinite; }
-    .ticker-t span { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy); padding: 0 2.5rem; }
-    .ticker-t span::before { content: '◆'; margin-right: 2.5rem; opacity: 0.35; }
-    @keyframes tick { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* SERVICES TEASER */
-    #services-teaser { padding: 8rem 0; background: var(--off); }
+    #services-teaser { padding: 11rem 0; background: var(--off); }
     .teaser-head { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
-    .teaser-head h2 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 400; line-height: 1.1; margin-top: 0.5rem; }
+    .teaser-head h2 { font-family: var(--serif); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 300; line-height: 1.05; margin-top: 0.5rem; }
     .teaser-head p { font-size: 0.96rem; line-height: 1.85; color: var(--dim); }
-    .teaser-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .tsr-card { position: relative; height: 420px; overflow: hidden; border-radius: 3px; display: flex; flex-direction: column; justify-content: flex-end; }
-    .tsr-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55); }
-    .tsr-card-body { position: relative; z-index: 2; padding: 2.5rem; background: linear-gradient(to top, rgba(10,22,40,0.9) 0%, transparent 100%); }
-    .tsr-card-name { font-family: var(--serif); font-size: 2rem; font-weight: 400; color: var(--white); margin-bottom: 0.5rem; }
-    .tsr-card-desc { font-size: 0.86rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1.5rem; }
+    .teaser-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .tsr-card { position: relative; height: 580px; overflow: hidden; border-radius: 2px; display: flex; flex-direction: column; justify-content: flex-end; }
+    .tsr-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) saturate(0.8); }
+    .tsr-card-body { position: relative; z-index: 2; padding: 3rem; background: linear-gradient(to top, rgba(10,22,40,0.88) 0%, rgba(10,22,40,0.1) 60%, transparent 100%); }
+    .tsr-card-name { font-family: var(--serif); font-size: 2.6rem; font-weight: 300; color: var(--white); margin-bottom: 1.5rem; letter-spacing: 0.01em; }
 
     /* MANIFESTO */
-    #manifesto { background: var(--navy); padding: 8rem 0; position: relative; overflow: hidden; text-align: center; }
-    #manifesto::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px); background-size: 80px 80px; }
-    .manifesto-inner { position: relative; z-index: 1; max-width: 840px; margin: 0 auto; }
-    .mf-rule { width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, var(--gold), transparent); margin: 0 auto 3rem; }
-    .mf-q { font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 3.8rem); font-weight: 300; font-style: italic; color: var(--white); line-height: 1.3; margin-bottom: 1.75rem; }
+    #manifesto { background: var(--navy); padding: 14rem 0; position: relative; overflow: hidden; text-align: center; }
+    .manifesto-inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+    .mf-rule { width: 1px; height: 80px; background: linear-gradient(to bottom, transparent, var(--gold), transparent); margin: 0 auto 4rem; }
+    .mf-q { font-family: var(--serif); font-size: clamp(2.2rem, 5.5vw, 5rem); font-weight: 300; font-style: italic; color: var(--white); line-height: 1.25; margin-bottom: 2.5rem; }
     .mf-q em { color: var(--gold); font-style: normal; }
-    .mf-attr { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); }
+    .mf-attr { font-size: 0.64rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
 
     /* ABOUT */
-    #about { padding: 8rem 0; background: var(--white); }
+    #about { padding: 11rem 0; background: var(--white); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
     .about-img-wrap { position: relative; }
     .about-img-main { width: 100%; height: 560px; object-fit: cover; border-radius: 3px; }
@@ -153,7 +133,7 @@
     .founder-title { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.07em; margin-top: 0.15rem; }
 
     /* CTA */
-    #cta { position: relative; padding: 9rem 0; overflow: hidden; }
+    #cta { position: relative; padding: 14rem 0; overflow: hidden; }
     .cta-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80'); background-size: cover; background-position: center; background-attachment: fixed; filter: brightness(0.25) saturate(0.5); }
     .cta-inner { position: relative; z-index: 2; text-align: center; max-width: 680px; margin: 0 auto; }
     .cta-inner .eyebrow { justify-content: center; }
@@ -189,13 +169,12 @@
       .teaser-head { grid-template-columns: 1fr; gap: 1.5rem; } .teaser-cards { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 4rem; } .about-img-secondary { display: none; }
       .foot-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .stats-row { grid-template-columns: repeat(2, 1fr); } .s-cell:nth-child(2) { border-right: none; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; } .hamburger { display: flex; }
       .foot-grid { grid-template-columns: 1fr; } .foot-bottom { flex-direction: column; text-align: center; }
     }
-    @media (max-width: 500px) { .hero-btns { flex-direction: column; } .btn { width: 100%; justify-content: center; } .stats-row { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .hero-btns { flex-direction: column; } .btn { width: 100%; justify-content: center; } }
     /* == ANIMATIONS == */
     @keyframes bodyFade{from{opacity:0}to{opacity:1}}
     body{animation:bodyFade 0.5s ease both;}
@@ -218,8 +197,6 @@
     .tsr-card:hover img{transform:scale(1.07);}
     .logo-ring{transition:transform 0.4s ease,box-shadow 0.4s ease;}
     .nav-logo:hover .logo-ring{transform:rotate(15deg);box-shadow:0 0 18px rgba(201,168,76,0.35);}
-    .s-cell{transition:background 0.3s ease;}
-    .s-cell:hover{background:rgba(201,168,76,0.06);}
     .about-img-wrap:hover .about-img-main{transform:scale(1.03);}
     .about-img-main{transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);}
   </style>
@@ -254,35 +231,19 @@
 <section id="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-left">
-    <div class="hero-tag"><div class="hero-tag-line"></div><span class="hero-tag-txt">Accliv Group &mdash; Ottawa, Ontario</span></div>
     <h1 class="hero-h1">We Rise in<br><span class="typed-gold" id="typed"></span><span class="cursor"></span></h1>
     <p class="hero-sub">Your foundation for everything next.</p>
     <div class="hero-btns">
       <a href="services.html" class="btn btn-gold">Explore Services <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
     </div>
+    <p class="hero-loc">Ottawa, Ontario</p>
   </div>
   <div class="hero-right">
     <div class="hero-right-img"></div>
     <div class="hero-right-grad"></div>
-    <div class="hero-float"><div class="hf-lbl">Serving</div><div class="hf-val">Ottawa</div><div class="hf-sub">Ottawa &amp; surrounding communities</div></div>
-  </div>
-  <div class="hero-stats">
-    <div class="container">
-      <div class="stats-row">
-        <div class="s-cell"><div class="s-num">Ottawa</div><div class="s-lbl">Primary Market</div></div>
-        <div class="s-cell" data-countable><div class="s-num" data-count="100" data-sfx="%">0%</div><div class="s-lbl">Client Commitment</div></div>
-        <div class="s-cell"><div class="s-num">Deep</div><div class="s-lbl">Market Knowledge</div></div>
-        <div class="s-cell"><div class="s-num">Direct</div><div class="s-lbl">Founder-Led, Every Step</div></div>
-      </div>
-    </div>
   </div>
 </section>
-
-<div class="ticker"><div class="ticker-t">
-  <span>Real Estate</span><span>Property Investment</span><span>Ottawa</span><span>Precision. Integrity. Progress.</span><span>Clear. Transparent. Fast. Reliable.</span><span>Your Foundation for Everything Next</span>
-  <span>Real Estate</span><span>Property Investment</span><span>Ottawa</span><span>Precision. Integrity. Progress.</span><span>Clear. Transparent. Fast. Reliable.</span><span>Your Foundation for Everything Next</span>
-</div></div>
 
 <section id="services-teaser">
   <div class="container">
@@ -291,32 +252,30 @@
       <p class="reveal d1 body-text" style="font-size:0.96rem;line-height:1.85;color:var(--dim);">Accliv Group specialises in helping Ottawa clients buy, sell, and invest in property, with the precision and preparation that comes from deep market knowledge and a genuine commitment to your success.</p>
     </div>
     <div class="teaser-cards">
-      <div class="tsr-card reveal d1">
-        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=85" alt="Real Estate" loading="lazy"/>
+      <a href="services.html" class="tsr-card reveal d1">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=85" alt="Real Estate — Ottawa" loading="lazy"/>
         <div class="tsr-card-body">
-          <div class="tsr-card-name">Real Estate</div>
-          <p class="tsr-card-desc">Buy, sell, or upgrade with expert guidance tailored to the Ottawa market. Every neighbourhood. Every price point.</p>
-          <a href="services.html" class="btn btn-gold">Learn More <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="tsr-card-name">Real Estate <svg style="display:inline-block;vertical-align:middle;margin-left:0.5rem;opacity:0.6;" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </div>
-      </div>
-      <div class="tsr-card reveal d2">
-        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=85" alt="Investment" loading="lazy"/>
+      </a>
+      <a href="services.html" class="tsr-card reveal d2">
+        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=85" alt="Property Investment — Ottawa" loading="lazy"/>
         <div class="tsr-card-body">
-          <div class="tsr-card-name">Investment</div>
-          <p class="tsr-card-desc">Build lasting wealth through strategic property investment. Cash flow analysis, ROI modelling, and neighbourhood research, all done for you.</p>
-          <a href="services.html" class="btn btn-gold">Learn More <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <div class="tsr-card-name">Investment <svg style="display:inline-block;vertical-align:middle;margin-left:0.5rem;opacity:0.6;" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
 
 <section id="manifesto">
-  <div class="manifesto-inner">
-    <div class="mf-rule"></div>
-    <p class="mf-q">"Real estate isn't a transaction.<br>It's the foundation every <em>next chapter</em> is built on."</p>
-    <p class="mf-attr">The Accliv Philosophy</p>
-    <div class="mf-rule" style="margin-top:3rem;margin-bottom:0;"></div>
+  <div class="container">
+    <div class="manifesto-inner">
+      <div class="mf-rule"></div>
+      <p class="mf-q reveal">"Real estate isn't a transaction.<br>It's the foundation every <em>next chapter</em> is built on."</p>
+      <p class="mf-attr reveal d1">The Accliv Philosophy</p>
+      <div class="mf-rule" style="margin-top:4rem;margin-bottom:0;"></div>
+    </div>
   </div>
 </section>
 
@@ -397,10 +356,6 @@
   // Reveal on scroll
   const ro=new IntersectionObserver((entries)=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
-  // Animated stat counter
-  function animCount(el,to,sfx,dur){let t0=null;const run=ts=>{if(!t0)t0=ts;const p=Math.min((ts-t0)/dur,1);const ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*to)+sfx;if(p<1)requestAnimationFrame(run);};requestAnimationFrame(run);}
-  const co=new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting){const el=x.target.querySelector('[data-count]');if(el)animCount(el,+el.dataset.count,el.dataset.sfx||'',1800);co.unobserve(x.target);}}),{threshold:0.5});
-  document.querySelectorAll('[data-countable]').forEach(e=>co.observe(e));
 </script>
 </body>
 </html>
