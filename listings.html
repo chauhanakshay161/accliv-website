@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Active Listings — Accliv Group</title>
+  <meta name="description" content="Ottawa real estate listings — Accliv Group. Properties added as they become available."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#0a1628;--navy2:#0d1e38;--white:#ffffff;--off:#f7f5f1;--gold:#c9a84c;--gold2:#e8c96a;--muted:#8a9ab5;--dim:#4e5f76;--border:rgba(201,168,76,0.2);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;}
+    html{scroll-behavior:smooth;}body{font-family:var(--sans);background:var(--white);color:var(--navy);overflow-x:hidden;}img{display:block;max-width:100%;}a{text-decoration:none;color:inherit;}
+    ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--navy);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+    .eyebrow{font-size:0.67rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}
+    .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
+    .btn{display:inline-flex;align-items:center;gap:0.55rem;font-family:var(--sans);font-size:0.74rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.95rem 2rem;border-radius:2px;cursor:pointer;border:none;}
+    .btn-gold{background:var(--gold);color:var(--navy);}.btn-gold:hover{background:var(--gold2);}
+    .btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.25);}.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+    .btn-dark{background:transparent;color:var(--navy);border:1px solid rgba(10,22,40,0.2);}.btn-dark:hover{border-color:var(--gold);color:var(--gold);}
+
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.4rem 0;transition:background 0.4s,padding 0.4s,box-shadow 0.4s;}
+    #navbar.scrolled{background:rgba(10,22,40,0.97);padding:0.85rem 0;box-shadow:0 4px 40px rgba(0,0,0,0.4);backdrop-filter:blur(16px);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{display:flex;align-items:center;gap:0.8rem;}
+    .logo-ring{width:44px;height:44px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--gold);}
+    .logo-name{font-family:var(--serif);font-size:1.25rem;font-weight:500;color:var(--white);letter-spacing:0.06em;}
+    .logo-name em{color:var(--gold);font-style:normal;}
+    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+    .nav-links a{font-size:0.73rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);}
+    .nav-links a:hover,.nav-links a.active{color:var(--white);}
+    .nav-cta{border:1px solid var(--gold);color:var(--gold)!important;padding:0.5rem 1.3rem;border-radius:2px;}
+    .nav-cta:hover{background:var(--gold);color:var(--navy)!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform 0.3s,opacity 0.3s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;}
+    .mob-nav.open{display:flex;}
+    .mob-nav a{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--white);}
+    .mob-nav a:hover{color:var(--gold);}
+
+    /* PAGE HERO */
+    .page-hero{background:var(--navy);padding:10rem 0 6rem;position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:70px 70px;}
+    .ph-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.1;}
+    .ph-inner{position:relative;z-index:2;}
+    .ph-inner h1{font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:300;color:var(--white);line-height:1.05;margin:0.75rem 0 1.25rem;}
+    .ph-inner h1 em{color:var(--gold);font-style:italic;}
+    .ph-inner p{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.8;}
+
+    /* HONEST BANNER */
+    #honest{padding:5rem 0;background:var(--off);}
+    .honest-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:6rem;align-items:center;}
+    .honest-num{font-family:var(--serif);font-size:clamp(5rem,10vw,9rem);font-weight:300;color:rgba(201,168,76,0.18);line-height:1;margin-bottom:0.5rem;}
+    .honest-label{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--navy);line-height:1.2;}
+    .honest-copy h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;line-height:1.15;color:var(--navy);margin:0.5rem 0 1.25rem;}
+    .honest-copy p{font-size:0.96rem;line-height:1.85;color:var(--dim);margin-bottom:1rem;}
+    .notify-form{display:flex;gap:0.7rem;margin-top:2rem;flex-wrap:wrap;}
+    .notify-form input{flex:1;min-width:200px;background:var(--white);border:1px solid rgba(10,22,40,0.12);border-radius:2px;padding:0.9rem 1.1rem;font-family:var(--sans);font-size:0.88rem;color:var(--navy);outline:none;}
+    .notify-form input:focus{border-color:var(--gold);}
+    .notify-form input::placeholder{color:var(--muted);}
+    .notify-form button{background:var(--gold);color:var(--navy);border:none;padding:0.9rem 1.7rem;border-radius:2px;font-family:var(--sans);font-size:0.74rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;white-space:nowrap;}
+    .notify-form button:hover{background:var(--gold2);}
+    .notify-ok{display:none;font-size:0.88rem;color:var(--gold);margin-top:0.75rem;font-style:italic;}
+
+    /* COMING SOON GRID */
+    #listings{padding:8rem 0;background:var(--white);}
+    .section-head{margin-bottom:4rem;}
+    .section-head h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3rem);font-weight:400;line-height:1.12;margin:0.5rem 0 1rem;}
+    .section-head p{font-size:0.96rem;color:var(--dim);max-width:560px;line-height:1.8;}
+    .listings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .listing-card{border:1px solid rgba(10,22,40,0.08);border-radius:3px;overflow:hidden;position:relative;}
+    .listing-thumb{height:240px;position:relative;overflow:hidden;}
+    .listing-thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(0.72) saturate(0.85);}
+    .listing-badge{position:absolute;top:1.1rem;left:1.1rem;background:rgba(10,22,40,0.85);border:1px solid var(--border);backdrop-filter:blur(8px);padding:0.35rem 0.85rem;border-radius:2px;font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
+    .listing-body{padding:1.75rem 1.5rem;}
+    .listing-area{font-size:0.68rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+    .listing-title{font-family:var(--serif);font-size:1.3rem;font-weight:500;color:var(--navy);line-height:1.2;margin-bottom:0.5rem;}
+    .listing-desc{font-size:0.84rem;color:var(--dim);line-height:1.7;margin-bottom:1.25rem;}
+    .listing-meta{display:flex;gap:1.5rem;padding-top:1.1rem;border-top:1px solid rgba(10,22,40,0.07);}
+    .listing-meta span{font-size:0.78rem;color:var(--muted);display:flex;align-items:center;gap:0.4rem;}
+    .listing-meta svg{opacity:0.5;}
+    .listing-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,22,40,0.65);backdrop-filter:blur(3px);}
+    .listing-overlay-box{text-align:center;padding:2rem;}
+    .listing-overlay-box p{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:var(--white);line-height:1.5;margin-bottom:1.25rem;}
+    .listing-overlay-box .tag{font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:0.45rem 1.1rem;border-radius:2px;display:inline-block;}
+
+    /* OFF-MARKET */
+    #offmarket{padding:8rem 0;background:var(--navy);position:relative;overflow:hidden;}
+    #offmarket::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:80px 80px;}
+    .om-inner{position:relative;z-index:1;}
+    .om-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:7rem;align-items:center;}
+    .om-copy h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:300;line-height:1.12;color:var(--white);margin:0.5rem 0 1.25rem;}
+    .om-copy h2 em{color:var(--gold);font-style:italic;}
+    .om-copy p{font-size:0.96rem;line-height:1.85;color:var(--muted);margin-bottom:1rem;}
+    .om-features{list-style:none;display:flex;flex-direction:column;gap:1rem;margin:2rem 0 2.5rem;}
+    .om-features li{display:flex;align-items:flex-start;gap:1rem;font-size:0.9rem;color:rgba(255,255,255,0.75);}
+    .om-features li::before{content:'';display:block;width:20px;height:1px;background:var(--gold);margin-top:0.55rem;flex-shrink:0;}
+    .om-visual{position:relative;}
+    .om-img{width:100%;height:480px;object-fit:cover;border-radius:3px;filter:brightness(0.65) saturate(0.7);}
+    .om-float{position:absolute;bottom:2rem;right:-1.5rem;background:rgba(10,22,40,0.92);border:1px solid var(--border);backdrop-filter:blur(10px);border-radius:3px;padding:1.5rem 1.75rem;min-width:220px;}
+    .om-float-label{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;}
+    .om-float-val{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--white);}
+    .om-float-sub{font-size:0.78rem;color:var(--muted);margin-top:0.2rem;}
+
+    /* SEARCH CRITERIA */
+    #criteria{padding:8rem 0;background:var(--off);}
+    .criteria-head{text-align:center;max-width:600px;margin:0 auto 4rem;}
+    .criteria-head h2{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:400;line-height:1.12;margin:0.5rem 0 1rem;}
+    .criteria-head p{font-size:0.96rem;color:var(--dim);line-height:1.8;}
+    .criteria-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+    .crit-card{background:var(--white);border:1px solid rgba(10,22,40,0.07);border-radius:3px;padding:2.25rem 2rem;border-top:3px solid var(--gold);}
+    .crit-icon{width:42px;height:42px;border:1px solid rgba(201,168,76,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;background:rgba(201,168,76,0.05);}
+    .crit-title{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--navy);margin-bottom:0.5rem;}
+    .crit-desc{font-size:0.85rem;line-height:1.72;color:var(--dim);}
+
+    /* CTA */
+    #cta{position:relative;padding:9rem 0;overflow:hidden;}
+    .cta-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80');background-size:cover;background-position:center;background-attachment:fixed;filter:brightness(0.25) saturate(0.5);}
+    .cta-inner{position:relative;z-index:2;text-align:center;max-width:680px;margin:0 auto;}
+    .cta-inner .eyebrow{justify-content:center;}
+    .cta-inner h2{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:var(--white);line-height:1.1;margin:0.75rem 0 1rem;}
+    .cta-inner h2 em{color:var(--gold);font-style:italic;}
+    .cta-inner p{font-size:0.97rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2.5rem;}
+    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+    /* FOOTER */
+    #footer{background:#060f1e;padding:5rem 0 2.5rem;}
+    .foot-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);margin-bottom:2rem;}
+    .foot-brand-name{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--white);letter-spacing:0.06em;margin-bottom:0.3rem;}
+    .foot-brand-name em{color:var(--gold);font-style:normal;}
+    .foot-tagline{font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--muted);line-height:1.7;margin:0.9rem 0 1.6rem;}
+    .soc-row{display:flex;gap:0.65rem;}
+    .soc-link{width:38px;height:38px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);}
+    .soc-link:hover{border-color:var(--gold);color:var(--gold);}
+    .foot-col h5{font-size:0.64rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;}
+    .foot-col ul{list-style:none;}.foot-col li{margin-bottom:0.7rem;}.foot-col a{font-size:0.86rem;color:var(--muted);}.foot-col a:hover{color:var(--white);}
+    .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+    .foot-copy{font-size:0.74rem;color:rgba(138,154,181,0.45);}
+    .foot-legal{display:flex;gap:2rem;}.foot-legal a{font-size:0.74rem;color:rgba(138,154,181,0.45);}.foot-legal a:hover{color:var(--gold);}
+    #btt{position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;background:var(--gold);color:var(--navy);border:none;border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;z-index:990;}
+    #btt.on{opacity:1;pointer-events:all;}#btt:hover{background:var(--gold2);}
+
+    @media(max-width:1024px){.honest-wrap{grid-template-columns:1fr;gap:3rem;}.listings-grid{grid-template-columns:1fr 1fr;}.om-grid{grid-template-columns:1fr;gap:4rem;}.om-float{right:0;}.criteria-grid{grid-template-columns:1fr 1fr;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
+    @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.listings-grid{grid-template-columns:1fr;}.criteria-grid{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}.om-float{position:relative;right:0;bottom:0;margin-top:1.5rem;}}
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><div class="logo-ring">AC</div><div class="logo-name">Accliv <em>Group</em></div></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="listings.html" class="active">Listings</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<nav class="mob-nav" id="mobNav">
+  <a href="index.html" class="ml">Home</a><a href="services.html" class="ml">Services</a><a href="listings.html" class="ml">Listings</a><a href="reviews.html" class="ml">Reviews</a><a href="contact.html" class="ml">Contact</a>
+</nav>
+
+<div class="page-hero">
+  <div class="ph-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1400&q=80');"></div>
+  <div class="container ph-inner">
+    <p class="eyebrow">Properties</p>
+    <h1>Active <em>Listings.</em></h1>
+    <p>Ottawa properties — curated, researched, and represented with the care they deserve. New listings added as they become available.</p>
+  </div>
+</div>
+
+<!-- HONEST BANNER -->
+<section id="honest">
+  <div class="container">
+    <div class="honest-wrap">
+      <div>
+        <div class="honest-num">0</div>
+        <div class="honest-label">Active Listings<br>Right Now</div>
+      </div>
+      <div class="honest-copy">
+        <p class="eyebrow">Transparency First</p>
+        <h2>No Listings Yet — and We're Not Going to Pretend Otherwise.</h2>
+        <p>Accliv Group is building its portfolio the right way — one well-represented property at a time. We're not here to pad a list with expired listings or properties we don't genuinely represent.</p>
+        <p>When a listing goes live, it will be here. In the meantime, if you're looking to buy in Ottawa, reach out directly — we can identify opportunities that aren't even publicly listed yet.</p>
+        <div id="nform">
+          <div class="notify-form">
+            <input type="email" id="nemail" placeholder="Your email — we'll notify you when new listings go live" />
+            <button type="button" onclick="handleNotify()">Notify Me</button>
+          </div>
+          <p class="notify-ok" id="nok">You're on the list — we'll reach out the moment something hits the market.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLACEHOLDER GRID -->
+<section id="listings">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Coming Soon</p>
+      <h2>Properties We're Working On</h2>
+      <p>These are the types of properties we actively work with in Ottawa. When real listings become available, they'll appear here with full details.</p>
+    </div>
+    <div class="listings-grid">
+
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=700&q=80" alt="Westboro Family Home" loading="lazy"/>
+          <div class="listing-badge">Coming Soon</div>
+        </div>
+        <div class="listing-overlay">
+          <div class="listing-overlay-box">
+            <p>"Real listings added as opportunities are secured."</p>
+            <span class="tag">Notify Me</span>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-area">Westboro, Ottawa</div>
+          <div class="listing-title">Detached Family Home</div>
+          <p class="listing-desc">Single-family homes in mature neighbourhoods with strong resale value and excellent schools nearby.</p>
+          <div class="listing-meta">
+            <span><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"/></svg> Family Home</span>
+            <span><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round"/></svg> Westboro</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <img src="https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?w=700&q=80" alt="Barrhaven New Build" loading="lazy"/>
+          <div class="listing-badge">Coming Soon</div>
+        </div>
+        <div class="listing-overlay">
+          <div class="listing-overlay-box">
+            <p>"Real listings added as opportunities are secured."</p>
+            <span class="tag">Notify Me</span>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-area">Barrhaven, Ottawa</div>
+          <div class="listing-title">New Build Townhome</div>
+          <p class="listing-desc">Modern townhomes in Ottawa's fastest-growing communities, offering excellent value and long-term upside.</p>
+          <div class="listing-meta">
+            <span><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"/></svg> Townhome</span>
+            <span><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round"/></svg> Barrhaven</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-thumb">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80" alt="Kanata Investment Property" loading="lazy"/>
+          <div class="listing-badge">Coming Soon</div>
+        </div>
+        <div class="listing-overlay">
+          <div class="listing-overlay-box">
+            <p>"Real listings added as opportunities are secured."</p>
+            <span class="tag">Notify Me</span>
+          </div>
+        </div>
+        <div class="listing-body">
+          <div class="listing-area">Kanata, Ottawa</div>
+          <div class="listing-title">Investment Property</div>
+          <p class="listing-desc">Income-generating properties in Ottawa's tech corridor — strong rental demand, stable appreciation.</p>
+          <div class="listing-meta">
+            <span><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"/></svg> Investment</span>
+            <span><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round"/></svg> Kanata</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OFF-MARKET SECTION -->
+<section id="offmarket">
+  <div class="container om-inner">
+    <div class="om-grid">
+      <div class="om-copy">
+        <p class="eyebrow" style="color:var(--gold)">Off-Market Access</p>
+        <h2>The Best Properties<br>Never Hit <em>MLS.</em></h2>
+        <p>In Ottawa's competitive market, the most sought-after properties are often sold before they're ever publicly listed. Sellers value their privacy. Buyers with the right connections get first access.</p>
+        <p>As your representative, Accliv Group works to uncover these opportunities — through networking, direct outreach, and relationships built specifically for Ottawa neighbourhoods you care about.</p>
+        <ul class="om-features">
+          <li>Pre-market and private sale access</li>
+          <li>Targeted outreach to property owners in your desired area</li>
+          <li>Early notification when matches come available</li>
+          <li>Representation from first conversation to closing</li>
+        </ul>
+        <a href="contact.html" class="btn btn-ghost">Tell Us What You're Looking For <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="om-visual">
+        <img class="om-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=85" alt="Ottawa luxury property" loading="lazy"/>
+        <div class="om-float">
+          <div class="om-float-label">Ottawa Market</div>
+          <div class="om-float-val">Active. Stable. Growing.</div>
+          <div class="om-float-sub">Government demand + Kanata tech sector</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE LOOK FOR -->
+<section id="criteria">
+  <div class="container">
+    <div class="criteria-head">
+      <p class="eyebrow" style="justify-content:center">Our Approach</p>
+      <h2>What We Look for in Every Property</h2>
+      <p>Whether buying or representing a seller, these are the fundamentals we evaluate on every Ottawa property we work with.</p>
+    </div>
+    <div class="criteria-grid">
+      <div class="crit-card">
+        <div class="crit-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="crit-title">Location Quality</div>
+        <p class="crit-desc">Proximity to transit, schools, employment hubs, and amenities. Ottawa's strongest neighbourhoods hold value through any market cycle.</p>
+      </div>
+      <div class="crit-card">
+        <div class="crit-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="crit-title">Market Value Accuracy</div>
+        <p class="crit-desc">We study the comparables. Every offer we make or listing we set is backed by recent data — not guesswork or wishful thinking.</p>
+      </div>
+      <div class="crit-card">
+        <div class="crit-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="crit-title">Structural Integrity</div>
+        <p class="crit-desc">A property that looks good on paper can hide expensive surprises. We flag risks early and always recommend professional inspections.</p>
+      </div>
+      <div class="crit-card">
+        <div class="crit-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="crit-title">Long-Term Return</div>
+        <p class="crit-desc">Whether you're buying to live or buying to grow, we consider the 5–10 year outlook — appreciation potential, rental yield, and exit strategy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="container"><div class="cta-inner">
+    <p class="eyebrow" style="justify-content:center">Find Your Property</p>
+    <h2>Don't Wait for a Listing.<br><em>Tell Us What You Want.</em></h2>
+    <p>The Ottawa market moves fast. Rather than waiting for the right property to appear, let us go find it — on-market, off-market, or not yet listed at all.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-gold">Book a Free Consult <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="services.html" class="btn btn-ghost">View Our Services <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div></div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div><div class="foot-brand-name">Accliv <em>Group</em></div><p class="foot-tagline">"Your foundation<br>for everything next."</p>
+        <div class="soc-row">
+          <a href="#" class="soc-link" aria-label="Instagram"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke-linecap="round"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="#" class="soc-link" aria-label="LinkedIn"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" stroke-linecap="round"/><rect x="2" y="9" width="4" height="12" stroke-linecap="round"/><circle cx="4" cy="4" r="2" stroke-linecap="round"/></svg></a>
+          <a href="#" class="soc-link" aria-label="Facebook"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="services.html">Buy a Home</a></li><li><a href="services.html">Sell a Property</a></li><li><a href="services.html">Property Investment</a></li><li><a href="contact.html">Free Consultation</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="index.html#about">About Akshay</a></li><li><a href="index.html#ottawa">Why Ottawa</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
+      <div class="foot-col"><h5>Contact</h5><ul><li><a href="mailto:info@acclivgroup.com">info@acclivgroup.com</a></li><li><a href="tel:+16130000000">+1 (613) 000-0000</a></li><li><a>Ottawa, Ontario</a></li><li><a href="contact.html">Work With Us</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><p class="foot-copy">&copy; 2024 Accliv Group. All rights reserved.</p><div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div></div>
+  </div>
+</footer>
+<button id="btt" aria-label="Back to top"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 15l7-7 7 7" stroke-linecap="round"/></svg></button>
+<script>
+  const nav=document.getElementById('navbar'),btt=document.getElementById('btt');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);btt.classList.toggle('on',window.scrollY>400);},{passive:true});
+  btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  const ham=document.getElementById('hamburger'),mob=document.getElementById('mobNav');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':'';});
+  document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+  function handleNotify(){
+    const email=document.getElementById('nemail').value.trim();
+    if(!email||!email.includes('@'))return;
+    document.querySelector('.notify-form').style.display='none';
+    document.getElementById('nok').style.display='block';
+  }
+  document.querySelectorAll('.listing-overlay .tag').forEach(t=>t.addEventListener('click',()=>{document.getElementById('nemail').focus();document.getElementById('honest').scrollIntoView({behavior:'smooth'});}));
+</script>
+</body>
+</html>

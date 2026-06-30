@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Reviews — Accliv Group</title>
+  <meta name="description" content="Client reviews and stories — Accliv Group Ottawa."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#0a1628;--navy2:#0d1e38;--white:#ffffff;--off:#f7f5f1;--gold:#c9a84c;--gold2:#e8c96a;--muted:#8a9ab5;--dim:#4e5f76;--border:rgba(201,168,76,0.2);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;}
+    html{scroll-behavior:smooth;}body{font-family:var(--sans);background:var(--white);color:var(--navy);overflow-x:hidden;}img{display:block;max-width:100%;}a{text-decoration:none;color:inherit;}
+    ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--navy);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+    .eyebrow{font-size:0.67rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}
+    .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
+    .btn{display:inline-flex;align-items:center;gap:0.55rem;font-family:var(--sans);font-size:0.74rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.95rem 2rem;border-radius:2px;cursor:pointer;border:none;}
+    .btn-gold{background:var(--gold);color:var(--navy);}.btn-gold:hover{background:var(--gold2);}
+    .btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.25);}.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+    .btn-dark{background:transparent;color:var(--navy);border:1px solid rgba(10,22,40,0.2);}.btn-dark:hover{border-color:var(--gold);color:var(--gold);}
+
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.4rem 0;transition:background 0.4s,padding 0.4s,box-shadow 0.4s;}
+    #navbar.scrolled{background:rgba(10,22,40,0.97);padding:0.85rem 0;box-shadow:0 4px 40px rgba(0,0,0,0.4);backdrop-filter:blur(16px);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{display:flex;align-items:center;gap:0.8rem;}
+    .logo-ring{width:44px;height:44px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--gold);}
+    .logo-name{font-family:var(--serif);font-size:1.25rem;font-weight:500;color:var(--white);letter-spacing:0.06em;}
+    .logo-name em{color:var(--gold);font-style:normal;}
+    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+    .nav-links a{font-size:0.73rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);}
+    .nav-links a:hover,.nav-links a.active{color:var(--white);}
+    .nav-cta{border:1px solid var(--gold);color:var(--gold)!important;padding:0.5rem 1.3rem;border-radius:2px;}
+    .nav-cta:hover{background:var(--gold);color:var(--navy)!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform 0.3s,opacity 0.3s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;}
+    .mob-nav.open{display:flex;}
+    .mob-nav a{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--white);}
+    .mob-nav a:hover{color:var(--gold);}
+
+    .page-hero{background:var(--navy);padding:10rem 0 6rem;position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:70px 70px;}
+    .ph-inner{position:relative;z-index:2;}
+    .ph-inner h1{font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:300;color:var(--white);line-height:1.05;margin:0.75rem 0 1.25rem;}
+    .ph-inner h1 em{color:var(--gold);font-style:italic;}
+    .ph-inner p{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.8;}
+
+    /* HONEST INTRO */
+    #intro{padding:8rem 0;background:var(--white);}
+    .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;}
+    .intro-copy h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;line-height:1.12;margin:0.5rem 0 1.5rem;}
+    .intro-copy p{font-size:0.96rem;line-height:1.85;color:var(--dim);margin-bottom:1.1rem;}
+    .intro-copy .divider{width:40px;height:1px;background:var(--gold);margin:2rem 0;}
+    .intro-img{width:100%;height:460px;object-fit:cover;border-radius:3px;}
+    .promise-list{display:flex;flex-direction:column;gap:1rem;margin-top:0.5rem;}
+    .promise-item{display:flex;align-items:flex-start;gap:1rem;}
+    .p-icon{width:36px;height:36px;border:1px solid rgba(201,168,76,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .p-text strong{display:block;font-family:var(--serif);font-size:1rem;color:var(--navy);margin-bottom:0.2rem;}
+    .p-text span{font-size:0.85rem;color:var(--dim);line-height:1.6;}
+
+    /* WHAT WORKING WITH US LOOKS LIKE */
+    #experience{padding:8rem 0;background:var(--navy);position:relative;overflow:hidden;}
+    #experience::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:80px 80px;}
+    .experience-inner{position:relative;z-index:1;}
+    .exp-head{text-align:center;max-width:620px;margin:0 auto 4rem;}
+    .exp-head h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;line-height:1.12;color:var(--white);margin:0.5rem 0 1rem;}
+    .exp-head p{font-size:0.96rem;line-height:1.85;color:var(--muted);}
+    .exp-timeline{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
+    .exp-card{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:3px;padding:2.5rem;}
+    .exp-card-num{font-family:var(--serif);font-size:3rem;font-weight:300;color:rgba(201,168,76,0.2);line-height:1;margin-bottom:1rem;}
+    .exp-card-title{font-family:var(--serif);font-size:1.35rem;font-weight:500;color:var(--white);margin-bottom:0.6rem;}
+    .exp-card-desc{font-size:0.88rem;line-height:1.75;color:var(--muted);}
+
+    /* LEAVE A REVIEW */
+    #leave-review{padding:8rem 0;background:var(--off);}
+    .lr-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .lr-copy h2{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:400;line-height:1.12;margin:0.5rem 0 1.25rem;}
+    .lr-copy p{font-size:0.95rem;line-height:1.85;color:var(--dim);margin-bottom:1.5rem;}
+    .review-platforms{display:flex;flex-direction:column;gap:1rem;}
+    .platform-btn{display:flex;align-items:center;gap:1rem;background:var(--white);border:1px solid rgba(10,22,40,0.1);border-radius:3px;padding:1.2rem 1.5rem;font-size:0.88rem;font-weight:500;color:var(--navy);cursor:pointer;}
+    .platform-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .platform-icon{width:36px;height:36px;border-radius:50%;background:var(--off);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .platform-label strong{display:block;font-size:0.9rem;color:var(--navy);}
+    .platform-label span{font-size:0.78rem;color:var(--muted);}
+    .lr-img{width:100%;height:420px;object-fit:cover;border-radius:3px;}
+
+    /* CTA */
+    #cta{position:relative;padding:8rem 0;overflow:hidden;}
+    .cta-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80');background-size:cover;background-position:center;background-attachment:fixed;filter:brightness(0.25) saturate(0.5);}
+    .cta-inner{position:relative;z-index:2;text-align:center;max-width:680px;margin:0 auto;}
+    .cta-inner .eyebrow{justify-content:center;}
+    .cta-inner h2{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:var(--white);line-height:1.1;margin:0.75rem 0 1rem;}
+    .cta-inner h2 em{color:var(--gold);font-style:italic;}
+    .cta-inner p{font-size:0.97rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2.5rem;}
+
+    #footer{background:#060f1e;padding:5rem 0 2.5rem;}
+    .foot-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);margin-bottom:2rem;}
+    .foot-brand-name{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--white);letter-spacing:0.06em;margin-bottom:0.3rem;}
+    .foot-brand-name em{color:var(--gold);font-style:normal;}
+    .foot-tagline{font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--muted);line-height:1.7;margin:0.9rem 0 1.6rem;}
+    .soc-row{display:flex;gap:0.65rem;}
+    .soc-link{width:38px;height:38px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);}
+    .soc-link:hover{border-color:var(--gold);color:var(--gold);}
+    .foot-col h5{font-size:0.64rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;}
+    .foot-col ul{list-style:none;}.foot-col li{margin-bottom:0.7rem;}.foot-col a{font-size:0.86rem;color:var(--muted);}.foot-col a:hover{color:var(--white);}
+    .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+    .foot-copy{font-size:0.74rem;color:rgba(138,154,181,0.45);}
+    .foot-legal{display:flex;gap:2rem;}.foot-legal a{font-size:0.74rem;color:rgba(138,154,181,0.45);}.foot-legal a:hover{color:var(--gold);}
+    #btt{position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;background:var(--gold);color:var(--navy);border:none;border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;z-index:990;}
+    #btt.on{opacity:1;pointer-events:all;}#btt:hover{background:var(--gold2);}
+
+    @media(max-width:1024px){.intro-grid{grid-template-columns:1fr;gap:4rem;}.lr-grid{grid-template-columns:1fr;gap:3rem;}.exp-timeline{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
+    @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}}
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><div class="logo-ring">AC</div><div class="logo-name">Accliv <em>Group</em></div></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="listings.html">Listings</a></li>
+        <li><a href="reviews.html" class="active">Reviews</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<nav class="mob-nav" id="mobNav">
+  <a href="index.html" class="ml">Home</a><a href="services.html" class="ml">Services</a><a href="listings.html" class="ml">Listings</a><a href="reviews.html" class="ml">Reviews</a><a href="contact.html" class="ml">Contact</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container ph-inner">
+    <p class="eyebrow">Client Stories</p>
+    <h1>Building Trust, <em>One Client</em> at a Time.</h1>
+    <p>Accliv Group is new — and we're earning our reputation the right way. One conversation, one transaction, one client at a time.</p>
+  </div>
+</div>
+
+<section id="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-copy">
+        <p class="eyebrow">Our Commitment</p>
+        <h2>We Don't Have a Long Track Record. We Have a Higher Standard.</h2>
+        <p>Every agency that's been in business for 20 years started somewhere. We're at the beginning of that journey — and we think that's something to be proud of, not hide.</p>
+        <p>What we can promise is this: every client who works with Accliv Group receives our absolute best. Not divided attention from a busy team. Not a junior agent on an experienced broker's roster. The full focus, preparation, and commitment of someone who has everything to prove.</p>
+        <div class="divider"></div>
+        <div class="promise-list">
+          <div class="promise-item">
+            <div class="p-icon"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="p-text"><strong>We respond within 24 hours — always</strong><span>No unanswered emails. No missed calls without a callback.</span></div>
+          </div>
+          <div class="promise-item">
+            <div class="p-icon"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="p-text"><strong>We tell you the truth</strong><span>Even when it's not what you want to hear. Honest advice over a fast commission.</span></div>
+          </div>
+          <div class="promise-item">
+            <div class="p-icon"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="p-text"><strong>We follow through on every commitment</strong><span>If we say we'll do something, it gets done. No exceptions.</span></div>
+          </div>
+        </div>
+      </div>
+      <img class="intro-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=85" alt="Ottawa real estate" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="experience-inner">
+    <div class="container">
+      <div class="exp-head">
+        <p class="eyebrow" style="justify-content:center;color:var(--gold)">What to Expect</p>
+        <h2>What Working With Accliv Actually Feels Like</h2>
+        <p>We can't show you years of reviews yet. But we can show you exactly what you'll experience when you work with us.</p>
+      </div>
+      <div class="exp-timeline">
+        <div class="exp-card">
+          <div class="exp-card-num">01</div>
+          <div class="exp-card-title">You're Heard First</div>
+          <p class="exp-card-desc">Before we say a single thing about listings or strategy, we listen. We want to understand your situation, your goals, and what success looks like for you — not for us.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-card-num">02</div>
+          <div class="exp-card-title">You Get the Full Picture</div>
+          <p class="exp-card-desc">We share the market data, the comparable sales, the risks — everything. No cherry-picked numbers. You make decisions with complete information.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-card-num">03</div>
+          <div class="exp-card-title">You Stay Informed Throughout</div>
+          <p class="exp-card-desc">Real estate involves a lot of waiting. We make sure you're never left wondering what's happening. Every update, every step, communicated clearly and promptly.</p>
+        </div>
+        <div class="exp-card">
+          <div class="exp-card-num">04</div>
+          <div class="exp-card-title">You Finish Confident</div>
+          <p class="exp-card-desc">Whether buying or selling, you close knowing you made the right call with the right information — not just the fastest deal. That's the Accliv standard.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leave-review">
+  <div class="container">
+    <div class="lr-grid">
+      <div class="lr-copy">
+        <p class="eyebrow">Share Your Experience</p>
+        <h2>Been a Client? We'd Love to Hear From You.</h2>
+        <p>If you've worked with Accliv Group, your honest review means everything — not just for us, but for the next person trying to decide if we're the right fit for them.</p>
+        <p>You can leave a review on any of the platforms below. It takes 2 minutes and makes a real difference.</p>
+        <div class="review-platforms">
+          <a href="#" class="platform-btn">
+            <div class="platform-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="platform-label"><strong>Google Review</strong><span>Leave a review on Google Business</span></div>
+            <svg style="margin-left:auto;opacity:0.4;" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="platform-btn">
+            <div class="platform-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#0077B5" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" stroke-linecap="round"/><rect x="2" y="9" width="4" height="12" stroke-linecap="round"/><circle cx="4" cy="4" r="2" stroke-linecap="round"/></svg>
+            </div>
+            <div class="platform-label"><strong>LinkedIn Recommendation</strong><span>Recommend Akshay on LinkedIn</span></div>
+            <svg style="margin-left:auto;opacity:0.4;" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="contact.html" class="platform-btn">
+            <div class="platform-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round"/></svg>
+            </div>
+            <div class="platform-label"><strong>Send Us Your Feedback Directly</strong><span>Email or contact form — we read every one</span></div>
+            <svg style="margin-left:auto;opacity:0.4;" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <img class="lr-img" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=85" alt="Accliv Group" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="container"><div class="cta-inner">
+    <p class="eyebrow" style="justify-content:center">Become a Client</p>
+    <h2>Be Among Our <em>First Stories.</em></h2>
+    <p>We're building something from the ground up — and we're doing it right. If you're looking for a real estate partner who will give you everything they have, let's talk.</p>
+    <a href="contact.html" class="btn btn-gold">Book a Free Consultation <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div></div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div><div class="foot-brand-name">Accliv <em>Group</em></div><p class="foot-tagline">"Your foundation<br>for everything next."</p>
+        <div class="soc-row">
+          <a href="#" class="soc-link" aria-label="Instagram"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke-linecap="round"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="#" class="soc-link" aria-label="LinkedIn"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" stroke-linecap="round"/><rect x="2" y="9" width="4" height="12" stroke-linecap="round"/><circle cx="4" cy="4" r="2" stroke-linecap="round"/></svg></a>
+          <a href="#" class="soc-link" aria-label="Facebook"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="services.html">Buy a Home</a></li><li><a href="services.html">Sell a Property</a></li><li><a href="services.html">Property Investment</a></li><li><a href="contact.html">Free Consultation</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="index.html#about">About Akshay</a></li><li><a href="index.html#ottawa">Why Ottawa</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
+      <div class="foot-col"><h5>Contact</h5><ul><li><a href="mailto:info@acclivgroup.com">info@acclivgroup.com</a></li><li><a href="tel:+16130000000">+1 (613) 000-0000</a></li><li><a>Ottawa, Ontario</a></li><li><a href="contact.html">Work With Us</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><p class="foot-copy">&copy; 2024 Accliv Group. All rights reserved.</p><div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div></div>
+  </div>
+</footer>
+<button id="btt" aria-label="Back to top"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 15l7-7 7 7" stroke-linecap="round"/></svg></button>
+<script>
+  const nav=document.getElementById('navbar'),btt=document.getElementById('btt');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);btt.classList.toggle('on',window.scrollY>400);},{passive:true});
+  btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  const ham=document.getElementById('hamburger'),mob=document.getElementById('mobNav');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':'';});
+  document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+</script>
+</body>
+</html>

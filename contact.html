@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us — Accliv Group</title>
+  <meta name="description" content="Get in touch with Accliv Group. Ottawa real estate and investment advisory."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#0a1628;--navy2:#0d1e38;--white:#ffffff;--off:#f7f5f1;--gold:#c9a84c;--gold2:#e8c96a;--muted:#8a9ab5;--dim:#4e5f76;--border:rgba(201,168,76,0.2);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;}
+    html{scroll-behavior:smooth;}body{font-family:var(--sans);background:var(--white);color:var(--navy);overflow-x:hidden;}img{display:block;max-width:100%;}a{text-decoration:none;color:inherit;}
+    ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--navy);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+    .eyebrow{font-size:0.67rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}
+    .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
+    .btn{display:inline-flex;align-items:center;gap:0.55rem;font-family:var(--sans);font-size:0.74rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.95rem 2rem;border-radius:2px;cursor:pointer;border:none;}
+    .btn-gold{background:var(--gold);color:var(--navy);}.btn-gold:hover{background:var(--gold2);}
+
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.4rem 0;transition:background 0.4s,padding 0.4s,box-shadow 0.4s;}
+    #navbar.scrolled{background:rgba(10,22,40,0.97);padding:0.85rem 0;box-shadow:0 4px 40px rgba(0,0,0,0.4);backdrop-filter:blur(16px);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{display:flex;align-items:center;gap:0.8rem;}
+    .logo-ring{width:44px;height:44px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--gold);}
+    .logo-name{font-family:var(--serif);font-size:1.25rem;font-weight:500;color:var(--white);letter-spacing:0.06em;}
+    .logo-name em{color:var(--gold);font-style:normal;}
+    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+    .nav-links a{font-size:0.73rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);}
+    .nav-links a:hover,.nav-links a.active{color:var(--white);}
+    .nav-cta{border:1px solid var(--gold);color:var(--gold)!important;padding:0.5rem 1.3rem;border-radius:2px;}
+    .nav-cta:hover,.nav-cta.active{background:var(--gold);color:var(--navy)!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform 0.3s,opacity 0.3s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;}
+    .mob-nav.open{display:flex;}
+    .mob-nav a{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--white);}
+    .mob-nav a:hover{color:var(--gold);}
+
+    .page-hero{background:var(--navy);padding:10rem 0 6rem;position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:70px 70px;}
+    .ph-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.1;}
+    .ph-inner{position:relative;z-index:2;}
+    .ph-inner h1{font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:300;color:var(--white);line-height:1.05;margin:0.75rem 0 1.25rem;}
+    .ph-inner h1 em{color:var(--gold);font-style:italic;}
+    .ph-inner p{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.8;}
+
+    /* CONTACT MAIN */
+    #contact-main{padding:8rem 0;background:var(--white);}
+    .contact-wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:7rem;align-items:start;}
+    .contact-info h2{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:400;line-height:1.12;color:var(--navy);margin:0.5rem 0 1.25rem;}
+    .contact-info p{font-size:0.95rem;line-height:1.85;color:var(--dim);margin-bottom:2rem;}
+    .c-items{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:3rem;}
+    .c-row{display:flex;align-items:flex-start;gap:1.25rem;}
+    .c-icon{width:46px;height:46px;border:1px solid rgba(201,168,76,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(201,168,76,0.05);}
+    .c-text strong{display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);margin-bottom:0.2rem;}
+    .c-text span{font-size:0.9rem;color:var(--dim);}
+
+    .hours-card{background:var(--off);border:1px solid rgba(10,22,40,0.07);border-left:3px solid var(--gold);border-radius:3px;padding:1.75rem;}
+    .hours-title{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .hours-row{display:flex;justify-content:space-between;font-size:0.88rem;color:var(--dim);padding:0.4rem 0;border-bottom:1px solid rgba(10,22,40,0.06);}
+    .hours-row:last-child{border-bottom:none;}
+    .hours-row strong{color:var(--navy);}
+
+    /* FORM */
+    .form-card{background:var(--navy);border-radius:4px;padding:3.5rem;}
+    .form-card h3{font-family:var(--serif);font-size:1.8rem;font-weight:400;color:var(--white);margin-bottom:0.5rem;}
+    .form-card .sub{font-size:0.87rem;color:var(--muted);margin-bottom:2.5rem;}
+    .f2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+    .fg{margin-bottom:1.2rem;}
+    .fg label{display:block;font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.45rem;}
+    .fg input,.fg textarea,.fg select{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:2px;padding:0.9rem 1.1rem;font-family:var(--sans);font-size:0.9rem;color:var(--white);outline:none;-webkit-appearance:none;}
+    .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.22);}
+    .fg input:focus,.fg textarea:focus{border-color:var(--gold);}
+    .fg textarea{resize:vertical;min-height:120px;}
+    .fg select option{background:var(--navy);}
+    .f-btn{width:100%;background:var(--gold);color:var(--navy);font-family:var(--sans);font-size:0.76rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:1.15rem;border:none;border-radius:2px;cursor:pointer;margin-top:0.4rem;}
+    .f-btn:hover{background:var(--gold2);}
+    .f-ok{display:none;text-align:center;padding:3rem;font-family:var(--serif);font-size:1.4rem;font-style:italic;color:var(--gold);}
+
+    /* WHY SECTION */
+    #why{padding:8rem 0;background:var(--off);}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .why-head{grid-column:1/-1;margin-bottom:1rem;}
+    .why-head h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3rem);font-weight:400;line-height:1.12;margin:0.5rem 0;}
+    .why-card{background:var(--white);border:1px solid rgba(10,22,40,0.07);border-radius:3px;padding:2.5rem;border-top:3px solid var(--gold);}
+    .why-num{font-family:var(--serif);font-size:2.5rem;font-weight:300;color:rgba(201,168,76,0.2);line-height:1;margin-bottom:1rem;}
+    .why-title{font-family:var(--serif);font-size:1.3rem;font-weight:500;color:var(--navy);margin-bottom:0.6rem;}
+    .why-desc{font-size:0.88rem;line-height:1.75;color:var(--dim);}
+
+    #footer{background:#060f1e;padding:5rem 0 2.5rem;}
+    .foot-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);margin-bottom:2rem;}
+    .foot-brand-name{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--white);letter-spacing:0.06em;margin-bottom:0.3rem;}
+    .foot-brand-name em{color:var(--gold);font-style:normal;}
+    .foot-tagline{font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--muted);line-height:1.7;margin:0.9rem 0 1.6rem;}
+    .soc-row{display:flex;gap:0.65rem;}
+    .soc-link{width:38px;height:38px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);}
+    .soc-link:hover{border-color:var(--gold);color:var(--gold);}
+    .foot-col h5{font-size:0.64rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;}
+    .foot-col ul{list-style:none;}.foot-col li{margin-bottom:0.7rem;}.foot-col a{font-size:0.86rem;color:var(--muted);}.foot-col a:hover{color:var(--white);}
+    .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+    .foot-copy{font-size:0.74rem;color:rgba(138,154,181,0.45);}
+    .foot-legal{display:flex;gap:2rem;}.foot-legal a{font-size:0.74rem;color:rgba(138,154,181,0.45);}.foot-legal a:hover{color:var(--gold);}
+    #btt{position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;background:var(--gold);color:var(--navy);border:none;border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;z-index:990;}
+    #btt.on{opacity:1;pointer-events:all;}#btt:hover{background:var(--gold2);}
+
+    @media(max-width:1024px){.contact-wrap{grid-template-columns:1fr;gap:4rem;}.why-grid{grid-template-columns:1fr 1fr;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
+    @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.f2{grid-template-columns:1fr;}.form-card{padding:2.5rem 1.75rem;}.why-grid{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}}
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><div class="logo-ring">AC</div><div class="logo-name">Accliv <em>Group</em></div></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="listings.html">Listings</a></li><li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html" class="nav-cta active">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<nav class="mob-nav" id="mobNav">
+  <a href="index.html" class="ml">Home</a><a href="services.html" class="ml">Services</a><a href="listings.html" class="ml">Listings</a><a href="reviews.html" class="ml">Reviews</a><a href="contact.html" class="ml">Contact</a>
+</nav>
+
+<div class="page-hero">
+  <div class="ph-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80');"></div>
+  <div class="container ph-inner">
+    <p class="eyebrow">Reach Out</p>
+    <h1>Let's Start a <em>Conversation.</em></h1>
+    <p>No pressure. No obligation. Just an honest conversation about your goals and how Accliv can help you reach them.</p>
+  </div>
+</div>
+
+<section id="contact-main">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <p class="eyebrow">Contact Details</p>
+        <h2>We're Based in Ottawa. We Answer Fast.</h2>
+        <p>Whether you have a quick question or you're ready to start your search — send us a message or give us a call. We respond to every inquiry within 24 hours.</p>
+        <div class="c-items">
+          <div class="c-row">
+            <div class="c-icon"><svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round"/></svg></div>
+            <div class="c-text"><strong>Location</strong><span>Ottawa, Ontario &amp; Surrounding Communities</span></div>
+          </div>
+          <div class="c-row">
+            <div class="c-icon"><svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round"/></svg></div>
+            <div class="c-text"><strong>Email</strong><span>info@acclivgroup.com</span></div>
+          </div>
+          <div class="c-row">
+            <div class="c-icon"><svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round"/></svg></div>
+            <div class="c-text"><strong>Phone</strong><span>+1 (613) 000-0000</span></div>
+          </div>
+        </div>
+        <div class="hours-card">
+          <div class="hours-title">Availability</div>
+          <div class="hours-row"><strong>Monday – Friday</strong><span>9:00 AM – 7:00 PM</span></div>
+          <div class="hours-row"><strong>Saturday</strong><span>10:00 AM – 5:00 PM</span></div>
+          <div class="hours-row"><strong>Sunday</strong><span>By Appointment</span></div>
+          <div class="hours-row"><strong>Response Time</strong><span>Within 24 hours</span></div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Send Us a Message</h3>
+        <p class="sub">Fill out the form below and we'll be in touch within 24 hours.</p>
+        <form id="cform">
+          <div class="f2">
+            <div class="fg"><label>First Name</label><input type="text" placeholder="John" required/></div>
+            <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith" required/></div>
+          </div>
+          <div class="fg"><label>Email Address</label><input type="email" placeholder="john@example.com" required/></div>
+          <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+1 (613) 000-0000"/></div>
+          <div class="fg">
+            <label>I'm interested in</label>
+            <select>
+              <option value="" disabled selected>Select...</option>
+              <option>Buying a Home</option>
+              <option>Selling a Property</option>
+              <option>Property Investment</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="fg"><label>Your Message</label><textarea placeholder="Tell us about your goals, timeline, and any questions you have..."></textarea></div>
+          <button type="submit" class="f-btn">Send Message</button>
+        </form>
+        <div class="f-ok" id="fok">Thank you — we'll be in touch within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-head">
+        <p class="eyebrow">Why Clients Choose Accliv</p>
+        <h2>What You Can Expect<br>When You Work With Us</h2>
+      </div>
+      <div class="why-card"><div class="why-num">01</div><div class="why-title">Fast Responses</div><p class="why-desc">We respond to every inquiry within 24 hours — usually faster. In real estate, being slow costs you. We don't let that happen.</p></div>
+      <div class="why-card"><div class="why-num">02</div><div class="why-title">No Pressure</div><p class="why-desc">Your first consultation is free and obligation-free. We give you honest information and let you decide what's right for you.</p></div>
+      <div class="why-card"><div class="why-num">03</div><div class="why-title">Full Transparency</div><p class="why-desc">We show you the data, the comps, the risks. No spin. No inflated numbers. Just the truth — so you can decide with confidence.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div><div class="foot-brand-name">Accliv <em>Group</em></div><p class="foot-tagline">"Your foundation<br>for everything next."</p>
+        <div class="soc-row">
+          <a href="#" class="soc-link" aria-label="Instagram"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke-linecap="round"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="#" class="soc-link" aria-label="LinkedIn"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" stroke-linecap="round"/><rect x="2" y="9" width="4" height="12" stroke-linecap="round"/><circle cx="4" cy="4" r="2" stroke-linecap="round"/></svg></a>
+          <a href="#" class="soc-link" aria-label="Facebook"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="services.html">Buy a Home</a></li><li><a href="services.html">Sell a Property</a></li><li><a href="services.html">Property Investment</a></li><li><a href="contact.html">Free Consultation</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="index.html#about">About Akshay</a></li><li><a href="index.html#ottawa">Why Ottawa</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
+      <div class="foot-col"><h5>Contact</h5><ul><li><a href="mailto:info@acclivgroup.com">info@acclivgroup.com</a></li><li><a href="tel:+16130000000">+1 (613) 000-0000</a></li><li><a>Ottawa, Ontario</a></li><li><a href="contact.html">Work With Us</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><p class="foot-copy">&copy; 2024 Accliv Group. All rights reserved.</p><div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div></div>
+  </div>
+</footer>
+<button id="btt" aria-label="Back to top"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 15l7-7 7 7" stroke-linecap="round"/></svg></button>
+<script>
+  const nav=document.getElementById('navbar'),btt=document.getElementById('btt');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);btt.classList.toggle('on',window.scrollY>400);},{passive:true});
+  btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  const ham=document.getElementById('hamburger'),mob=document.getElementById('mobNav');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':'';});
+  document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+  document.getElementById('cform').addEventListener('submit',e=>{e.preventDefault();e.target.style.display='none';document.getElementById('fok').style.display='block';});
+</script>
+</body>
+</html>
