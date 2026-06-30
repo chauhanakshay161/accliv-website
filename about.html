@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us — Accliv Group</title>
+  <meta name="description" content="The story behind Accliv Group — an engineer's approach to Ottawa real estate, led by founder Akshay Chauhan."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{--navy:#0a1628;--navy2:#0d1e38;--white:#ffffff;--off:#f7f5f1;--gold:#c9a84c;--gold2:#e8c96a;--muted:#8a9ab5;--dim:#4e5f76;--border:rgba(201,168,76,0.2);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;}
+    html{scroll-behavior:smooth;}body{font-family:var(--sans);background:var(--white);color:var(--navy);overflow-x:hidden;}img{display:block;max-width:100%;}a{text-decoration:none;color:inherit;}
+    ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--navy);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+    .container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+    .eyebrow{font-size:0.67rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}
+    .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
+    .btn{display:inline-flex;align-items:center;gap:0.55rem;font-family:var(--sans);font-size:0.74rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.95rem 2rem;border-radius:2px;cursor:pointer;border:none;}
+    .btn-gold{background:var(--gold);color:var(--navy);}.btn-gold:hover{background:var(--gold2);}
+    .btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.25);}.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+    .btn-dark{background:transparent;color:var(--navy);border:1px solid rgba(10,22,40,0.2);}.btn-dark:hover{border-color:var(--gold);color:var(--gold);}
+
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.4rem 0;transition:background 0.4s,padding 0.4s,box-shadow 0.4s;}
+    #navbar.scrolled{background:rgba(10,22,40,0.97);padding:0.85rem 0;box-shadow:0 4px 40px rgba(0,0,0,0.4);backdrop-filter:blur(16px);}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{display:flex;align-items:center;gap:0.8rem;}
+    .logo-ring{width:44px;height:44px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--gold);}
+    .logo-name{font-family:var(--serif);font-size:1.25rem;font-weight:500;color:var(--white);letter-spacing:0.06em;}
+    .logo-name em{color:var(--gold);font-style:normal;}
+    .nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none;}
+    .nav-links a{font-size:0.73rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);}
+    .nav-links a:hover,.nav-links a.active{color:var(--white);}
+    .nav-cta{border:1px solid var(--gold);color:var(--gold)!important;padding:0.5rem 1.3rem;border-radius:2px;}
+    .nav-cta:hover{background:var(--gold);color:var(--navy)!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform 0.3s,opacity 0.3s;}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mob-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:998;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;}
+    .mob-nav.open{display:flex;}
+    .mob-nav a{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--white);}
+    .mob-nav a:hover{color:var(--gold);}
+
+    /* PAGE HERO */
+    .page-hero{background:var(--navy);padding:10rem 0 6rem;position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:70px 70px;}
+    .ph-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.1;}
+    .ph-inner{position:relative;z-index:2;}
+    .ph-inner h1{font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:300;color:var(--white);line-height:1.05;margin:0.75rem 0 1.25rem;}
+    .ph-inner h1 em{color:var(--gold);font-style:italic;}
+    .ph-inner p{font-size:1rem;color:var(--muted);max-width:560px;line-height:1.8;}
+
+    /* ORIGIN */
+    #origin{padding:8rem 0;background:var(--white);}
+    .origin-grid{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;}
+    .origin-copy h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;line-height:1.12;color:var(--navy);margin:0.5rem 0 1.5rem;}
+    .origin-copy p{font-size:0.96rem;line-height:1.85;color:var(--dim);margin-bottom:1.1rem;}
+    .origin-word{font-family:var(--serif);font-style:italic;color:var(--navy);font-weight:500;}
+    .divider{width:40px;height:1px;background:var(--gold);margin:2rem 0;}
+    .origin-img{width:100%;height:500px;object-fit:cover;border-radius:3px;}
+
+    /* FOUNDER */
+    #founder{padding:8rem 0;background:var(--off);}
+    .founder-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:7rem;align-items:center;}
+    .founder-img-wrap{position:relative;}
+    .founder-img-main{width:100%;height:600px;object-fit:cover;border-radius:3px;}
+    .founder-img-secondary{position:absolute;bottom:-2.5rem;right:-2.5rem;width:200px;height:200px;object-fit:cover;border-radius:3px;border:7px solid var(--off);box-shadow:0 20px 60px rgba(0,0,0,0.15);}
+    .founder-gold-bar{position:absolute;top:0;left:-1px;width:3px;height:80px;background:var(--gold);}
+    .founder-copy h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;line-height:1.12;color:var(--navy);margin:0.5rem 0 1.5rem;}
+    .founder-copy p{font-size:0.96rem;line-height:1.88;color:var(--dim);margin-bottom:1.1rem;}
+    .founder-pull{font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--navy);line-height:1.55;margin:1.75rem 0;padding-left:1.5rem;border-left:2px solid var(--gold);}
+    .founder-sig-row{display:flex;align-items:center;gap:1.2rem;margin-top:1.5rem;}
+    .founder-sig-img{width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);}
+    .founder-sig-name{font-family:var(--serif);font-size:1.1rem;color:var(--navy);font-weight:500;}
+    .founder-sig-title{font-size:0.72rem;color:var(--muted);letter-spacing:0.07em;margin-top:0.15rem;}
+
+    /* APPROACH */
+    #approach{padding:8rem 0;background:var(--navy);position:relative;overflow:hidden;}
+    #approach::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:80px 80px;}
+    .approach-inner{position:relative;z-index:1;}
+    .approach-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem;}
+    .approach-header h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;line-height:1.12;color:var(--white);margin-top:0.5rem;}
+    .approach-header p{font-size:0.96rem;line-height:1.85;color:var(--muted);}
+    .approach-steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative;}
+    .approach-steps::before{content:'';position:absolute;top:1.35rem;left:calc(12.5% + 1.5rem);right:calc(12.5% + 1.5rem);height:1px;background:var(--border);}
+    .astep{text-align:center;padding:0 1.75rem;}
+    .astep-dot{width:28px;height:28px;border:1px solid var(--gold);border-radius:50%;background:var(--navy);margin:0 auto 2rem;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;font-family:var(--serif);font-size:0.85rem;color:var(--gold);}
+    .astep h4{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--white);margin-bottom:0.75rem;}
+    .astep p{font-size:0.84rem;line-height:1.7;color:var(--muted);}
+
+    /* PILLARS */
+    #pillars{padding:8rem 0;background:var(--white);}
+    .pillars-header{max-width:600px;margin-bottom:4rem;}
+    .pillars-header h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;line-height:1.12;margin:0.5rem 0 1rem;}
+    .pillars-header p{font-size:0.96rem;line-height:1.85;color:var(--dim);}
+    .pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+    .pillar-card{border-top:3px solid var(--gold);padding:2.25rem 1.75rem;background:var(--off);border-radius:3px;}
+    .pillar-icon{width:42px;height:42px;border:1px solid rgba(201,168,76,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;background:rgba(201,168,76,0.06);}
+    .pillar-title{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--navy);margin-bottom:0.5rem;}
+    .pillar-desc{font-size:0.85rem;line-height:1.72;color:var(--dim);}
+
+    /* PHILOSOPHY QUOTE */
+    #philosophy{background:var(--off);padding:7rem 0;position:relative;text-align:center;}
+    .philosophy-inner{max-width:780px;margin:0 auto;}
+    .ph-rule{width:1px;height:50px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);margin:0 auto 2.5rem;}
+    .ph-quote{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:300;font-style:italic;color:var(--navy);line-height:1.4;margin-bottom:1.5rem;}
+    .ph-quote em{color:var(--gold);font-style:normal;}
+    .ph-attr{font-size:0.7rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);}
+
+    /* CTA */
+    #cta{position:relative;padding:9rem 0;overflow:hidden;}
+    .cta-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80');background-size:cover;background-position:center;background-attachment:fixed;filter:brightness(0.25) saturate(0.5);}
+    .cta-inner{position:relative;z-index:2;text-align:center;max-width:680px;margin:0 auto;}
+    .cta-inner .eyebrow{justify-content:center;}
+    .cta-inner h2{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:var(--white);line-height:1.1;margin:0.75rem 0 1rem;}
+    .cta-inner h2 em{color:var(--gold);font-style:italic;}
+    .cta-inner p{font-size:0.97rem;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2.5rem;}
+
+    /* FOOTER */
+    #footer{background:#060f1e;padding:5rem 0 2.5rem;}
+    .foot-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border);margin-bottom:2rem;}
+    .foot-brand-name{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--white);letter-spacing:0.06em;margin-bottom:0.3rem;}
+    .foot-brand-name em{color:var(--gold);font-style:normal;}
+    .foot-tagline{font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--muted);line-height:1.7;margin:0.9rem 0 1.6rem;}
+    .soc-row{display:flex;gap:0.65rem;}
+    .soc-link{width:38px;height:38px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);}
+    .soc-link:hover{border-color:var(--gold);color:var(--gold);}
+    .foot-col h5{font-size:0.64rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;}
+    .foot-col ul{list-style:none;}.foot-col li{margin-bottom:0.7rem;}.foot-col a{font-size:0.86rem;color:var(--muted);}.foot-col a:hover{color:var(--white);}
+    .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+    .foot-copy{font-size:0.74rem;color:rgba(138,154,181,0.45);}
+    .foot-legal{display:flex;gap:2rem;}.foot-legal a{font-size:0.74rem;color:rgba(138,154,181,0.45);}.foot-legal a:hover{color:var(--gold);}
+    #btt{position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;background:var(--gold);color:var(--navy);border:none;border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;z-index:990;}
+    #btt.on{opacity:1;pointer-events:all;}#btt:hover{background:var(--gold2);}
+
+    @media(max-width:1024px){.origin-grid{grid-template-columns:1fr;gap:4rem;}.founder-grid{grid-template-columns:1fr;gap:4rem;}.founder-img-secondary{display:none;}.approach-header{grid-template-columns:1fr;gap:1.5rem;}.approach-steps{grid-template-columns:1fr 1fr;gap:3rem;}.approach-steps::before{display:none;}.pillars-grid{grid-template-columns:1fr 1fr;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
+    @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.approach-steps{grid-template-columns:1fr;}.pillars-grid{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}}
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><div class="logo-ring">AC</div><div class="logo-name">Accliv <em>Group</em></div></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<nav class="mob-nav" id="mobNav">
+  <a href="index.html" class="ml">Home</a><a href="about.html" class="ml">About</a><a href="services.html" class="ml">Services</a><a href="listings.html" class="ml">Listings</a><a href="reviews.html" class="ml">Reviews</a><a href="contact.html" class="ml">Contact</a>
+</nav>
+
+<div class="page-hero">
+  <div class="ph-bg" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=80');"></div>
+  <div class="container ph-inner">
+    <p class="eyebrow">Our Story</p>
+    <h1>An Engineer's Approach<br>to <em>Real Estate.</em></h1>
+    <p>Accliv Group was built on a simple belief: the biggest financial decisions of your life deserve more rigor than instinct and a handshake. Here's the story behind the name, the method, and the person leading it.</p>
+  </div>
+</div>
+
+<!-- ORIGIN -->
+<section id="origin">
+  <div class="container">
+    <div class="origin-grid">
+      <img class="origin-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=85" alt="Ottawa skyline" loading="lazy"/>
+      <div class="origin-copy">
+        <p class="eyebrow">The Name</p>
+        <h2>Why We're Called Accliv.</h2>
+        <p>The word comes from <span class="origin-word">acclivity</span> — an upward slope. It's a deliberate choice. Every client who works with us is mid-climb toward something: a first home, a better neighbourhood, a stronger portfolio, a new chapter.</p>
+        <p>Real estate isn't the destination. It's the foundation underneath it. The name is a reminder of what the work is actually for — progress, not paperwork.</p>
+        <div class="divider"></div>
+        <p>That idea shapes everything about how Accliv Group operates: methodically, transparently, and always with the next chapter in mind — not just the closing date.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-img-wrap">
+        <div class="founder-gold-bar"></div>
+        <img class="founder-img-main" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=85" alt="Akshay Chauhan, Founder of Accliv Group"/>
+        <img class="founder-img-secondary" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Ottawa property detail" loading="lazy"/>
+      </div>
+      <div class="founder-copy">
+        <p class="eyebrow">The Founder</p>
+        <h2>Akshay Chauhan</h2>
+        <p>Before real estate, Akshay's training was in engineering — a discipline built entirely around one principle: you don't guess, you calculate. You gather every variable, model the outcome, and remove uncertainty wherever it can be removed.</p>
+        <p>That mindset didn't get left behind when he moved into real estate. It became the operating system for it. Every recommendation Accliv Group makes — what to offer, when to list, where to invest — is built on the same structured, data-first process used to solve engineering problems, applied instead to Ottawa's housing market.</p>
+        <div class="founder-pull">"Most people make the largest purchase of their life on a gut feeling. I wanted to build something that replaces the gut feeling with a model — and still treats the client like a person, not a transaction."</div>
+        <p>Outside of client work, Akshay spends his time walking Ottawa's neighbourhoods block by block — tracking how streets change, what's being built, and where value is quietly shifting before it shows up in the headlines. It's research most agents skip. Accliv Group doesn't.</p>
+        <div class="founder-sig-row">
+          <img class="founder-sig-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Akshay Chauhan"/>
+          <div><div class="founder-sig-name">Akshay Chauhan</div><div class="founder-sig-title">Founder &amp; Principal Advisor — Ottawa, Ontario</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="container approach-inner">
+    <div class="approach-header">
+      <div><p class="eyebrow" style="color:var(--gold)">The Method</p><h2>An Engineering Process, Applied to Property</h2></div>
+      <p>Every engagement follows the same disciplined sequence — borrowed directly from how technical problems get solved, not how real estate is traditionally sold.</p>
+    </div>
+    <div class="approach-steps">
+      <div class="astep"><div class="astep-dot">01</div><h4>Discover</h4><p>We gather every requirement — budget, timeline, must-haves, deal-breakers — the way you'd scope a technical project before writing a line of code.</p></div>
+      <div class="astep"><div class="astep-dot">02</div><h4>Analyze</h4><p>Comparable sales, neighbourhood trends, pricing models. The data gets pulled apart before any property gets recommended.</p></div>
+      <div class="astep"><div class="astep-dot">03</div><h4>Engineer the Strategy</h4><p>A specific plan — pricing, timing, negotiation approach — built for your situation, not copied from the last client.</p></div>
+      <div class="astep"><div class="astep-dot">04</div><h4>Deliver &amp; Validate</h4><p>We execute, then check the result against the plan. If something didn't go as modelled, you hear about it directly — no spin.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="container">
+    <div class="pillars-header">
+      <p class="eyebrow">What You Get</p>
+      <h2>The Standard Behind Every Engagement</h2>
+      <p>These aren't slogans — they're the operating principles that shape every client interaction, every offer, and every listing strategy.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.989-2.386l-.547-.547z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pillar-title">Analytical Rigor</div>
+        <p class="pillar-desc">Every recommendation is backed by data — comparable sales, market trends, and modelled outcomes. Not a hunch.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pillar-title">Founder-Led Service</div>
+        <p class="pillar-desc">You work directly with Akshay — not a rotating team or a junior agent handed an overflow file. One point of contact, start to close.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round"/></svg></div>
+        <div class="pillar-title">Ottawa Specialist</div>
+        <p class="pillar-desc">Deep, block-level knowledge of Ottawa's neighbourhoods — not a generic regional overview borrowed from a brokerage deck.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pillar-title">Transparent Reporting</div>
+        <p class="pillar-desc">You see the same numbers we do — comps, risks, and trade-offs — so every decision is made with the full picture, not a curated one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="philosophy-inner">
+    <div class="ph-rule"></div>
+    <p class="ph-quote">"I believe every property decision deserves the same rigor as engineering a system that has to work the <em>first time.</em>"</p>
+    <p class="ph-attr">— Akshay Chauhan, Founder</p>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="container"><div class="cta-inner">
+    <p class="eyebrow" style="justify-content:center">Work With the Founder</p>
+    <h2>Let's Engineer Your <em>Next Move.</em></h2>
+    <p>No call centre, no hand-offs — just a direct conversation with the person who'll be managing your file from start to finish.</p>
+    <a href="contact.html" class="btn btn-gold">Book a Free Consultation <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div></div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div><div class="foot-brand-name">Accliv <em>Group</em></div><p class="foot-tagline">"Your foundation<br>for everything next."</p>
+        <div class="soc-row">
+          <a href="#" class="soc-link" aria-label="Instagram"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke-linecap="round"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <a href="#" class="soc-link" aria-label="LinkedIn"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" stroke-linecap="round"/><rect x="2" y="9" width="4" height="12" stroke-linecap="round"/><circle cx="4" cy="4" r="2" stroke-linecap="round"/></svg></a>
+          <a href="#" class="soc-link" aria-label="Facebook"><svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="services.html">Buy a Home</a></li><li><a href="services.html">Sell a Property</a></li><li><a href="services.html">Property Investment</a></li><li><a href="contact.html">Free Consultation</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Meet the Founder</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
+      <div class="foot-col"><h5>Contact</h5><ul><li><a href="mailto:info@acclivgroup.com">info@acclivgroup.com</a></li><li><a href="tel:+16130000000">+1 (613) 000-0000</a></li><li><a>Ottawa, Ontario</a></li><li><a href="contact.html">Work With Us</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><p class="foot-copy">&copy; 2024 Accliv Group. All rights reserved.</p><div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div></div>
+  </div>
+</footer>
+<button id="btt" aria-label="Back to top"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 15l7-7 7 7" stroke-linecap="round"/></svg></button>
+<script>
+  const nav=document.getElementById('navbar'),btt=document.getElementById('btt');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);btt.classList.toggle('on',window.scrollY>400);},{passive:true});
+  btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  const ham=document.getElementById('hamburger'),mob=document.getElementById('mobNav');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':'';});
+  document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+</script>
+</body>
+</html>
