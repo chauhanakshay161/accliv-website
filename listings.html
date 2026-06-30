@@ -169,6 +169,17 @@
 
     @media(max-width:1024px){.honest-wrap{grid-template-columns:1fr;gap:3rem;}.listings-grid{grid-template-columns:1fr 1fr;}.om-grid{grid-template-columns:1fr;gap:4rem;}.om-float{right:0;}.criteria-grid{grid-template-columns:1fr 1fr;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
     @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.listings-grid{grid-template-columns:1fr;}.criteria-grid{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}.om-float{position:relative;right:0;bottom:0;margin-top:1.5rem;}}
+    /* BROWSE BY AREA */
+    #browse-areas{padding:8rem 0;background:var(--navy);position:relative;overflow:hidden;}
+    #browse-areas::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);background-size:80px 80px;}
+    .ba-inner{position:relative;z-index:1;}
+    .ba-head{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem;}
+    .ba-head h2{font-family:var(--serif);font-size:clamp(2rem,3.2vw,2.8rem);font-weight:400;line-height:1.1;color:var(--white);margin-top:0.5rem;}
+    .ba-head p{font-size:0.96rem;color:var(--muted);line-height:1.8;}
+    .ba-grid{display:flex;flex-wrap:wrap;gap:0.6rem;}
+    .ba-link{font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.12);padding:0.65rem 1.4rem;border-radius:100px;transition:border-color 0.25s ease,color 0.25s ease,background 0.25s ease;}
+    .ba-link:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,0.06);}
+    @media(max-width:768px){.ba-head{grid-template-columns:1fr;gap:1.5rem;}}
     /* GALLERY */
     #gallery{padding:11rem 0;background:var(--off);}
     .gallery-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;}
@@ -345,6 +356,26 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section id="browse-areas">
+  <div class="container ba-inner">
+    <div class="ba-head">
+      <div class="reveal"><p class="eyebrow" style="color:var(--gold)">Browse by Neighbourhood</p><h2>Find Your Part of Ottawa</h2></div>
+      <p class="reveal d1">Ottawa's market isn't one market — it's nine different ones. Each neighbourhood has its own pricing, pace, and personality. Explore the guides below to find where you belong.</p>
+    </div>
+    <div class="ba-grid reveal">
+      <a href="westboro.html" class="ba-link">Westboro</a>
+      <a href="barrhaven.html" class="ba-link">Barrhaven</a>
+      <a href="kanata.html" class="ba-link">Kanata</a>
+      <a href="glebe.html" class="ba-link">The Glebe</a>
+      <a href="orleans.html" class="ba-link">Orleans</a>
+      <a href="nepean.html" class="ba-link">Nepean</a>
+      <a href="stittsville.html" class="ba-link">Stittsville</a>
+      <a href="manotick.html" class="ba-link">Manotick</a>
+      <a href="riverside-south.html" class="ba-link">Riverside South</a>
     </div>
   </div>
 </section>
