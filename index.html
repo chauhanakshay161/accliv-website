@@ -128,55 +128,6 @@
     .founder-name { font-family: var(--serif); font-size: 1.1rem; color: var(--navy); font-weight: 500; }
     .founder-title { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.07em; margin-top: 0.15rem; }
 
-    /* OTTAWA */
-    #ottawa { background: var(--off); padding: 8rem 0; }
-    .ottawa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
-    .ottawa-copy h2 { font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 400; line-height: 1.12; margin: 0.5rem 0 1.25rem; }
-    .ottawa-copy p { font-size: 0.96rem; line-height: 1.85; color: var(--dim); margin-bottom: 1rem; }
-    .hood-list { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.5rem; }
-    .hood { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; color: var(--navy); background: var(--white); border: 1px solid rgba(10,22,40,0.1); padding: 0.38rem 0.9rem; border-radius: 100px; }
-    .ottawa-img-main { width: 100%; height: 500px; object-fit: cover; border-radius: 3px; }
-
-    /* PROCESS */
-    #process { padding: 8rem 0; background: var(--navy); }
-    .process-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
-    .process-header h2 { font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 400; line-height: 1.12; color: var(--white); margin-top: 0.5rem; }
-    .process-header p { font-size: 0.96rem; line-height: 1.85; color: var(--muted); }
-    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; }
-    .process-steps::before { content: ''; position: absolute; top: 1.35rem; left: calc(12.5% + 1.5rem); right: calc(12.5% + 1.5rem); height: 1px; background: var(--border); }
-    .pstep { text-align: center; padding: 0 2rem; }
-    .pstep-dot { width: 28px; height: 28px; border: 1px solid var(--gold); border-radius: 50%; background: var(--navy); margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; }
-    .pstep-dot::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
-    .pstep h4 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--white); margin-bottom: 0.75rem; }
-    .pstep p { font-size: 0.84rem; line-height: 1.7; color: var(--muted); }
-
-    /* VALUES */
-    #values { padding: 8rem 0; background: var(--white); }
-    .values-header { max-width: 560px; margin-bottom: 4rem; }
-    .values-header h2 { font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 400; line-height: 1.12; margin: 0.5rem 0 1rem; }
-    .values-header p { font-size: 0.96rem; line-height: 1.85; color: var(--dim); }
-    .values-list { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid rgba(10,22,40,0.08); }
-    .v-item { padding: 3rem; border-right: 1px solid rgba(10,22,40,0.08); border-bottom: 1px solid rgba(10,22,40,0.08); position: relative; }
-    .v-item:nth-child(even) { border-right: none; }
-    .v-item:nth-child(3), .v-item:nth-child(4) { border-bottom: none; }
-    .v-num { font-family: var(--serif); font-size: 4rem; font-weight: 300; color: rgba(201,168,76,0.1); line-height: 1; position: absolute; top: 1.5rem; right: 2rem; }
-    .v-name { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; color: var(--navy); margin-bottom: 0.75rem; }
-    .v-desc { font-size: 0.88rem; line-height: 1.78; color: var(--dim); }
-
-    /* GALLERY */
-    #gallery { padding: 8rem 0; background: var(--off); }
-    .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
-    .gallery-header h2 { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 400; line-height: 1.12; margin-top: 0.5rem; }
-    .mosaic { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 175px; gap: 0.75rem; }
-    .m { overflow: hidden; border-radius: 3px; }
-    .m:nth-child(1) { grid-column: 1/6; grid-row: 1/3; }
-    .m:nth-child(2) { grid-column: 6/9; grid-row: 1/2; }
-    .m:nth-child(3) { grid-column: 9/13; grid-row: 1/2; }
-    .m:nth-child(4) { grid-column: 6/10; grid-row: 2/3; }
-    .m:nth-child(5) { grid-column: 10/13; grid-row: 2/3; }
-    .m img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); }
-    .m img:hover { filter: brightness(1); }
-
     /* CTA */
     #cta { position: relative; padding: 9rem 0; overflow: hidden; }
     .cta-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1800&q=80'); background-size: cover; background-position: center; background-attachment: fixed; filter: brightness(0.25) saturate(0.5); }
@@ -213,20 +164,12 @@
       #hero { grid-template-columns: 1fr; } .hero-right { display: none; } .hero-left { padding: 9rem 2rem 7rem; }
       .teaser-head { grid-template-columns: 1fr; gap: 1.5rem; } .teaser-cards { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 4rem; } .about-img-secondary { display: none; }
-      .ottawa-grid { grid-template-columns: 1fr; gap: 4rem; }
-      .process-header { grid-template-columns: 1fr; gap: 1.5rem; } .process-steps { grid-template-columns: 1fr 1fr; gap: 3rem; } .process-steps::before { display: none; }
       .foot-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .stats-row { grid-template-columns: repeat(2, 1fr); } .s-cell:nth-child(2) { border-right: none; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; } .hamburger { display: flex; }
-      .values-list { grid-template-columns: 1fr; }
-      .v-item { border-right: none !important; } .v-item:nth-child(3) { border-bottom: 1px solid rgba(10,22,40,0.08) !important; }
-      .gallery-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .mosaic { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
-      .m:nth-child(1) { grid-column: 1/3; grid-row: auto; } .m:nth-child(2) { grid-column: 1/2; } .m:nth-child(3) { grid-column: 2/3; } .m:nth-child(4) { grid-column: 1/2; } .m:nth-child(5) { grid-column: 2/3; }
       .foot-grid { grid-template-columns: 1fr; } .foot-bottom { flex-direction: column; text-align: center; }
-      .process-steps { grid-template-columns: 1fr; }
     }
     @media (max-width: 500px) { .hero-btns { flex-direction: column; } .btn { width: 100%; justify-content: center; } .stats-row { grid-template-columns: 1fr 1fr; } }
     /* == ANIMATIONS == */
@@ -249,18 +192,12 @@
     .tsr-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,0,0,0.18);}
     .tsr-card img{transition:transform 0.65s cubic-bezier(0.22,1,0.36,1);}
     .tsr-card:hover img{transform:scale(1.07);}
-    .v-item{transition:border-color 0.3s ease;}
-    .v-item:hover{border-color:rgba(201,168,76,0.25);}
-    .m img{transition:transform 0.6s cubic-bezier(0.22,1,0.36,1),filter 0.4s ease;}
-    .m:hover img{transform:scale(1.08);filter:brightness(1)!important;}
     .logo-ring{transition:transform 0.4s ease,box-shadow 0.4s ease;}
     .nav-logo:hover .logo-ring{transform:rotate(15deg);box-shadow:0 0 18px rgba(201,168,76,0.35);}
     .s-cell{transition:background 0.3s ease;}
     .s-cell:hover{background:rgba(201,168,76,0.06);}
     .about-img-wrap:hover .about-img-main{transform:scale(1.03);}
     .about-img-main{transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);}
-    .ottawa-img-main{transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);}
-    .ottawa-grid:hover .ottawa-img-main{transform:scale(1.03);}
   </style>
 </head>
 <body>
@@ -383,70 +320,6 @@
   </div>
 </section>
 
-<section id="ottawa">
-  <div class="container">
-    <div class="ottawa-grid">
-      <div class="ottawa-copy reveal rl">
-        <p class="eyebrow">Why Ottawa</p>
-        <h2>A Market Built on Stability and Growth.</h2>
-        <p>As Canada's capital, Ottawa is anchored by federal employment, a foundation that keeps the real estate market stable even when other cities fluctuate. That security attracts families, professionals, and investors alike.</p>
-        <p>Beyond government, Ottawa's tech corridor in Kanata North has made the city one of Canada's most dynamic growth stories, pushing demand across urban and suburban neighbourhoods simultaneously.</p>
-        <div class="divider"></div>
-        <p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:0.75rem;">Areas We Serve</p>
-        <div class="hood-list">
-          <span class="hood">Westboro</span><span class="hood">Barrhaven</span><span class="hood">Kanata</span>
-          <span class="hood">Glebe</span><span class="hood">Orleans</span><span class="hood">Nepean</span>
-          <span class="hood">Stittsville</span><span class="hood">Riverside South</span><span class="hood">Manotick</span>
-        </div>
-      </div>
-      <img class="ottawa-img-main reveal rr" src="https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=800&q=85" alt="Ottawa" loading="lazy"/>
-    </div>
-  </div>
-</section>
-
-<section id="process">
-  <div class="container">
-    <div class="process-header">
-      <div><p class="eyebrow" style="color:var(--gold)">How We Work</p><h2>A Process Engineered for Certainty</h2></div>
-      <p>Every client follows the same clear, structured journey. No surprises, no confusion. Just a proven system built to deliver results.</p>
-    </div>
-    <div class="process-steps">
-      <div class="pstep reveal d1"><div class="pstep-dot"></div><h4>Free Consult</h4><p>We learn your goals, timeline, and situation, and give you an honest read on your options.</p></div>
-      <div class="pstep reveal d2"><div class="pstep-dot"></div><h4>Market Analysis</h4><p>Deep research into Ottawa conditions, comparables, and neighbourhoods to build your strategy.</p></div>
-      <div class="pstep reveal d3"><div class="pstep-dot"></div><h4>Execution</h4><p>We handle negotiations, paperwork, and coordination, keeping you fully informed at every step.</p></div>
-      <div class="pstep reveal d4"><div class="pstep-dot"></div><h4>Successful Close</h4><p>You sign, you move forward. The relationship doesn't end at the closing table.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="values">
-  <div class="container">
-    <div class="values-header"><p class="eyebrow">Our Principles</p><h2>The Standards We Refuse to Compromise</h2><p>Four words define how Accliv operates: in every email, every showing, every negotiation.</p></div>
-    <div class="values-list">
-      <div class="v-item reveal d1"><div class="v-num">01</div><div class="v-name">Clear</div><p class="v-desc">No jargon, no fine-print surprises. We explain every step in plain language so you always know where things stand.</p></div>
-      <div class="v-item reveal d2"><div class="v-num">02</div><div class="v-name">Transparent</div><p class="v-desc">We show you the numbers, the comps, the risks. Full visibility so every decision is made from confidence.</p></div>
-      <div class="v-item reveal d3"><div class="v-num">03</div><div class="v-name">Fast</div><p class="v-desc">In Ottawa's market, timing matters. Our systems and communication keep every deal moving at the speed it needs to.</p></div>
-      <div class="v-item reveal d4"><div class="v-num">04</div><div class="v-name">Reliable</div><p class="v-desc">We follow through, every single time. When we say we'll do something, we do it. No exceptions.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="gallery">
-  <div class="container">
-    <div class="gallery-header">
-      <div><p class="eyebrow">Portfolio</p><h2>Properties That Define the Standard</h2></div>
-      <a href="listings.html" class="btn btn-gold">View Listings</a>
-    </div>
-    <div class="mosaic">
-      <div class="m"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=80" alt="Luxury home" loading="lazy"/></div>
-      <div class="m"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Contemporary estate" loading="lazy"/></div>
-      <div class="m"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80" alt="Premium residence" loading="lazy"/></div>
-      <div class="m"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Investment property" loading="lazy"/></div>
-      <div class="m"><img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80" alt="Residential home" loading="lazy"/></div>
-    </div>
-  </div>
-</section>
-
 <section id="cta">
   <div class="cta-bg"></div>
   <div class="container">
@@ -472,7 +345,7 @@
         </div>
       </div>
       <div class="foot-col"><h5>Services</h5><ul><li><a href="services.html">Buy a Home</a></li><li><a href="services.html">Sell a Property</a></li><li><a href="services.html">Property Investment</a></li><li><a href="contact.html">Free Consultation</a></li></ul></div>
-      <div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="index.html#ottawa">Why Ottawa</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html#ottawa">Why Ottawa</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
       <div class="foot-col"><h5>Contact</h5><ul><li><a href="mailto:info@acclivgroup.com">info@acclivgroup.com</a></li><li><a href="tel:+16130000000">+1 (613) 000-0000</a></li><li><a>Ottawa, Ontario</a></li><li><a href="contact.html">Work With Us</a></li></ul></div>
     </div>
     <div class="foot-bottom"><p class="foot-copy">&copy; 2024 Accliv Group. All rights reserved.</p><div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div></div>

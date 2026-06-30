@@ -103,6 +103,22 @@
 
     @media(max-width:1024px){.srv-spread{grid-template-columns:1fr;min-height:auto;}.srv-spread.flip .srv-img{order:0;}.srv-spread.flip .srv-copy{order:0;}.srv-img{height:320px;}.srv-copy{padding:3.5rem 2.5rem;}.faq-grid{grid-template-columns:1fr;gap:3rem;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
     @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}}
+    /* PROCESS */
+    #process{padding:8rem 0;background:var(--navy);position:relative;overflow:hidden;}
+    #process::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:80px 80px;}
+    .process-inner{position:relative;z-index:1;}
+    .process-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem;}
+    .process-header h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;line-height:1.12;color:var(--white);margin-top:0.5rem;}
+    .process-header p{font-size:0.96rem;line-height:1.85;color:var(--muted);}
+    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);position:relative;}
+    .process-steps::before{content:'';position:absolute;top:1.35rem;left:calc(12.5% + 1.5rem);right:calc(12.5% + 1.5rem);height:1px;background:var(--border);}
+    .pstep{text-align:center;padding:0 2rem;}
+    .pstep-dot{width:28px;height:28px;border:1px solid var(--gold);border-radius:50%;background:var(--navy);margin:0 auto 2rem;display:flex;align-items:center;justify-content:center;}
+    .pstep-dot::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);}
+    .pstep h4{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--white);margin-bottom:0.75rem;}
+    .pstep p{font-size:0.84rem;line-height:1.7;color:var(--muted);}
+    @media(max-width:1024px){.process-header{grid-template-columns:1fr;gap:1.5rem;}.process-steps{grid-template-columns:1fr 1fr;gap:3rem;}.process-steps::before{display:none;}}
+    @media(max-width:768px){.process-steps{grid-template-columns:1fr;}}
     @keyframes bodyFade{from{opacity:0}to{opacity:1}}
     body{animation:bodyFade 0.5s ease both;}
     #sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear;}
@@ -208,6 +224,21 @@
   </div>
 </div>
 
+<section id="process">
+  <div class="container process-inner">
+    <div class="process-header">
+      <div class="reveal"><p class="eyebrow" style="color:var(--gold)">How We Work</p><h2>A Process Engineered for Certainty</h2></div>
+      <p class="reveal d1">Every client follows the same clear, structured journey. No surprises, no confusion. Just a proven system built to deliver results.</p>
+    </div>
+    <div class="process-steps">
+      <div class="pstep reveal d1"><div class="pstep-dot"></div><h4>Free Consult</h4><p>We learn your goals, timeline, and situation, and give you an honest read on your options.</p></div>
+      <div class="pstep reveal d2"><div class="pstep-dot"></div><h4>Market Analysis</h4><p>Deep research into Ottawa conditions, comparables, and neighbourhoods to build your strategy.</p></div>
+      <div class="pstep reveal d3"><div class="pstep-dot"></div><h4>Execution</h4><p>We handle negotiations, paperwork, and coordination, keeping you fully informed at every step.</p></div>
+      <div class="pstep reveal d4"><div class="pstep-dot"></div><h4>Successful Close</h4><p>You sign, you move forward. The relationship doesn't end at the closing table.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section id="faq">
   <div class="container">
@@ -265,7 +296,7 @@
         </div>
       </div>
       <div class="foot-col"><h5>Services</h5><ul><li><a href="services.html">Buy a Home</a></li><li><a href="services.html">Sell a Property</a></li><li><a href="services.html">Property Investment</a></li><li><a href="contact.html">Free Consultation</a></li></ul></div>
-      <div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="index.html#ottawa">Why Ottawa</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html#ottawa">Why Ottawa</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
       <div class="foot-col"><h5>Contact</h5><ul><li><a href="mailto:info@acclivgroup.com">info@acclivgroup.com</a></li><li><a href="tel:+16130000000">+1 (613) 000-0000</a></li><li><a>Ottawa, Ontario</a></li><li><a href="contact.html">Work With Us</a></li></ul></div>
     </div>
     <div class="foot-bottom"><p class="foot-copy">&copy; 2024 Accliv Group. All rights reserved.</p><div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div></div>

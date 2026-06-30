@@ -135,6 +135,31 @@
 
     @media(max-width:1024px){.origin-grid{grid-template-columns:1fr;gap:4rem;}.founder-grid{grid-template-columns:1fr;gap:4rem;}.founder-img-secondary{display:none;}.approach-header{grid-template-columns:1fr;gap:1.5rem;}.approach-steps{grid-template-columns:1fr 1fr;gap:3rem;}.approach-steps::before{display:none;}.pillars-grid{grid-template-columns:1fr 1fr;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
     @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.approach-steps{grid-template-columns:1fr;}.pillars-grid{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}}
+    /* OTTAWA */
+    #ottawa{background:var(--off);padding:8rem 0;}
+    .ottawa-grid{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;}
+    .ottawa-copy h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;line-height:1.12;margin:0.5rem 0 1.25rem;}
+    .ottawa-copy p{font-size:0.96rem;line-height:1.85;color:var(--dim);margin-bottom:1rem;}
+    .hood-list{display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:1.5rem;}
+    .hood{font-size:0.72rem;font-weight:500;letter-spacing:0.08em;color:var(--navy);background:var(--white);border:1px solid rgba(10,22,40,0.1);padding:0.38rem 0.9rem;border-radius:100px;}
+    .ottawa-img-main{width:100%;height:500px;object-fit:cover;border-radius:3px;}
+    /* VALUES */
+    #values{padding:8rem 0;background:var(--white);}
+    .values-header{max-width:560px;margin-bottom:4rem;}
+    .values-header h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;line-height:1.12;margin:0.5rem 0 1rem;}
+    .values-header p{font-size:0.96rem;line-height:1.85;color:var(--dim);}
+    .values-list{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid rgba(10,22,40,0.08);}
+    .v-item{padding:3rem;border-right:1px solid rgba(10,22,40,0.08);border-bottom:1px solid rgba(10,22,40,0.08);position:relative;}
+    .v-item:nth-child(even){border-right:none;}
+    .v-item:nth-child(3),.v-item:nth-child(4){border-bottom:none;}
+    .v-num{font-family:var(--serif);font-size:4rem;font-weight:300;color:rgba(201,168,76,0.1);line-height:1;position:absolute;top:1.5rem;right:2rem;}
+    .v-name{font-family:var(--serif);font-size:1.6rem;font-weight:500;color:var(--navy);margin-bottom:0.75rem;}
+    .v-desc{font-size:0.88rem;line-height:1.78;color:var(--dim);}
+    .v-item{transition:border-color 0.3s ease;}.v-item:hover{border-color:rgba(201,168,76,0.25);}
+    .ottawa-img-main{transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);}
+    .ottawa-grid:hover .ottawa-img-main{transform:scale(1.03);}
+    @media(max-width:1024px){.ottawa-grid{grid-template-columns:1fr;gap:4rem;}}
+    @media(max-width:768px){.values-list{grid-template-columns:1fr;}.v-item{border-right:none!important;}.v-item:nth-child(3){border-bottom:1px solid rgba(10,22,40,0.08)!important;}}
     @keyframes bodyFade{from{opacity:0}to{opacity:1}}
     body{animation:bodyFade 0.5s ease both;}
     #sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear;}
@@ -287,6 +312,39 @@
 </section>
 
 <!-- PHILOSOPHY -->
+<section id="ottawa">
+  <div class="container">
+    <div class="ottawa-grid">
+      <div class="ottawa-copy reveal rl">
+        <p class="eyebrow">Why Ottawa</p>
+        <h2>A Market Built on Stability and Growth.</h2>
+        <p>As Canada's capital, Ottawa is anchored by federal employment, a foundation that keeps the real estate market stable even when other cities fluctuate. That security attracts families, professionals, and investors alike.</p>
+        <p>Beyond government, Ottawa's tech corridor in Kanata North has made the city one of Canada's most dynamic growth stories, pushing demand across urban and suburban neighbourhoods simultaneously.</p>
+        <div class="divider"></div>
+        <p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:0.75rem;">Areas We Serve</p>
+        <div class="hood-list">
+          <span class="hood">Westboro</span><span class="hood">Barrhaven</span><span class="hood">Kanata</span>
+          <span class="hood">Glebe</span><span class="hood">Orleans</span><span class="hood">Nepean</span>
+          <span class="hood">Stittsville</span><span class="hood">Riverside South</span><span class="hood">Manotick</span>
+        </div>
+      </div>
+      <img class="ottawa-img-main reveal rr" src="https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=800&q=85" alt="Ottawa skyline" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<section id="values">
+  <div class="container">
+    <div class="values-header reveal"><p class="eyebrow">Our Principles</p><h2>The Standards We Refuse to Compromise</h2><p>Four words define how Accliv operates: in every email, every showing, every negotiation.</p></div>
+    <div class="values-list">
+      <div class="v-item reveal d1"><div class="v-num">01</div><div class="v-name">Clear</div><p class="v-desc">No jargon, no fine-print surprises. We explain every step in plain language so you always know where things stand.</p></div>
+      <div class="v-item reveal d2"><div class="v-num">02</div><div class="v-name">Transparent</div><p class="v-desc">We show you the numbers, the comps, the risks. Full visibility so every decision is made from confidence.</p></div>
+      <div class="v-item reveal d3"><div class="v-num">03</div><div class="v-name">Fast</div><p class="v-desc">In Ottawa's market, timing matters. Our systems and communication keep every deal moving at the speed it needs to.</p></div>
+      <div class="v-item reveal d4"><div class="v-num">04</div><div class="v-name">Reliable</div><p class="v-desc">We follow through, every single time. When we say we'll do something, we do it. No exceptions.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="philosophy">
   <div class="philosophy-inner">
     <div class="ph-rule"></div>
