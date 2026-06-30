@@ -159,6 +159,23 @@
     .nhood-cta{font-size:0.64rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.5rem;}
     @media(max-width:1024px){.nhood-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:600px){.nhood-grid{grid-template-columns:1fr;}}
+    /* MAP */
+    #nhood-map{padding:0 0 11rem;background:var(--white);}
+    .map-toggle{display:flex;align-items:center;gap:1rem;margin-bottom:3rem;}
+    .map-tab{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:0.55rem 1.4rem;border-radius:2px;cursor:pointer;border:1px solid rgba(10,22,40,0.12);color:var(--dim);background:transparent;transition:background 0.25s,color 0.25s,border-color 0.25s;}
+    .map-tab.active{background:var(--navy);color:var(--white);border-color:var(--navy);}
+    .map-wrap{position:relative;background:#060f1e;border-radius:4px;overflow:hidden;padding:0;}
+    .map-svg{width:100%;height:auto;display:block;}
+    .n-zone{cursor:pointer;}
+    .n-fill{transition:fill 0.22s ease,stroke 0.22s ease,stroke-width 0.22s ease;}
+    .n-zone:hover .n-fill{fill:rgba(201,168,76,0.22);stroke:rgba(201,168,76,0.75);stroke-width:1.5;}
+    .map-label{font-family:'Inter',system-ui,sans-serif;font-size:9.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;fill:rgba(255,255,255,0.65);pointer-events:none;transition:fill 0.2s;}
+    .map-label-sub{font-family:'Inter',system-ui,sans-serif;font-size:8px;fill:rgba(201,168,76,0.6);pointer-events:none;transition:fill 0.2s;}
+    .n-zone:hover .map-label{fill:rgba(255,255,255,1);}
+    .n-zone:hover .map-label-sub{fill:rgba(232,201,106,1);}
+    .map-tip{position:absolute;background:rgba(6,15,30,0.96);border:1px solid rgba(201,168,76,0.4);border-radius:3px;padding:0.6rem 1rem;pointer-events:none;opacity:0;white-space:nowrap;backdrop-filter:blur(8px);z-index:20;transition:opacity 0.15s;}
+    .map-tip-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05rem;font-weight:500;color:#fff;display:block;margin-bottom:0.1rem;}
+    .map-tip-price{font-size:0.65rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);}
     @keyframes bodyFade{from{opacity:0}to{opacity:1}}
     body{animation:bodyFade 0.5s ease both;}
     #sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear;}
@@ -312,6 +329,92 @@
   </div>
 </section>
 
+<section id="nhood-map">
+  <div class="container">
+    <div class="map-toggle">
+      <button class="map-tab active" onclick="this.classList.add('active');this.nextElementSibling.classList.remove('active');">Map View</button>
+      <button class="map-tab" onclick="this.classList.add('active');this.previousElementSibling.classList.remove('active');window.location.hash='neighbourhoods';">Grid View</button>
+    </div>
+    <div class="map-wrap reveal">
+      <div class="map-tip" id="mapTip"><span class="map-tip-name"></span><span class="map-tip-price"></span></div>
+      <svg class="map-svg" viewBox="0 0 860 600" role="img" aria-label="Interactive map of Ottawa neighbourhoods served by Accliv Group" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect x="0" y="0" width="860" height="600" fill="#060f1e"/>
+        <!-- Subtle grid -->
+        <defs><pattern id="mg" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(201,168,76,0.04)" stroke-width="1"/></pattern></defs>
+        <rect width="860" height="600" fill="url(#mg)"/>
+        <!-- Ottawa River -->
+        <path d="M -10,55 C 80,32 180,62 300,46 C 420,30 540,56 660,42 C 760,30 820,52 880,40 L 880,90 C 800,104 680,84 565,98 C 445,112 325,90 210,104 C 105,117 38,94 -10,108 Z" fill="#0d2245"/>
+        <text x="430" y="72" text-anchor="middle" fill="rgba(80,120,200,0.45)" font-size="9" font-family="Inter,sans-serif" font-weight="600" letter-spacing="4">OTTAWA RIVER</text>
+        <!-- Rideau River (subtle) -->
+        <path d="M 486,192 Q 476,275 464,348 Q 453,418 446,478" stroke="rgba(30,90,170,0.3)" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
+        <!-- Downtown reference -->
+        <polygon points="400,98 485,95 492,205 407,214" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        <text x="445" y="162" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="8.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="2">DOWNTOWN</text>
+        <!-- KANATA -->
+        <g class="n-zone" data-name="Kanata" data-price="$600K–$1M" data-url="kanata.html">
+          <polygon class="n-fill" points="22,92 205,90 216,162 226,308 164,336 22,314" fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+          <text class="map-label" x="112" y="208" text-anchor="middle">KANATA</text>
+          <text class="map-label-sub" x="112" y="223" text-anchor="middle">$600K–$1M</text>
+        </g>
+        <!-- STITTSVILLE -->
+        <g class="n-zone" data-name="Stittsville" data-price="$550K–$800K" data-url="stittsville.html">
+          <polygon class="n-fill" points="22,318 200,307 208,432 22,445" fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+          <text class="map-label" x="108" y="373" text-anchor="middle">STITTSVILLE</text>
+          <text class="map-label-sub" x="108" y="388" text-anchor="middle">$550K–$800K</text>
+        </g>
+        <!-- NEPEAN -->
+        <g class="n-zone" data-name="Nepean" data-price="$550K–$850K" data-url="nepean.html">
+          <polygon class="n-fill" points="220,165 304,162 316,388 226,400" fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+          <text class="map-label" x="264" y="278" text-anchor="middle">NEPEAN</text>
+          <text class="map-label-sub" x="264" y="293" text-anchor="middle">$550K–$850K</text>
+        </g>
+        <!-- WESTBORO -->
+        <g class="n-zone" data-name="Westboro" data-price="$700K–$1.4M" data-url="westboro.html">
+          <polygon class="n-fill" points="306,95 400,92 408,210 312,218" fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+          <text class="map-label" x="355" y="148" text-anchor="middle">WESTBORO</text>
+          <text class="map-label-sub" x="355" y="163" text-anchor="middle">$700K–$1.4M</text>
+        </g>
+        <!-- GLEBE -->
+        <g class="n-zone" data-name="The Glebe" data-price="$900K–$2M+" data-url="glebe.html">
+          <polygon class="n-fill" points="421,98 490,95 498,240 428,250" fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+          <text class="map-label" x="458" y="172" text-anchor="middle">THE GLEBE</text>
+          <text class="map-label-sub" x="458" y="187" text-anchor="middle">$900K–$2M+</text>
+        </g>
+        <!-- ORLEANS -->
+        <g class="n-zone" data-name="Orleans" data-price="$500K–$750K" data-url="orleans.html">
+          <polygon class="n-fill" points="656,92 844,90 850,308 662,316" fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+          <text class="map-label" x="750" y="196" text-anchor="middle">ORLEANS</text>
+          <text class="map-label-sub" x="750" y="211" text-anchor="middle">$500K–$750K</text>
+        </g>
+        <!-- BARRHAVEN -->
+        <g class="n-zone" data-name="Barrhaven" data-price="$550K–$850K" data-url="barrhaven.html">
+          <polygon class="n-fill" points="172,412 336,402 343,550 177,560" fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+          <text class="map-label" x="256" y="480" text-anchor="middle">BARRHAVEN</text>
+          <text class="map-label-sub" x="256" y="495" text-anchor="middle">$550K–$850K</text>
+        </g>
+        <!-- RIVERSIDE SOUTH -->
+        <g class="n-zone" data-name="Riverside South" data-price="$550K–$800K" data-url="riverside-south.html">
+          <polygon class="n-fill" points="343,414 454,407 460,550 349,558" fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+          <text class="map-label" x="400" y="476" text-anchor="middle">RIVERSIDE</text>
+          <text class="map-label" x="400" y="490" text-anchor="middle">SOUTH</text>
+          <text class="map-label-sub" x="400" y="505" text-anchor="middle">$550K–$800K</text>
+        </g>
+        <!-- MANOTICK -->
+        <g class="n-zone" data-name="Manotick" data-price="$700K–$2M+" data-url="manotick.html">
+          <polygon class="n-fill" points="356,562 454,555 460,598 361,602" fill="rgba(201,168,76,0.09)" stroke="rgba(201,168,76,0.22)" stroke-width="1"/>
+          <text class="map-label" x="408" y="583" text-anchor="middle">MANOTICK</text>
+          <text class="map-label-sub" x="408" y="596" text-anchor="middle">$700K–$2M+</text>
+        </g>
+        <!-- Compass -->
+        <text x="826" y="548" fill="rgba(255,255,255,0.18)" font-size="11" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500" letter-spacing="1">N ↑</text>
+        <text x="826" y="562" fill="rgba(255,255,255,0.1)" font-size="8" text-anchor="middle" font-family="Inter,sans-serif" letter-spacing="1">OTTAWA</text>
+      </svg>
+    </div>
+    <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;letter-spacing:0.05em;">Click any neighbourhood to open its full real estate guide. Boundaries are approximate.</p>
+  </div>
+</section>
+
 <section id="process">
   <div class="container process-inner">
     <div class="process-header">
@@ -387,7 +490,7 @@
       <div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html#ottawa">Why Ottawa</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
       <div class="foot-col"><h5>Contact</h5><ul><li><a href="mailto:info@acclivgroup.com">info@acclivgroup.com</a></li><li><a href="tel:+16130000000">+1 (613) 000-0000</a></li><li><a>Ottawa, Ontario</a></li><li><a href="contact.html">Work With Us</a></li></ul></div>
     </div>
-    <div class="foot-bottom"><p class="foot-copy">&copy; 2024 Accliv Group. All rights reserved.</p><div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></div></div>
+    <div class="foot-bottom"><p class="foot-copy">&copy; 2024 Accliv Group. All rights reserved.</p><div class="foot-legal"><a href="privacy.html">Privacy</a><a href="privacy.html">Terms</a><a href="#">Disclaimer</a></div></div>
   </div>
 </footer>
 <button id="btt" aria-label="Back to top"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 15l7-7 7 7" stroke-linecap="round"/></svg></button>
@@ -404,6 +507,27 @@
   document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
   document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const it=q.parentElement;const was=it.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!was)it.classList.add('open');});});
   document.querySelector('.faq-item') && document.querySelector('.faq-item').classList.add('open');
+  // Interactive map
+  const mTip=document.getElementById('mapTip');
+  const mWrap=document.querySelector('.map-wrap');
+  if(mTip&&mWrap){
+    document.querySelectorAll('.n-zone').forEach(z=>{
+      z.addEventListener('mouseenter',()=>{
+        mTip.querySelector('.map-tip-name').textContent=z.dataset.name;
+        mTip.querySelector('.map-tip-price').textContent=z.dataset.price;
+        mTip.style.opacity='1';
+      });
+      z.addEventListener('mousemove',e=>{
+        const r=mWrap.getBoundingClientRect();
+        let x=e.clientX-r.left+14,y=e.clientY-r.top-52;
+        if(x+200>r.width)x-=220;
+        if(y<0)y=8;
+        mTip.style.left=x+'px';mTip.style.top=y+'px';
+      });
+      z.addEventListener('mouseleave',()=>{mTip.style.opacity='0';});
+      z.addEventListener('click',()=>{window.location.href=z.dataset.url;});
+    });
+  }
 </script>
 </body>
 </html>
