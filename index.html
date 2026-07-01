@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ottawa Real Estate Agent | Accliv Group</title>
-  <meta name="description" content="Accliv Group is Ottawa's precision-driven real estate advisor. Helping buyers, sellers, and investors navigate Ottawa's property market with clarity and expertise. Book a free consultation.">
+  <title>Ottawa Real Estate | Residential, Commercial &amp; Investment | Accliv Group</title>
+  <meta name="description" content="Akshay Chauhan handles residential, commercial, and investment real estate across Ottawa. One person, backed by deep market knowledge and a vetted professional network. Book a free consultation.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Akshay Chauhan">
   <meta name="theme-color" content="#0d1f3c">
@@ -103,7 +103,7 @@
     .teaser-head { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
     .teaser-head h2 { font-family: var(--serif); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 300; line-height: 1.05; margin-top: 0.5rem; }
     .teaser-head p { font-size: 0.96rem; line-height: 1.85; color: var(--dim); }
-    .teaser-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .teaser-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
     .tsr-card { position: relative; height: 580px; overflow: hidden; border-radius: 2px; display: flex; flex-direction: column; justify-content: flex-end; }
     .tsr-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) saturate(0.8); }
     .tsr-card-body { position: relative; z-index: 2; padding: 3rem; background: linear-gradient(to top, rgba(13,31,60,0.88) 0%, rgba(13,31,60,0.1) 60%, transparent 100%); }
@@ -279,8 +279,8 @@
 <section id="services-teaser">
   <div class="container">
     <div class="teaser-head">
-      <div class="reveal"><p class="eyebrow">What We Do</p><h2>Two Services.<br>One Person. Ottawa.</h2></div>
-      <p class="reveal d1 body-text" style="font-size:0.96rem;line-height:1.85;color:var(--dim);">Akshay Chauhan works Ottawa's market at the block level, not the postal code. Every recommendation is backed by numbers you get to see, not a summary of them.</p>
+      <div class="reveal"><p class="eyebrow">What We Do</p><h2>Residential. Commercial.<br>Investment. Ottawa.</h2></div>
+      <p class="reveal d1 body-text" style="font-size:0.96rem;line-height:1.85;color:var(--dim);">Whether you are buying a home, acquiring commercial property for your business, or building an investment portfolio, Akshay Chauhan handles every file personally, backed by research that goes deeper than the MLS listing and a professional network built specifically for Ottawa real estate.</p>
     </div>
     <div class="teaser-cards">
       <a href="services.html" class="tsr-card reveal d1">
@@ -289,7 +289,13 @@
           <div class="tsr-card-name">Real Estate <svg style="display:inline-block;vertical-align:middle;margin-left:0.5rem;opacity:0.6;" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </div>
       </a>
-      <a href="services.html" class="tsr-card reveal d2">
+      <a href="services.html#srv-commercial" class="tsr-card reveal d2">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=85" alt="Commercial real estate Ottawa" loading="lazy"/>
+        <div class="tsr-card-body">
+          <div class="tsr-card-name">Commercial <svg style="display:inline-block;vertical-align:middle;margin-left:0.5rem;opacity:0.6;" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="services.html" class="tsr-card reveal d3">
         <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=85" alt="Property Investment, Ottawa" loading="lazy"/>
         <div class="tsr-card-body">
           <div class="tsr-card-name">Investment <svg style="display:inline-block;vertical-align:middle;margin-left:0.5rem;opacity:0.6;" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
@@ -422,7 +428,7 @@
   const ham = document.getElementById('hamburger'), mob = document.getElementById('mobNav');
   ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : ''; });
   document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = ''; }));
-  const words = ['Real Estate.', 'Investment.', 'Ottawa.', 'Precision.', 'Progress.'];
+  const words = ['Residential.', 'Commercial.', 'Investment.', 'Ottawa.', 'Results.'];
   let wi = 0, ci = 0, del = false;
   const el = document.getElementById('typed');
   function type() { const w = words[wi]; if (!del) { el.textContent = w.substring(0, ++ci); if (ci === w.length) { del = true; setTimeout(type, 2400); return; } setTimeout(type, 95); } else { el.textContent = w.substring(0, --ci); if (ci === 0) { del = false; wi = (wi + 1) % words.length; setTimeout(type, 500); return; } setTimeout(type, 48); } }
