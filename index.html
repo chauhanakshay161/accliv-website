@@ -99,10 +99,9 @@
     .hero-overlay { position: absolute; inset: 0; background: rgba(8,15,30,0.60); }
     .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 2rem; }
     .hero-brand { font-family: var(--serif); font-size: clamp(3rem, 9vw, 9rem); font-weight: 200; line-height: 1; color: var(--white); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 2rem; }
-    .hero-services { display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-    .hero-services a { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255,255,255,0.58); transition: color 0.22s; }
-    .hero-services a:hover { color: var(--white); }
-    .hero-dot { color: var(--gold); font-size: 0.45rem; line-height: 1; }
+    .hero-services { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.25rem; }
+    .hero-services a { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.35); padding: 0.55rem 1.4rem; border-radius: 2px; transition: background 0.22s, border-color 0.22s, color 0.22s; }
+    .hero-services a:hover { background: rgba(255,255,255,0.1); border-color: var(--gold); color: var(--gold); }
 
     /* ── STATS GRID ── */
     #stats { background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.06); }
@@ -299,12 +298,10 @@
     <h1 class="hero-brand">Accliv Group</h1>
     <div class="hero-services">
       <a href="services.html">Buy</a>
-      <span class="hero-dot">·</span>
       <a href="services.html">Sell</a>
-      <span class="hero-dot">·</span>
+      <a href="services.html">Rent</a>
+      <a href="services.html">Manage</a>
       <a href="services.html">Invest</a>
-      <span class="hero-dot">·</span>
-      <a href="services.html#srv-commercial">Commercial</a>
     </div>
   </div>
 </section>
