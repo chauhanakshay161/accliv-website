@@ -28,6 +28,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"RealEstateAgent","@id":"https://acclivgroup.com/#business","name":"Accliv Group","url":"https://acclivgroup.com","telephone":"+16130000000","email":"info@acclivgroup.com","address":{"@type":"PostalAddress","addressLocality":"Ottawa","addressRegion":"ON","addressCountry":"CA"},"areaServed":["Ottawa","Barrhaven","Kanata","Westboro","Glebe","Nepean","Orleans","Stittsville","Manotick","Riverside South"]},{"@type":"Service","name":"Ottawa Real Estate, Buying & Selling","provider":{"@id":"https://acclivgroup.com/#business"},"serviceType":"Real Estate Representation","areaServed":{"@type":"City","name":"Ottawa"},"description":"Buyer and seller representation in Ottawa real estate. Market research, offer negotiation, and end-to-end transaction management."},{"@type":"Service","name":"Ottawa Property Investment Advisory","provider":{"@id":"https://acclivgroup.com/#business"},"serviceType":"Investment Advisory","areaServed":{"@type":"City","name":"Ottawa"},"description":"Investment property identification, cash flow analysis, ROI modelling, and long-term portfolio strategy for Ottawa real estate."}]}
   </script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -40,7 +41,7 @@
     .eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0;}
     .btn{display:inline-flex;align-items:center;gap:0.55rem;font-family:var(--sans);font-size:0.74rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.95rem 2rem;border-radius:2px;cursor:pointer;border:none;}
     .btn-gold{background:var(--gold);color:var(--navy);}.btn-gold:hover{background:var(--gold2);}
-    .btn-dark{background:transparent;color:var(--navy);border:1px solid rgba(13,31,60,0.2);}.btn-dark:hover{border-color:var(--gold);color:var(--gold);}
+    .btn-dark{background:transparent;color:var(--gold);border:1px solid rgba(184,146,45,0.4);}.btn-dark:hover{border-color:var(--gold);background:rgba(184,146,45,0.08);}
     .btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.25);}.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
 
     #navbar{position:fixed;top:0;left:0;right:0;z-index:999;padding:1.4rem 0;transition:background 0.4s,padding 0.4s,box-shadow 0.4s;}
@@ -353,86 +354,11 @@
 <section id="nhood-map">
   <div class="container">
     <div class="map-toggle">
-      <button class="map-tab active" onclick="this.classList.add('active');this.nextElementSibling.classList.remove('active');">Map View</button>
-      <button class="map-tab" onclick="this.classList.add('active');this.previousElementSibling.classList.remove('active');window.location.hash='neighbourhoods';">Grid View</button>
+      <button class="map-tab active">Map View</button>
+      <button class="map-tab" onclick="window.location.hash='neighbourhoods';">Grid View</button>
     </div>
-    <div class="map-wrap reveal">
-      <div class="map-tip" id="mapTip"><span class="map-tip-name"></span><span class="map-tip-price"></span></div>
-      <svg class="map-svg" viewBox="0 0 860 600" role="img" aria-label="Interactive map of Ottawa neighbourhoods served by Accliv Group" xmlns="http://www.w3.org/2000/svg">
-        <!-- Background -->
-        <rect x="0" y="0" width="860" height="600" fill="#070e1a"/>
-        <!-- Subtle grid -->
-        <defs><pattern id="mg" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(184,146,45,0.04)" stroke-width="1"/></pattern></defs>
-        <rect width="860" height="600" fill="url(#mg)"/>
-        <!-- Ottawa River -->
-        <path d="M -10,55 C 80,32 180,62 300,46 C 420,30 540,56 660,42 C 760,30 820,52 880,40 L 880,90 C 800,104 680,84 565,98 C 445,112 325,90 210,104 C 105,117 38,94 -10,108 Z" fill="#0d2245"/>
-        <text x="430" y="72" text-anchor="middle" fill="rgba(80,120,200,0.45)" font-size="9" font-family="Inter,sans-serif" font-weight="600" letter-spacing="4">OTTAWA RIVER</text>
-        <!-- Rideau River (subtle) -->
-        <path d="M 486,192 Q 476,275 464,348 Q 453,418 446,478" stroke="rgba(30,90,170,0.3)" stroke-width="3" fill="none" stroke-dasharray="6,4"/>
-        <!-- Downtown reference -->
-        <polygon points="400,98 485,95 492,205 407,214" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-        <text x="445" y="162" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="8.5" font-family="Inter,sans-serif" font-weight="600" letter-spacing="2">DOWNTOWN</text>
-        <!-- KANATA -->
-        <g class="n-zone" data-name="Kanata" data-price="$600K–$1M" data-url="kanata.html">
-          <polygon class="n-fill" points="22,92 205,90 216,162 226,308 164,336 22,314" fill="rgba(184,146,45,0.09)" stroke="rgba(184,146,45,0.22)" stroke-width="1"/>
-          <text class="map-label" x="112" y="208" text-anchor="middle">KANATA</text>
-          <text class="map-label-sub" x="112" y="223" text-anchor="middle">$600K–$1M</text>
-        </g>
-        <!-- STITTSVILLE -->
-        <g class="n-zone" data-name="Stittsville" data-price="$550K–$800K" data-url="stittsville.html">
-          <polygon class="n-fill" points="22,318 200,307 208,432 22,445" fill="rgba(184,146,45,0.09)" stroke="rgba(184,146,45,0.22)" stroke-width="1"/>
-          <text class="map-label" x="108" y="373" text-anchor="middle">STITTSVILLE</text>
-          <text class="map-label-sub" x="108" y="388" text-anchor="middle">$550K–$800K</text>
-        </g>
-        <!-- NEPEAN -->
-        <g class="n-zone" data-name="Nepean" data-price="$550K–$850K" data-url="nepean.html">
-          <polygon class="n-fill" points="220,165 304,162 316,388 226,400" fill="rgba(184,146,45,0.09)" stroke="rgba(184,146,45,0.22)" stroke-width="1"/>
-          <text class="map-label" x="264" y="278" text-anchor="middle">NEPEAN</text>
-          <text class="map-label-sub" x="264" y="293" text-anchor="middle">$550K–$850K</text>
-        </g>
-        <!-- WESTBORO -->
-        <g class="n-zone" data-name="Westboro" data-price="$700K–$1.4M" data-url="westboro.html">
-          <polygon class="n-fill" points="306,95 400,92 408,210 312,218" fill="rgba(184,146,45,0.09)" stroke="rgba(184,146,45,0.22)" stroke-width="1"/>
-          <text class="map-label" x="355" y="148" text-anchor="middle">WESTBORO</text>
-          <text class="map-label-sub" x="355" y="163" text-anchor="middle">$700K–$1.4M</text>
-        </g>
-        <!-- GLEBE -->
-        <g class="n-zone" data-name="The Glebe" data-price="$900K–$2M+" data-url="glebe.html">
-          <polygon class="n-fill" points="421,98 490,95 498,240 428,250" fill="rgba(184,146,45,0.09)" stroke="rgba(184,146,45,0.22)" stroke-width="1"/>
-          <text class="map-label" x="458" y="172" text-anchor="middle">THE GLEBE</text>
-          <text class="map-label-sub" x="458" y="187" text-anchor="middle">$900K–$2M+</text>
-        </g>
-        <!-- ORLEANS -->
-        <g class="n-zone" data-name="Orleans" data-price="$500K–$750K" data-url="orleans.html">
-          <polygon class="n-fill" points="656,92 844,90 850,308 662,316" fill="rgba(184,146,45,0.09)" stroke="rgba(184,146,45,0.22)" stroke-width="1"/>
-          <text class="map-label" x="750" y="196" text-anchor="middle">ORLEANS</text>
-          <text class="map-label-sub" x="750" y="211" text-anchor="middle">$500K–$750K</text>
-        </g>
-        <!-- BARRHAVEN -->
-        <g class="n-zone" data-name="Barrhaven" data-price="$550K–$850K" data-url="barrhaven.html">
-          <polygon class="n-fill" points="172,412 336,402 343,550 177,560" fill="rgba(184,146,45,0.09)" stroke="rgba(184,146,45,0.22)" stroke-width="1"/>
-          <text class="map-label" x="256" y="480" text-anchor="middle">BARRHAVEN</text>
-          <text class="map-label-sub" x="256" y="495" text-anchor="middle">$550K–$850K</text>
-        </g>
-        <!-- RIVERSIDE SOUTH -->
-        <g class="n-zone" data-name="Riverside South" data-price="$550K–$800K" data-url="riverside-south.html">
-          <polygon class="n-fill" points="343,414 454,407 460,550 349,558" fill="rgba(184,146,45,0.09)" stroke="rgba(184,146,45,0.22)" stroke-width="1"/>
-          <text class="map-label" x="400" y="476" text-anchor="middle">RIVERSIDE</text>
-          <text class="map-label" x="400" y="490" text-anchor="middle">SOUTH</text>
-          <text class="map-label-sub" x="400" y="505" text-anchor="middle">$550K–$800K</text>
-        </g>
-        <!-- MANOTICK -->
-        <g class="n-zone" data-name="Manotick" data-price="$700K–$2M+" data-url="manotick.html">
-          <polygon class="n-fill" points="356,562 454,555 460,598 361,602" fill="rgba(184,146,45,0.09)" stroke="rgba(184,146,45,0.22)" stroke-width="1"/>
-          <text class="map-label" x="408" y="583" text-anchor="middle">MANOTICK</text>
-          <text class="map-label-sub" x="408" y="596" text-anchor="middle">$700K–$2M+</text>
-        </g>
-        <!-- Compass -->
-        <text x="826" y="548" fill="rgba(255,255,255,0.18)" font-size="11" text-anchor="middle" font-family="Inter,sans-serif" font-weight="500" letter-spacing="1">N ↑</text>
-        <text x="826" y="562" fill="rgba(255,255,255,0.1)" font-size="8" text-anchor="middle" font-family="Inter,sans-serif" letter-spacing="1">OTTAWA</text>
-      </svg>
-    </div>
-    <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;letter-spacing:0.05em;">Click any neighbourhood to open its full real estate guide. Boundaries are approximate.</p>
+    <div id="leaflet-map" style="height:560px;width:100%;border-radius:4px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.18);"></div>
+    <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;letter-spacing:0.05em;">Click any marker to open the neighbourhood guide. Scroll or pinch to zoom. Map data &copy; OpenStreetMap contributors.</p>
   </div>
 </section>
 
@@ -562,6 +488,73 @@
       z.addEventListener('click',()=>{window.location.href=z.dataset.url;});
     });
   }
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLs=" crossorigin=""></script>
+<style>
+  /* Leaflet map popup styling to match brand */
+  .leaflet-popup-content-wrapper{border-radius:3px;box-shadow:0 8px 30px rgba(0,0,0,0.18);border:1px solid rgba(184,146,45,0.25);padding:0;}
+  .leaflet-popup-content{margin:0;padding:0;}
+  .ac-popup{padding:1.25rem 1.4rem;min-width:190px;}
+  .ac-popup-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-weight:500;color:#0d1f3c;display:block;margin-bottom:0.2rem;}
+  .ac-popup-price{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#b8922d;margin-bottom:0.3rem;display:block;}
+  .ac-popup-desc{font-size:0.82rem;color:#3c5068;line-height:1.55;margin-bottom:0.85rem;}
+  .ac-popup-link{display:inline-flex;align-items:center;gap:0.4rem;font-family:'Inter',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0d1f3c;background:#b8922d;padding:0.5rem 1rem;border-radius:2px;text-decoration:none;}
+  .ac-popup-link:hover{background:#cc9e3e;}
+  .leaflet-popup-tip{background:#fff;}
+  /* Dark tile filter for brand consistency */
+  .leaflet-tile{filter:brightness(0.92) saturate(0.85);}
+</style>
+<script>
+  // Initialize Leaflet map centred on Ottawa
+  var ottawaMap = L.map('leaflet-map', {
+    center: [45.37, -75.72],
+    zoom: 11,
+    scrollWheelZoom: true,
+    zoomControl: true
+  });
+
+  // OpenStreetMap tiles — no API key required
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+  }).addTo(ottawaMap);
+
+  // Custom gold marker icon
+  var goldIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:14px;height:14px;background:#b8922d;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.35);"></div>',
+    iconSize: [14, 14],
+    iconAnchor: [7, 7],
+    popupAnchor: [0, -12]
+  });
+
+  // Ottawa neighbourhoods with exact coordinates
+  var areas = [
+    {name:'Westboro', lat:45.3930, lng:-75.7548, price:'$700K–$1.4M', desc:'Urban village, walkable, LRT access', url:'westboro.html'},
+    {name:'Barrhaven', lat:45.2835, lng:-75.7395, price:'$550K–$850K', desc:'Family suburb, newer builds, value', url:'barrhaven.html'},
+    {name:'Kanata', lat:45.3073, lng:-75.8940, price:'$600K–$1M', desc:'Tech hub, strong rental demand', url:'kanata.html'},
+    {name:'The Glebe', lat:45.4044, lng:-75.6881, price:'$900K–$2M+', desc:'Historic, canal-side, premium', url:'glebe.html'},
+    {name:'Orleans', lat:45.4626, lng:-75.5099, price:'$500K–$750K', desc:'Bilingual community, east Ottawa', url:'orleans.html'},
+    {name:'Nepean', lat:45.3468, lng:-75.7527, price:'$550K–$850K', desc:'Established, central, diverse', url:'nepean.html'},
+    {name:'Stittsville', lat:45.2556, lng:-75.9222, price:'$550K–$800K', desc:'Village feel, new builds', url:'stittsville.html'},
+    {name:'Manotick', lat:45.2255, lng:-75.6873, price:'$700K–$2M+', desc:'Village luxury, Rideau River', url:'manotick.html'},
+    {name:'Riverside South', lat:45.2637, lng:-75.6614, price:'$550K–$800K', desc:'Fast-growing, LRT coming', url:'riverside-south.html'}
+  ];
+
+  areas.forEach(function(a) {
+    var marker = L.marker([a.lat, a.lng], {icon: goldIcon}).addTo(ottawaMap);
+    var popupHTML =
+      '<div class="ac-popup">' +
+      '<span class="ac-popup-name">' + a.name + '</span>' +
+      '<span class="ac-popup-price">' + a.price + '</span>' +
+      '<div class="ac-popup-desc">' + a.desc + '</div>' +
+      '<a href="' + a.url + '" class="ac-popup-link">View Guide &rarr;</a>' +
+      '</div>';
+    marker.bindPopup(popupHTML, {maxWidth: 240, closeButton: false});
+    marker.on('mouseover', function() { this.openPopup(); });
+    marker.on('click', function() { window.location.href = a.url; });
+  });
 </script>
 </body>
 </html>
