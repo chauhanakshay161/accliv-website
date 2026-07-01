@@ -357,7 +357,9 @@
       <button class="map-tab active">Map View</button>
       <button class="map-tab" onclick="window.location.hash='neighbourhoods';">Grid View</button>
     </div>
-    <div id="leaflet-map" style="height:560px;width:100%;border-radius:4px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.18);"></div>
+    <div style="border-radius:4px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.18);">
+      <div id="leaflet-map" style="height:560px;width:100%;"></div>
+    </div>
     <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;letter-spacing:0.05em;">Click any marker to open the neighbourhood guide. Scroll or pinch to zoom. Map data &copy; OpenStreetMap contributors.</p>
   </div>
 </section>
@@ -490,71 +492,79 @@
   }
 </script>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLs=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-  /* Leaflet map popup styling to match brand */
   .leaflet-popup-content-wrapper{border-radius:3px;box-shadow:0 8px 30px rgba(0,0,0,0.18);border:1px solid rgba(184,146,45,0.25);padding:0;}
   .leaflet-popup-content{margin:0;padding:0;}
-  .ac-popup{padding:1.25rem 1.4rem;min-width:190px;}
+  .ac-popup{padding:1.25rem 1.4rem;min-width:195px;}
   .ac-popup-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;font-weight:500;color:#0d1f3c;display:block;margin-bottom:0.2rem;}
-  .ac-popup-price{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#b8922d;margin-bottom:0.3rem;display:block;}
-  .ac-popup-desc{font-size:0.82rem;color:#3c5068;line-height:1.55;margin-bottom:0.85rem;}
-  .ac-popup-link{display:inline-flex;align-items:center;gap:0.4rem;font-family:'Inter',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0d1f3c;background:#b8922d;padding:0.5rem 1rem;border-radius:2px;text-decoration:none;}
+  .ac-popup-price{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#b8922d;margin-bottom:0.35rem;display:block;}
+  .ac-popup-desc{font-size:0.82rem;color:#3c5068;line-height:1.55;margin-bottom:0.9rem;}
+  .ac-popup-link{display:inline-block;font-family:'Inter',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0d1f3c;background:#b8922d;padding:0.5rem 1rem;border-radius:2px;text-decoration:none;}
   .ac-popup-link:hover{background:#cc9e3e;}
-  .leaflet-popup-tip{background:#fff;}
-  /* Dark tile filter for brand consistency */
-  .leaflet-tile{filter:brightness(0.92) saturate(0.85);}
+  .leaflet-popup-tip-container{display:none;}
+  .leaflet-tile-pane{filter:brightness(0.9) saturate(0.8);}
+  .leaflet-container{font-family:'Inter',system-ui,sans-serif;}
 </style>
 <script>
-  // Initialize Leaflet map centred on Ottawa
+window.addEventListener('load', function() {
+  var mapEl = document.getElementById('leaflet-map');
+  if (!mapEl || typeof L === 'undefined') return;
+
   var ottawaMap = L.map('leaflet-map', {
-    center: [45.37, -75.72],
+    center: [45.375, -75.72],
     zoom: 11,
-    scrollWheelZoom: true,
-    zoomControl: true
+    scrollWheelZoom: false,
+    zoomControl: true,
+    attributionControl: true
   });
 
-  // OpenStreetMap tiles — no API key required
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom: 18
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+    maxZoom: 18,
+    crossOrigin: true
   }).addTo(ottawaMap);
 
-  // Custom gold marker icon
-  var goldIcon = L.divIcon({
-    className: '',
-    html: '<div style="width:14px;height:14px;background:#b8922d;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.35);"></div>',
-    iconSize: [14, 14],
-    iconAnchor: [7, 7],
-    popupAnchor: [0, -12]
+  ottawaMap.on('click', function() {
+    ottawaMap.scrollWheelZoom.enable();
   });
 
-  // Ottawa neighbourhoods with exact coordinates
+  var goldIcon = L.divIcon({
+    className: 'ac-marker',
+    html: '<div style="width:16px;height:16px;background:#b8922d;border:2.5px solid #fff;border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,0.4);cursor:pointer;"></div>',
+    iconSize: [16, 16],
+    iconAnchor: [8, 8],
+    popupAnchor: [0, -14]
+  });
+
   var areas = [
     {name:'Westboro', lat:45.3930, lng:-75.7548, price:'$700K–$1.4M', desc:'Urban village, walkable, LRT access', url:'westboro.html'},
-    {name:'Barrhaven', lat:45.2835, lng:-75.7395, price:'$550K–$850K', desc:'Family suburb, newer builds, value', url:'barrhaven.html'},
-    {name:'Kanata', lat:45.3073, lng:-75.8940, price:'$600K–$1M', desc:'Tech hub, strong rental demand', url:'kanata.html'},
-    {name:'The Glebe', lat:45.4044, lng:-75.6881, price:'$900K–$2M+', desc:'Historic, canal-side, premium', url:'glebe.html'},
+    {name:'Barrhaven', lat:45.2835, lng:-75.7395, price:'$550K–$850K', desc:'Family suburb, newer builds, great value', url:'barrhaven.html'},
+    {name:'Kanata', lat:45.3073, lng:-75.8940, price:'$600K–$1M', desc:'Tech corridor, strong rental demand', url:'kanata.html'},
+    {name:'The Glebe', lat:45.4044, lng:-75.6881, price:'$900K–$2M+', desc:'Historic, canal-side, premium pricing', url:'glebe.html'},
     {name:'Orleans', lat:45.4626, lng:-75.5099, price:'$500K–$750K', desc:'Bilingual community, east Ottawa', url:'orleans.html'},
     {name:'Nepean', lat:45.3468, lng:-75.7527, price:'$550K–$850K', desc:'Established, central, diverse', url:'nepean.html'},
-    {name:'Stittsville', lat:45.2556, lng:-75.9222, price:'$550K–$800K', desc:'Village feel, new builds', url:'stittsville.html'},
-    {name:'Manotick', lat:45.2255, lng:-75.6873, price:'$700K–$2M+', desc:'Village luxury, Rideau River', url:'manotick.html'},
-    {name:'Riverside South', lat:45.2637, lng:-75.6614, price:'$550K–$800K', desc:'Fast-growing, LRT coming', url:'riverside-south.html'}
+    {name:'Stittsville', lat:45.2556, lng:-75.9222, price:'$550K–$800K', desc:'Village feel, active new builds', url:'stittsville.html'},
+    {name:'Manotick', lat:45.2255, lng:-75.6873, price:'$700K–$2M+', desc:'Village luxury on the Rideau River', url:'manotick.html'},
+    {name:'Riverside South', lat:45.2637, lng:-75.6614, price:'$550K–$800K', desc:'Fast-growing, LRT coming soon', url:'riverside-south.html'}
   ];
 
   areas.forEach(function(a) {
-    var marker = L.marker([a.lat, a.lng], {icon: goldIcon}).addTo(ottawaMap);
-    var popupHTML =
+    var marker = L.marker([a.lat, a.lng], {icon: goldIcon, title: a.name}).addTo(ottawaMap);
+    marker.bindPopup(
       '<div class="ac-popup">' +
-      '<span class="ac-popup-name">' + a.name + '</span>' +
-      '<span class="ac-popup-price">' + a.price + '</span>' +
-      '<div class="ac-popup-desc">' + a.desc + '</div>' +
-      '<a href="' + a.url + '" class="ac-popup-link">View Guide &rarr;</a>' +
-      '</div>';
-    marker.bindPopup(popupHTML, {maxWidth: 240, closeButton: false});
-    marker.on('mouseover', function() { this.openPopup(); });
-    marker.on('click', function() { window.location.href = a.url; });
+        '<span class="ac-popup-name">' + a.name + '</span>' +
+        '<span class="ac-popup-price">' + a.price + '</span>' +
+        '<div class="ac-popup-desc">' + a.desc + '</div>' +
+        '<a href="' + a.url + '" class="ac-popup-link">View Area Guide &rarr;</a>' +
+      '</div>',
+      {maxWidth: 250, minWidth: 210, closeButton: true, autoClose: false}
+    );
+    marker.on('click', function() { this.openPopup(); });
   });
+
+  setTimeout(function() { ottawaMap.invalidateSize(); }, 300);
+});
 </script>
 </body>
 </html>
