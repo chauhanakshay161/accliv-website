@@ -163,10 +163,6 @@
     .reveal.d1{transition-delay:0.1s;}.reveal.d2{transition-delay:0.2s;}.reveal.d3{transition-delay:0.3s;}.reveal.d4{transition-delay:0.4s;}
     .reveal.rl{transform:translateX(-34px);}.reveal.rr{transform:translateX(34px);}
     .reveal.rl.visible,.reveal.rr.visible{transform:translateX(0);}
-    .nav-links a{position:relative;}
-    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:50%;right:50%;height:1px;background:var(--gold);transition:left 0.3s ease,right 0.3s ease;}
-    .nav-links a:hover::after,.nav-links a.active::after{left:0;right:0;}
-    .nav-cta::after{display:none!important;}
     .btn-gold{position:relative;overflow:hidden;}
     .btn-gold::before{content:'';position:absolute;top:0;left:-110%;width:55%;height:100%;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,0.28) 50%,transparent 80%);transform:skewX(-20deg);transition:left 0.55s ease;pointer-events:none;}
     .btn-gold:hover::before{left:170%;}
@@ -176,25 +172,7 @@
     .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,146,45,0.12);}
     .c-row{transition:transform 0.25s ease;}
     .c-row:hover{transform:translateX(5px);}
-    .logo-ring{transition:transform 0.4s ease,box-shadow 0.4s ease;}
-    .nav-logo:hover .logo-ring{transform:rotate(15deg);box-shadow:0 0 18px rgba(184,146,45,0.35);}
-      /* COMPACT FOOTER */
-    #footer{background:#070e1a;padding:1.75rem 0;border-top:1px solid rgba(184,146,45,0.1);}
-    .foot-compact{display:grid;grid-template-columns:1fr auto 1fr;gap:3rem;align-items:center;}
-    .foot-brand-area{}.foot-primary-logo{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;}
-    .logo-ring-sm{width:30px;height:30px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:0.68rem;font-weight:600;color:var(--gold);flex-shrink:0;}
-    .foot-brand-nm{font-family:var(--serif);font-size:1rem;font-weight:500;color:var(--white);letter-spacing:0.06em;}.foot-brand-nm em{color:var(--gold);font-style:normal;}
-    .foot-emp-by{display:flex;flex-direction:column;gap:0.04rem;padding-left:0.15rem;}
-    .foot-emp-label{font-size:0.54rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.24);}
-    .foot-rlp{font-size:0.7rem;color:rgba(255,255,255,0.42);transition:color 0.2s;}.foot-rlp:hover{color:var(--gold);}
-    .foot-nav{display:flex;flex-wrap:wrap;gap:0.5rem 1.2rem;justify-content:center;}
-    .foot-nav a{font-size:0.67rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.38);transition:color 0.2s;}.foot-nav a:hover{color:var(--gold);}
-    .foot-right{text-align:right;}
-    .foot-right p{font-size:0.68rem;color:rgba(138,154,181,0.38);}
-    .foot-right a{color:rgba(138,154,181,0.38);}.foot-right a:hover{color:var(--gold);}
-    .foot-reco{font-size:0.54rem;color:rgba(138,154,181,0.22);margin-top:0.3rem;line-height:1.55;}
-    @media(max-width:1024px){.foot-compact{grid-template-columns:1fr 1fr;gap:2rem;}.foot-right{text-align:left;grid-column:1/-1;}}
-    @media(max-width:768px){.foot-compact{grid-template-columns:1fr;gap:1.5rem;}.foot-nav{justify-content:flex-start;}}
+    .nav-logo:hover
   </style>
 </head>
 <body>
@@ -381,8 +359,6 @@
 </footer>
 <button id="btt" aria-label="Back to top"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 15l7-7 7 7" stroke-linecap="round"/></svg></button>
 <script>
-  const currentPage = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a=>{const h=a.getAttribute('href');if(h===currentPage||(currentPage===''&&h==='index.html'))a.classList.add('active');});
   const nav=document.getElementById('navbar'),btt=document.getElementById('btt');
   window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);btt.classList.toggle('on',window.scrollY>400);},{passive:true});
   btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));

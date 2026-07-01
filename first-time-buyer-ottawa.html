@@ -118,27 +118,9 @@
     @media(max-width:600px){.foot-grid{grid-template-columns:1fr;}.foot-bottom-inner{flex-direction:column;}.foot-reco{text-align:left;}}
 
     #btt{position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;background:var(--gold);color:var(--navy);border:none;border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;z-index:990;}#btt.on{opacity:1;pointer-events:all;}#btt:hover{background:var(--gold2);}
-    @keyframes bodyFade{from{opacity:0}to{opacity:1}}body{animation:bodyFade 0.5s ease both;}#sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;}
-    .nav-links a{position:relative;}.nav-links a::after{content:'';position:absolute;bottom:-3px;left:50%;right:50%;height:1px;background:var(--gold);transition:left 0.3s,right 0.3s;}.nav-links a:hover::after{left:0;right:0;}.nav-cta::after{display:none!important;}.logo-ring{transition:transform 0.4s,box-shadow 0.4s;}.nav-logo:hover .logo-ring{transform:rotate(15deg);box-shadow:0 0 18px rgba(184,146,45,0.35);}
+    @keyframes bodyFade{from{opacity:0}to{opacity:1}}body{animation:bodyFade 0.5s ease both;}#sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;}.nav-links a:hover::after{left:0;right:0;}.nav-logo:hover
     @media(max-width:1024px){.art-wrap{grid-template-columns:1fr;gap:4rem;}.art-side{position:static;}.related-grid{grid-template-columns:1fr 1fr;}.foot-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
     @media(max-width:768px){.related-grid{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr;}.foot-bottom{flex-direction:column;text-align:center;}}
-      /* COMPACT FOOTER */
-    #footer{background:#070e1a;padding:1.75rem 0;border-top:1px solid rgba(184,146,45,0.1);}
-    .foot-compact{display:grid;grid-template-columns:1fr auto 1fr;gap:3rem;align-items:center;}
-    .foot-brand-area{}.foot-primary-logo{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;}
-    .logo-ring-sm{width:30px;height:30px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:0.68rem;font-weight:600;color:var(--gold);flex-shrink:0;}
-    .foot-brand-nm{font-family:var(--serif);font-size:1rem;font-weight:500;color:var(--white);letter-spacing:0.06em;}.foot-brand-nm em{color:var(--gold);font-style:normal;}
-    .foot-emp-by{display:flex;flex-direction:column;gap:0.04rem;padding-left:0.15rem;}
-    .foot-emp-label{font-size:0.54rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.24);}
-    .foot-rlp{font-size:0.7rem;color:rgba(255,255,255,0.42);transition:color 0.2s;}.foot-rlp:hover{color:var(--gold);}
-    .foot-nav{display:flex;flex-wrap:wrap;gap:0.5rem 1.2rem;justify-content:center;}
-    .foot-nav a{font-size:0.67rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.38);transition:color 0.2s;}.foot-nav a:hover{color:var(--gold);}
-    .foot-right{text-align:right;}
-    .foot-right p{font-size:0.68rem;color:rgba(138,154,181,0.38);}
-    .foot-right a{color:rgba(138,154,181,0.38);}.foot-right a:hover{color:var(--gold);}
-    .foot-reco{font-size:0.54rem;color:rgba(138,154,181,0.22);margin-top:0.3rem;line-height:1.55;}
-    @media(max-width:1024px){.foot-compact{grid-template-columns:1fr 1fr;gap:2rem;}.foot-right{text-align:left;grid-column:1/-1;}}
-    @media(max-width:768px){.foot-compact{grid-template-columns:1fr;gap:1.5rem;}.foot-nav{justify-content:flex-start;}}
   </style>
 </head>
 <body>
@@ -359,8 +341,6 @@
 </footer>
 <button id="btt" aria-label="Back to top"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 15l7-7 7 7" stroke-linecap="round"/></svg></button>
 <script>
-  const currentPage = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a=>{const h=a.getAttribute('href');if(h===currentPage||(currentPage===''&&h==='index.html'))a.classList.add('active');});
   const nav=document.getElementById('navbar'),btt=document.getElementById('btt');
   window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);btt.classList.toggle('on',window.scrollY>400);},{passive:true});
   btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
