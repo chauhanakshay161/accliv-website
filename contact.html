@@ -371,11 +371,34 @@
   menuClose.addEventListener('click',closeMenu);
   document.querySelectorAll('.menu-nav a,.menu-secondary a').forEach(a=>a.addEventListener('click',closeMenu));
   const pg=location.pathname.split('/').pop()||'index.html';
-  document.querySelectorAll('.menu-nav a').forEach(a=>{if(a.getAttribute('href')===pg)a.classList.add('active');});})();
+  document.querySelectorAll('.menu-nav a').forEach(a=>{if(a.getAttribute('href')===pg)a.classList.add('active');});
   const sp=document.getElementById('sprog');
   window.addEventListener('scroll',()=>{if(sp)sp.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';},{passive:true});
   const ro=new IntersectionObserver((entries)=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
+  // Form submit
+  const FORM_ENDPOINT = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+  const cform = document.getElementById('cform');
+  const fok = document.getElementById('fok');
+  if (cform) {
+    cform.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = cform.querySelector('.f-btn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      const data = new FormData(cform);
+      const obj = {};
+      data.forEach((v, k) => obj[k] = v);
+      obj.source = 'contact-form';
+      if (FORM_ENDPOINT !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        fetch(FORM_ENDPOINT, { method: 'POST', body: JSON.stringify(obj) })
+          .then(() => { cform.style.display = 'none'; fok.style.display = 'block'; })
+          .catch(() => { btn.textContent = 'Send Message'; btn.disabled = false; alert('Something went wrong. Please email us directly at info@acclivgroup.com'); });
+      } else {
+        setTimeout(() => { cform.style.display = 'none'; fok.style.display = 'block'; }, 600);
+      }
+    });
+  }
 </script>
 </body>
 </html>
