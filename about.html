@@ -184,6 +184,29 @@
     .ottawa-grid:hover .ottawa-img-main{transform:scale(1.03);}
     @media(max-width:1024px){.ottawa-grid{grid-template-columns:1fr;gap:4rem;}}
     @media(max-width:768px){.values-list{grid-template-columns:1fr;}.v-item{border-right:none!important;}.v-item:nth-child(3){border-bottom:1px solid rgba(10,22,40,0.08)!important;}}
+    /* CREDENTIALS */
+    #credentials{padding:4rem 0;background:var(--navy);border-top:1px solid var(--border);}
+    .cred-inner{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;}
+    .cred-item{display:flex;align-items:center;gap:0.75rem;padding:1rem 2.5rem;border-right:1px solid rgba(255,255,255,0.07);}
+    .cred-item:last-child{border-right:none;}
+    .cred-icon{width:36px;height:36px;border:1px solid rgba(201,168,76,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .cred-text strong{display:block;font-size:0.78rem;font-weight:600;color:var(--white);margin-bottom:0.1rem;}
+    .cred-text span{font-size:0.68rem;color:var(--muted);}
+    /* VIDEO */
+    #video{padding:9rem 0;background:var(--off);}
+    .video-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+    .video-copy h2{font-family:var(--serif);font-size:clamp(2rem,3.2vw,2.8rem);font-weight:400;line-height:1.12;margin:0.5rem 0 1.25rem;}
+    .video-copy p{font-size:0.96rem;line-height:1.88;color:var(--dim);margin-bottom:1rem;}
+    .video-frame{position:relative;background:var(--navy);border-radius:4px;overflow:hidden;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;}
+    .video-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.5) saturate(0.6);}
+    .video-play{position:relative;z-index:2;text-align:center;}
+    .video-play-btn{width:72px;height:72px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;transition:background 0.3s,transform 0.3s;cursor:pointer;}
+    .video-play-btn:hover{background:rgba(201,168,76,0.15);transform:scale(1.08);}
+    .video-play-btn svg{margin-left:4px;}
+    .video-play-label{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+    .video-coming{font-size:0.78rem;color:var(--muted);margin-top:0.5rem;font-style:italic;}
+    @media(max-width:1024px){.video-inner{grid-template-columns:1fr;gap:3.5rem;}.cred-item{padding:0.9rem 1.5rem;}}
+    @media(max-width:600px){.cred-inner{flex-direction:column;gap:0;}.cred-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.07);width:100%;justify-content:center;}.cred-item:last-child{border-bottom:none;}}
     @keyframes bodyFade{from{opacity:0}to{opacity:1}}
     body{animation:bodyFade 0.5s ease both;}
     #sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear;}
@@ -280,6 +303,59 @@
         <div class="founder-sig-row">
           <img class="founder-sig-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Akshay Chauhan"/>
           <div><div class="founder-sig-name">Akshay Chauhan</div><div class="founder-sig-title">Founder &amp; Principal Advisor, Ottawa, Ontario</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credentials">
+  <div class="container">
+    <div class="cred-inner">
+      <div class="cred-item">
+        <div class="cred-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="cred-text"><strong>OREB Member</strong><span>Ottawa Real Estate Board</span></div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="cred-text"><strong>RECO Licensed</strong><span>Real Estate Council of Ontario</span></div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round"/></svg></div>
+        <div class="cred-text"><strong>Ottawa Specialist</strong><span>All Areas of Ottawa Served</span></div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.989-2.386l-.547-.547z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="cred-text"><strong>Engineering Background</strong><span>Analytical Approach to Property</span></div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="cred-text"><strong>Founder-Led</strong><span>Direct Access, Start to Close</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="container">
+    <div class="video-inner">
+      <div class="video-copy reveal rl">
+        <p class="eyebrow">Meet Akshay</p>
+        <h2>A 90-Second Introduction From the Founder</h2>
+        <p>Reading about someone's approach only gets you so far. This short video gives you a better sense of who Akshay is, how he thinks about Ottawa real estate, and what working with Accliv Group actually looks like.</p>
+        <p>It is the first step most prospective clients take before reaching out — and it is worth 90 seconds of your time.</p>
+        <a href="contact.html" class="btn btn-dark" style="margin-top:1rem;">Book a Conversation Instead <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="video-frame reveal rr">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Akshay Chauhan — Accliv Group Ottawa"/>
+        <div class="video-play">
+          <div class="video-play-btn" onclick="alert('Video coming soon. In the meantime, book a free call to speak directly with Akshay.')">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#c9a84c" stroke-width="1.5"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" fill="#c9a84c" stroke="none"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#c9a84c" stroke-width="1.5"/></svg>
+          </div>
+          <div class="video-play-label">Watch Introduction</div>
+          <div class="video-coming">Video upload in progress</div>
         </div>
       </div>
     </div>
@@ -398,7 +474,7 @@
         </div>
       </div>
       <div class="foot-col"><h5>Services</h5><ul><li><a href="services.html">Buy a Home</a></li><li><a href="services.html">Sell a Property</a></li><li><a href="services.html">Property Investment</a></li><li><a href="contact.html">Free Consultation</a></li></ul></div>
-      <div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Meet the Founder</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="buyer-guide.html">Buyer's Guide</a></li><li><a href="seller-guide.html">Seller's Guide</a></li><li><a href="market.html">Market Updates</a></li><li><a href="insights.html">Ottawa Insights</a></li><li><a href="resources.html">Free Downloads</a></li></ul></div><div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html">Meet the Founder</a></li><li><a href="listings.html">Active Listings</a></li><li><a href="reviews.html">Client Reviews</a></li></ul></div>
       <div class="foot-col"><h5>Contact</h5><ul><li><a href="mailto:info@acclivgroup.com">info@acclivgroup.com</a></li><li><a href="tel:+16130000000">+1 (613) 000-0000</a></li><li><a>Ottawa, Ontario</a></li><li><a href="contact.html">Work With Us</a></li></ul></div>
     </div>
     <div class="foot-bottom"><p class="foot-copy">&copy; 2024 Accliv Group. All rights reserved.</p><div class="foot-legal"><a href="privacy.html">Privacy</a><a href="privacy.html">Terms</a><a href="#">Disclaimer</a></div></div>
