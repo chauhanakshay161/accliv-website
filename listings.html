@@ -534,11 +534,16 @@
   const ham=document.getElementById('hamburger'),mob=document.getElementById('mobNav');
   ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':'';});
   document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+  var FORM_ENDPOINT='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
   function handleNotify(){
     const email=document.getElementById('nemail').value.trim();
-    if(!email||!email.includes('@'))return;
+    if(!email||!email.includes('@')){document.getElementById('nemail').style.borderColor='#e84545';return;}
     document.querySelector('.notify-form').style.display='none';
     document.getElementById('nok').style.display='block';
+    if(FORM_ENDPOINT==='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE')return;
+    var p=new URLSearchParams();
+    p.append('source','listing-notify');p.append('email',email);p.append('firstName','');
+    fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:p.toString()}).catch(function(){});
   }
   document.querySelectorAll('.listing-overlay .tag').forEach(t=>t.addEventListener('click',()=>{document.getElementById('nemail').focus();document.getElementById('honest').scrollIntoView({behavior:'smooth'});}));
   const sp=document.getElementById('sprog');

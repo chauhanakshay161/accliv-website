@@ -335,12 +335,18 @@
   window.addEventListener('scroll',()=>{if(sp)sp.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';},{passive:true});
   const ro=new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
+  var FORM_ENDPOINT='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+  var RESOURCE_SOURCES={form1:'resource-buyer',form2:'resource-seller',form3:'resource-invest'};
   function handleResource(formId, confirmId) {
     const form = document.getElementById(formId);
     const email = form.querySelector('input[type="email"]').value.trim();
     if (!email || !email.includes('@')) { form.querySelector('input').style.borderColor='#e84545'; return; }
     form.style.display = 'none';
     document.getElementById(confirmId).style.display = 'block';
+    if(FORM_ENDPOINT==='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE')return;
+    var p=new URLSearchParams();
+    p.append('source',RESOURCE_SOURCES[formId]||'resource');p.append('email',email);p.append('firstName','');
+    fetch(FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:p.toString()}).catch(function(){});
   }
   document.getElementById('nlForm').addEventListener('submit', e => {
     e.preventDefault();
