@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -35,9 +35,9 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #0d1f3c; --navy2: #0f2344; --white: #ffffff; --off: #f7f5f1;
-      --gold: #b8922d; --gold2: #cc9e3e; --muted: #8799b4; --dim: #3c5068;
-      --border: rgba(184,146,45,0.2);
+      --navy: #0d1f3c; --white: #ffffff; --off: #f5f4f1;
+      --gold: #b8922d; --gold2: #cc9e3e; --dim: #4a5568; --muted: #8799b4;
+      --border: rgba(184,146,45,0.18);
       --serif: 'Cormorant Garamond', Georgia, serif;
       --sans: 'Inter', system-ui, sans-serif;
     }
@@ -46,211 +46,228 @@
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
     ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-track { background: var(--off); }
     ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .eyebrow { font-size: 0.67rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-    .eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
-    .btn { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--sans); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.95rem 2rem; border-radius: 2px; cursor: pointer; border: none; }
-    .btn-gold { background: var(--gold); color: var(--navy); }
-    .btn-gold:hover { background: var(--gold2); }
-    .btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-    .btn-dark { background: transparent; color: var(--gold); border: 1px solid rgba(184,146,45,0.4); }
-    .btn-dark:hover { border-color: var(--gold); background: rgba(184,146,45,0.08); }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 2.5rem; }
+    .eyebrow { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
 
-    /* NAV */
-    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 999; padding: 1.4rem 0; transition: background 0.4s, padding 0.4s, box-shadow 0.4s; }
-    #navbar.scrolled { background: rgba(13,31,60,0.97); padding: 0.85rem 0; box-shadow: 0 4px 40px rgba(0,0,0,0.4); backdrop-filter: blur(16px); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: flex; align-items: center; gap: 0.8rem; }
-    .logo-ring { width: 44px; height: 44px; border: 1.5px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--gold); }
-    .logo-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; color: var(--white); letter-spacing: 0.06em; }
-    .logo-name em { color: var(--gold); font-style: normal; }
-    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-    .nav-links a { font-size: 0.73rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
-    .nav-links a:hover, .nav-links a.active { color: var(--white); }
-    .nav-cta { border: 1px solid var(--gold); color: var(--gold) !important; padding: 0.5rem 1.3rem; border-radius: 2px; }
-    .nav-cta:hover { background: var(--gold); color: var(--navy) !important; }
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: 0.76rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.9rem 2rem; cursor: pointer; border: none; transition: all 0.22s ease; border-radius: 2px; }
+    .btn-navy { background: var(--navy); color: var(--white); }
+    .btn-navy:hover { background: #182f56; }
+    .btn-gold { background: var(--gold); color: var(--white); }
+    .btn-gold:hover { background: var(--gold2); }
+    .btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.45); }
+    .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .btn-outline { background: transparent; color: var(--navy); border: 1px solid rgba(13,31,60,0.3); }
+    .btn-outline:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    /* ── NAV ── */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.07); transition: box-shadow 0.3s; }
+    #navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.09); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1; gap: 0.18rem; }
+    .nav-logo-main { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; color: var(--navy); letter-spacing: 0.05em; }
+    .nav-logo-main span { color: var(--gold); }
+    .nav-logo-sub { font-size: 0.53rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 2.4rem; list-style: none; }
+    .nav-links a { font-size: 0.74rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 50%; right: 50%; height: 1px; background: var(--gold); transition: left 0.25s, right 0.25s; }
+    .nav-links a:hover::after, .nav-links a.active::after { left: 0; right: 0; }
+    .nav-links a:hover, .nav-links a.active { color: var(--navy); }
+    .nav-cta { background: var(--navy); color: var(--white); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; padding: 0.62rem 1.5rem; border-radius: 2px; display: inline-block; transition: background 0.22s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mob-nav { display: none; position: fixed; inset: 0; background: var(--navy); z-index: 998; flex-direction: column; align-items: center; justify-content: center; gap: 2.2rem; }
+    .mob-nav { display: none; position: fixed; inset: 0; background: var(--white); z-index: 998; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
     .mob-nav.open { display: flex; }
-    .mob-nav a { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--white); }
+    .mob-nav a { font-family: var(--serif); font-size: 2.2rem; font-weight: 300; color: var(--navy); transition: color 0.2s; }
     .mob-nav a:hover { color: var(--gold); }
 
-    /* HERO */
-    #hero { position: relative; min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; background: var(--navy); overflow: hidden; }
-    .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,146,45,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,146,45,0.04) 1px, transparent 1px); background-size: 70px 70px; z-index: 1; }
-    .hero-left { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 9rem 4rem 8rem; }
-    .hero-right { position: relative; overflow: hidden; }
-    .hero-right-img { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1720050238968-0f591061438d?w=1200&q=85'); background-size: cover; background-position: center; }
-    .hero-right-grad { position: absolute; inset: 0; background: linear-gradient(to right, var(--navy) 0%, rgba(13,31,60,0.15) 50%, transparent 100%); }
-    .hero-h1 { font-family: var(--serif); font-size: clamp(3.8rem, 7vw, 9rem); font-weight: 300; line-height: 1; color: var(--white); margin-bottom: 0.5rem; }
-    .hero-h1 .typed-gold { color: var(--gold); font-style: italic; }
-    .cursor { display: inline-block; width: 2px; height: 0.82em; background: var(--gold); vertical-align: middle; margin-left: 4px; animation: blink 0.9s step-end infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-    .hero-sub { font-family: var(--serif); font-size: clamp(1rem, 1.6vw, 1.3rem); font-weight: 300; font-style: italic; color: rgba(255,255,255,0.4); margin-bottom: 3.5rem; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .hero-loc { font-size: 0.64rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-top: 3rem; }
+    /* ── HERO ── */
+    #hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1720050238968-0f591061438d?w=1600&q=85'); background-size: cover; background-position: center; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,31,60,0.62) 0%, rgba(13,31,60,0.5) 60%, rgba(13,31,60,0.72) 100%); }
+    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 820px; padding: 0 2rem; margin-top: 74px; }
+    .hero-eyebrow { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; display: block; }
+    .hero-h1 { font-family: var(--serif); font-size: clamp(3.2rem, 7vw, 6.5rem); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 1.25rem; }
+    .hero-sub { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.75); margin-bottom: 2.5rem; max-width: 540px; margin-left: auto; margin-right: auto; }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.45rem; z-index: 2; }
+    .hero-scroll-line { width: 1px; height: 46px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollAnim 2s ease-in-out infinite; }
+    .hero-scroll span { font-size: 0.58rem; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    @keyframes scrollAnim { 0%,100%{ opacity:0.4; transform:scaleY(0.75); } 50%{ opacity:1; transform:scaleY(1); } }
 
+    /* ── STATS GRID ── */
+    #stats { background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-item { padding: 3.5rem 2.5rem; border-right: 1px solid rgba(0,0,0,0.06); position: relative; transition: background 0.25s; }
+    .stat-item:last-child { border-right: none; }
+    .stat-item::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: transparent; transition: background 0.25s; }
+    .stat-item:hover::after { background: var(--gold); }
+    .stat-icon { width: 34px; height: 34px; color: var(--gold); margin-bottom: 1.2rem; }
+    .stat-number { font-family: var(--serif); font-size: 2.6rem; font-weight: 300; color: var(--navy); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.45rem; }
+    .stat-desc { font-size: 0.83rem; color: var(--dim); line-height: 1.65; }
 
-    /* SERVICES TEASER */
-    #services-teaser { padding: 10rem 0; background: var(--white); }
-    .teaser-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 4rem; margin-bottom: 3.5rem; }
-    .teaser-head-left { flex: 0 0 auto; }
-    .teaser-head h2 { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.0; margin-top: 0.5rem; }
-    .teaser-head p { font-size: 0.92rem; line-height: 1.85; color: var(--dim); max-width: 420px; }
-    .teaser-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
-    .tsr-card { position: relative; height: 500px; overflow: hidden; border-radius: 2px; display: flex; flex-direction: column; justify-content: flex-end; }
-    .tsr-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) saturate(0.8); }
-    .tsr-card-body { position: relative; z-index: 2; padding: 3rem; background: linear-gradient(to top, rgba(13,31,60,0.88) 0%, rgba(13,31,60,0.1) 60%, transparent 100%); }
-    .tsr-card-name { font-family: var(--serif); font-size: 2.6rem; font-weight: 300; color: var(--white); margin-bottom: 1.5rem; letter-spacing: 0.01em; }
+    /* ── OUR DIFFERENCE ── */
+    #difference { background: var(--off); padding: 9rem 0; }
+    .diff-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
+    .diff-left h2 { font-family: var(--serif); font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.1; color: var(--navy); margin: 0.5rem 0 1.5rem; }
+    .diff-left p { font-size: 0.93rem; line-height: 1.85; color: var(--dim); margin-bottom: 2rem; max-width: 440px; }
+    .diff-points { display: flex; flex-direction: column; gap: 2rem; }
+    .diff-point { display: flex; align-items: flex-start; gap: 1.25rem; }
+    .diff-check { width: 30px; height: 30px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; }
+    .diff-check svg { color: var(--gold); }
+    .diff-point-text h4 { font-family: var(--serif); font-size: 1.22rem; font-weight: 500; color: var(--navy); margin-bottom: 0.3rem; }
+    .diff-point-text p { font-size: 0.84rem; line-height: 1.72; color: var(--dim); }
 
-    /* MANIFESTO */
-    #manifesto { background: var(--navy); padding: 14rem 0; position: relative; overflow: hidden; text-align: center; }
-    .manifesto-inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
-    .mf-rule { width: 1px; height: 80px; background: linear-gradient(to bottom, transparent, var(--gold), transparent); margin: 0 auto 4rem; }
-    .mf-q { font-family: var(--serif); font-size: clamp(2.2rem, 5.5vw, 5rem); font-weight: 300; font-style: italic; color: var(--white); line-height: 1.25; margin-bottom: 2.5rem; }
-    .mf-q em { color: var(--gold); font-style: normal; }
-    .mf-attr { font-size: 0.64rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.2); }
+    /* ── FEATURED LISTINGS ── */
+    #featured { padding: 9rem 0; background: var(--white); }
+    .feat-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; gap: 2rem; flex-wrap: wrap; }
+    .feat-head h2 { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--navy); margin-top: 0.4rem; }
+    .listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .listing-card { background: var(--white); border: 1px solid rgba(0,0,0,0.09); border-radius: 3px; overflow: hidden; transition: box-shadow 0.3s, transform 0.3s; display: block; }
+    .listing-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.11); transform: translateY(-5px); }
+    .listing-img-wrap { position: relative; overflow: hidden; aspect-ratio: 3 / 2; }
+    .listing-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.55s ease; }
+    .listing-card:hover .listing-img-wrap img { transform: scale(1.05); }
+    .listing-tag { position: absolute; top: 1rem; left: 1rem; background: var(--navy); color: var(--white); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.28rem 0.7rem; border-radius: 2px; }
+    .listing-tag.gold { background: var(--gold); }
+    .listing-body { padding: 1.4rem 1.5rem 1.5rem; }
+    .listing-price { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; }
+    .listing-address { font-size: 0.83rem; color: var(--dim); margin-bottom: 0.9rem; }
+    .listing-details { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .listing-detail { font-size: 0.74rem; color: var(--muted); display: flex; align-items: center; gap: 0.35rem; }
 
-    /* ABOUT */
-    #about { padding: 11rem 0; background: var(--white); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center; }
-    .about-img-wrap { position: relative; }
-    .about-img-main { width: 100%; height: 560px; object-fit: cover; border-radius: 3px; }
-    .about-img-secondary { position: absolute; bottom: -2.5rem; right: -2.5rem; width: 190px; height: 190px; object-fit: cover; border-radius: 3px; border: 7px solid var(--white); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-    .about-gold-bar { position: absolute; top: 0; left: -1px; width: 3px; height: 80px; background: var(--gold); }
-    .about-copy h2 { font-family: var(--serif); font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 400; line-height: 1.12; color: var(--navy); margin: 0.5rem 0 1.5rem; }
-    .about-copy p { font-size: 0.96rem; line-height: 1.85; color: var(--dim); margin-bottom: 1.1rem; }
-    .divider { width: 40px; height: 1px; background: var(--gold); margin: 2rem 0; }
-    .founder-row { display: flex; align-items: center; gap: 1.2rem; }
-    .founder-img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
-    .founder-name { font-family: var(--serif); font-size: 1.1rem; color: var(--navy); font-weight: 500; }
-    .founder-title { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.07em; margin-top: 0.15rem; }
+    /* ── WORK WITH US ── */
+    #work-with-us { background: var(--navy); }
+    .wwu-intro { text-align: center; padding: 6rem 0 4rem; }
+    .wwu-intro .eyebrow { justify-content: center; color: var(--gold); }
+    .wwu-intro h2 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 300; color: var(--white); margin-top: 0.5rem; }
+    .wwu-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .wwu-tile { position: relative; overflow: hidden; height: 400px; display: flex; flex-direction: column; justify-content: flex-end; border-right: 1px solid rgba(255,255,255,0.07); }
+    .wwu-tile:last-child { border-right: none; }
+    .wwu-tile-bg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: brightness(0.38); transition: transform 0.65s cubic-bezier(0.22,1,0.36,1), filter 0.4s; }
+    .wwu-tile:hover .wwu-tile-bg { transform: scale(1.07); filter: brightness(0.3); }
+    .wwu-tile-body { position: relative; z-index: 2; padding: 2.5rem 2rem; }
+    .wwu-tile-num { font-family: var(--serif); font-size: 3.5rem; font-weight: 300; color: rgba(255,255,255,0.07); line-height: 1; margin-bottom: 0.2rem; }
+    .wwu-tile-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 300; color: var(--white); margin-bottom: 0.55rem; }
+    .wwu-tile-desc { font-size: 0.81rem; color: rgba(255,255,255,0.48); line-height: 1.65; margin-bottom: 1.3rem; }
+    .wwu-tile-link { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 0.4rem; }
+    .wwu-tile-link svg { transition: transform 0.2s; }
+    .wwu-tile:hover .wwu-tile-link svg { transform: translateX(4px); }
+    .wwu-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 4rem 0 5rem; text-align: center; }
+    .wwu-bottom p { color: rgba(255,255,255,0.42); font-size: 0.92rem; margin-bottom: 1.5rem; }
 
-    /* RESOURCES HUB */
-    #resources-hub{padding:10rem 0;background:var(--off);}
-    .rh-head{margin-bottom:4rem;}
-    .rh-head h2{font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:400;line-height:1.1;margin:0.5rem 0 1rem;}
-    .rh-head p{font-size:0.96rem;color:var(--dim);line-height:1.8;max-width:580px;}
-    .rh-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-    .rh-card{background:var(--white);border:1px solid rgba(13,31,60,0.07);border-radius:3px;padding:2rem;border-top:3px solid var(--gold);transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s;display:block;}
-    .rh-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.09);}
-    .rh-icon{width:40px;height:40px;border:1px solid rgba(184,146,45,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;background:rgba(184,146,45,0.05);}
-    .rh-title{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--navy);margin-bottom:0.4rem;line-height:1.2;}
-    .rh-desc{font-size:0.82rem;line-height:1.7;color:var(--dim);margin-bottom:0.8rem;}
-    .rh-link{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.4rem;}
-    @media(max-width:1024px){.rh-grid{grid-template-columns:1fr 1fr;}}
-    @media(max-width:600px){.rh-grid{grid-template-columns:1fr;}}
-    /* CTA */
-    #cta { position: relative; padding: 14rem 0; overflow: hidden; }
-    .cta-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1576616944191-51d3959ed5cc?w=1800&q=80'); background-size: cover; background-position: center; background-attachment: fixed; filter: brightness(0.25) saturate(0.5); }
-    .cta-inner { position: relative; z-index: 2; text-align: center; max-width: 680px; margin: 0 auto; }
-    .cta-inner .eyebrow { justify-content: center; }
-    .cta-inner h2 { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 300; color: var(--white); line-height: 1.1; margin: 0.75rem 0 1rem; }
-    .cta-inner h2 em { color: var(--gold); font-style: italic; }
-    .cta-inner p { font-size: 0.97rem; color: rgba(255,255,255,0.55); line-height: 1.85; margin-bottom: 2.5rem; }
+    /* ── RESOURCES HUB ── */
+    #resources-hub { padding: 9rem 0; background: var(--off); }
+    .rh-head { margin-bottom: 3.5rem; }
+    .rh-head h2 { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--navy); margin: 0.4rem 0 0.9rem; }
+    .rh-head p { font-size: 0.93rem; color: var(--dim); line-height: 1.8; max-width: 540px; }
+    .rh-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .rh-card { background: var(--white); border-radius: 3px; padding: 2rem; border-top: 3px solid var(--gold); transition: transform 0.3s, box-shadow 0.3s; display: block; }
+    .rh-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.09); }
+    .rh-icon { width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; background: rgba(184,146,45,0.05); }
+    .rh-title { font-family: var(--serif); font-size: 1.18rem; font-weight: 500; color: var(--navy); margin-bottom: 0.4rem; line-height: 1.2; }
+    .rh-desc { font-size: 0.82rem; line-height: 1.7; color: var(--dim); margin-bottom: 0.9rem; }
+    .rh-link { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 0.4rem; }
 
-    /* FOOTER */
-    #footer { background: #070e1a; padding: 5rem 0 2.5rem; }
-    .foot-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
-    .foot-brand-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; color: var(--white); letter-spacing: 0.06em; margin-bottom: 0.3rem; }
-    .foot-brand-name em { color: var(--gold); font-style: normal; }
-    .foot-tagline { font-family: var(--serif); font-size: 0.95rem; font-style: italic; color: var(--muted); line-height: 1.7; margin: 0.9rem 0 1.6rem; }
-    .soc-row { display: flex; gap: 0.65rem; }
-    .soc-link { width: 38px; height: 38px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--muted); }
-    .soc-link:hover { border-color: var(--gold); color: var(--gold); }
-    .foot-col h5 { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; }
-    .foot-col ul { list-style: none; }
-    .foot-col li { margin-bottom: 0.7rem; }
-    .foot-col a { font-size: 0.86rem; color: var(--muted); }
-    .foot-col a:hover { color: var(--white); }
-    .foot-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .foot-copy { font-size: 0.74rem; color: rgba(138,154,181,0.45); }
-    .foot-legal { display: flex; gap: 2rem; }
-    .foot-legal a { font-size: 0.74rem; color: rgba(138,154,181,0.45); }
-    .foot-legal a:hover { color: var(--gold); }
-    #btt { position: fixed; bottom: 2rem; right: 2rem; width: 42px; height: 42px; background: var(--gold); color: var(--navy); border: none; border-radius: 2px; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; pointer-events: none; z-index: 990; }
-    #btt.on { opacity: 1; pointer-events: all; }
-    #btt:hover { background: var(--gold2); }
+    /* ── FOOTER ── */
+    #footer { background: #070e1a; padding: 1.75rem 0; border-top: 1px solid rgba(184,146,45,0.1); }
+    .foot-compact { display: grid; grid-template-columns: 1fr auto 1fr; gap: 3rem; align-items: center; }
+    .foot-primary-logo { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+    .logo-ring-sm { width: 30px; height: 30px; border: 1.5px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 0.68rem; font-weight: 600; color: var(--gold); flex-shrink: 0; }
+    .foot-brand-nm { font-family: var(--serif); font-size: 1rem; font-weight: 500; color: var(--white); letter-spacing: 0.06em; }
+    .foot-brand-nm em { color: var(--gold); font-style: normal; }
+    .foot-emp-by { display: flex; flex-direction: column; gap: 0.04rem; padding-left: 0.15rem; }
+    .foot-emp-label { font-size: 0.54rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.24); }
+    .foot-rlp { font-size: 0.7rem; color: rgba(255,255,255,0.42); transition: color 0.2s; }
+    .foot-rlp:hover { color: var(--gold); }
+    .foot-nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; justify-content: center; }
+    .foot-nav a { font-size: 0.67rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.38); transition: color 0.2s; }
+    .foot-nav a:hover { color: var(--gold); }
+    .foot-right { text-align: right; }
+    .foot-right p { font-size: 0.68rem; color: rgba(138,154,181,0.38); }
+    .foot-right a { color: rgba(138,154,181,0.38); }
+    .foot-right a:hover { color: var(--gold); }
+    .foot-reco { font-size: 0.54rem; color: rgba(138,154,181,0.22); margin-top: 0.3rem; line-height: 1.55; }
 
-    @media (max-width: 1024px) {
-      #hero { grid-template-columns: 1fr; } .hero-right { display: none; } .hero-left { padding: 9rem 2rem 7rem; }
-      .teaser-head { flex-direction: column; align-items: flex-start; gap: 1.5rem; } .teaser-head p { max-width: 100%; } .teaser-cards { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 4rem; } .about-img-secondary { display: none; }
-      .foot-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    /* ── ANIMATIONS ── */
+    @keyframes bodyFade { from{opacity:0} to{opacity:1} }
+    body { animation: bodyFade 0.45s ease both; }
+    #sprog { position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear; }
+    .reveal { opacity:0;transform:translateY(26px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.visible { opacity:1;transform:translateY(0); }
+    .reveal.d1{transition-delay:0.1s;}.reveal.d2{transition-delay:0.2s;}.reveal.d3{transition-delay:0.3s;}.reveal.d4{transition-delay:0.4s;}
+    .reveal.rl{transform:translateX(-32px);}.reveal.rr{transform:translateX(32px);}
+    .reveal.rl.visible,.reveal.rr.visible{transform:translateX(0);}
+    #btt { position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;background:var(--gold);color:var(--white);border:none;border-radius:2px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;z-index:990;transition:opacity 0.3s,background 0.2s; }
+    #btt.on { opacity:1;pointer-events:all; }
+    #btt:hover { background:var(--gold2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .diff-inner { gap: 4rem; }
+      .wwu-grid { grid-template-columns: repeat(2,1fr); }
+      .wwu-tile { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .rh-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .stat-item { border-bottom: 1px solid rgba(0,0,0,0.06); }
+      .diff-inner { grid-template-columns: 1fr; gap: 3.5rem; }
+      .diff-left p { max-width: 100%; }
+      .listing-grid { grid-template-columns: repeat(2,1fr); }
+      .foot-compact { grid-template-columns: 1fr 1fr; }
+      .foot-right { text-align: left; grid-column: 1/-1; }
     }
     @media (max-width: 768px) {
-      .nav-links { display: none; } .hamburger { display: flex; }
-      .foot-grid { grid-template-columns: 1fr; } .foot-bottom { flex-direction: column; text-align: center; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .listing-grid { grid-template-columns: 1fr; }
+      .wwu-grid { grid-template-columns: 1fr; }
+      .rh-grid { grid-template-columns: 1fr; }
+      .feat-head { flex-direction: column; align-items: flex-start; }
+      .foot-compact { grid-template-columns: 1fr; gap: 1.5rem; }
+      .foot-nav { justify-content: flex-start; }
+      .foot-right { text-align: left; }
     }
-    @media (max-width: 500px) { .hero-btns { flex-direction: column; } .btn { width: 100%; justify-content: center; } }
-    /* == ANIMATIONS == */
-    @keyframes bodyFade{from{opacity:0}to{opacity:1}}
-    body{animation:bodyFade 0.5s ease both;}
-    #sprog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1001;pointer-events:none;transition:width 0.12s linear;}
-    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.75s cubic-bezier(0.22,1,0.36,1),transform 0.75s cubic-bezier(0.22,1,0.36,1);}
-    .reveal.visible{opacity:1;transform:translateY(0);}
-    .reveal.d1{transition-delay:0.1s;}.reveal.d2{transition-delay:0.2s;}.reveal.d3{transition-delay:0.3s;}.reveal.d4{transition-delay:0.4s;}
-    .reveal.rl{transform:translateX(-34px);}.reveal.rr{transform:translateX(34px);}
-    .reveal.rl.visible,.reveal.rr.visible{transform:translateX(0);}
-    .nav-links a{position:relative;}
-    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:50%;right:50%;height:1px;background:var(--gold);transition:left 0.3s ease,right 0.3s ease;}
-    .nav-links a:hover::after,.nav-links a.active::after{left:0;right:0;}
-    .nav-cta::after{display:none!important;}
-    .btn-gold{position:relative;overflow:hidden;}
-    .btn-gold::before{content:'';position:absolute;top:0;left:-110%;width:55%;height:100%;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,0.28) 50%,transparent 80%);transform:skewX(-20deg);transition:left 0.55s ease;pointer-events:none;}
-    .btn-gold:hover::before{left:170%;}
-    .tsr-card{transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),box-shadow 0.35s ease;}
-    .tsr-card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,0,0,0.18);}
-    .tsr-card img{transition:transform 0.65s cubic-bezier(0.22,1,0.36,1);}
-    .tsr-card:hover img{transform:scale(1.07);}
-    .logo-ring{transition:transform 0.4s ease,box-shadow 0.4s ease;}
-    .nav-logo:hover .logo-ring{transform:rotate(15deg);box-shadow:0 0 18px rgba(184,146,45,0.35);}
-    .about-img-wrap:hover .about-img-main{transform:scale(1.03);}
-    .about-img-main{transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);}
-      /* COMPACT FOOTER */
-    #footer{background:#070e1a;padding:1.75rem 0;border-top:1px solid rgba(184,146,45,0.1);}
-    .foot-compact{display:grid;grid-template-columns:1fr auto 1fr;gap:3rem;align-items:center;}
-    .foot-brand-area{}.foot-primary-logo{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;}
-    .logo-ring-sm{width:30px;height:30px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:0.68rem;font-weight:600;color:var(--gold);flex-shrink:0;}
-    .foot-brand-nm{font-family:var(--serif);font-size:1rem;font-weight:500;color:var(--white);letter-spacing:0.06em;}.foot-brand-nm em{color:var(--gold);font-style:normal;}
-    .foot-emp-by{display:flex;flex-direction:column;gap:0.04rem;padding-left:0.15rem;}
-    .foot-emp-label{font-size:0.54rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.24);}
-    .foot-rlp{font-size:0.7rem;color:rgba(255,255,255,0.42);transition:color 0.2s;}.foot-rlp:hover{color:var(--gold);}
-    .foot-nav{display:flex;flex-wrap:wrap;gap:0.5rem 1.2rem;justify-content:center;}
-    .foot-nav a{font-size:0.67rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.38);transition:color 0.2s;}.foot-nav a:hover{color:var(--gold);}
-    .foot-right{text-align:right;}
-    .foot-right p{font-size:0.68rem;color:rgba(138,154,181,0.38);}
-    .foot-right a{color:rgba(138,154,181,0.38);}.foot-right a:hover{color:var(--gold);}
-    .foot-reco{font-size:0.54rem;color:rgba(138,154,181,0.22);margin-top:0.3rem;line-height:1.55;}
-    @media(max-width:1024px){.foot-compact{grid-template-columns:1fr 1fr;gap:2rem;}.foot-right{text-align:left;grid-column:1/-1;}}
-    @media(max-width:768px){.foot-compact{grid-template-columns:1fr;gap:1.5rem;}.foot-nav{justify-content:flex-start;}}
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+    }
   </style>
 </head>
 <body>
 <div id="sprog"></div>
+
+<!-- NAV -->
 <nav id="navbar">
   <div class="container">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><div class="logo-ring">AC</div><div class="logo-name">Accliv <em>Group</em></div></a>
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-main">Accliv <span>Group</span></div>
+        <div class="nav-logo-sub">Ottawa Real Estate</div>
+      </a>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="listings.html">Listings</a></li>
         <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
       </ul>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <a href="contact.html" class="nav-cta">Book Consultation</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
+
 <nav class="mob-nav" id="mobNav">
   <a href="index.html" class="ml">Home</a>
   <a href="about.html" class="ml">About</a>
@@ -260,138 +277,239 @@
   <a href="contact.html" class="ml">Contact</a>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-left">
-    <h1 class="hero-h1">We Rise in<br><span class="typed-gold" id="typed"></span><span class="cursor"></span></h1>
-    <p class="hero-sub">Your foundation for everything next.</p>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Ottawa's Real Estate Advisory</span>
+    <h1 class="hero-h1">We Are<br>Accliv Group</h1>
+    <p class="hero-sub">Residential. Commercial. Investment. Our experienced team delivers precision-driven results across Ottawa's property market.</p>
     <div class="hero-btns">
-      <a href="services.html" class="btn btn-gold">Explore Services <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+      <a href="contact.html" class="btn btn-gold">Book a Free Consultation <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="services.html" class="btn btn-ghost">Our Services</a>
     </div>
-    <p class="hero-loc">Ottawa, Ontario</p>
   </div>
-  <div class="hero-right">
-    <div class="hero-right-img"></div>
-    <div class="hero-right-grad"></div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
   </div>
 </section>
 
-<section id="services-teaser">
+<!-- STATS GRID -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <svg class="stat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="stat-label">Our Team</div>
+      <div class="stat-desc">Experienced advisors with an engineering approach on every file, from first assessment to closing.</div>
+    </div>
+    <div class="stat-item reveal d1">
+      <svg class="stat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="stat-label">Recent Success</div>
+      <div class="stat-desc">Residential, commercial, and investment transactions closed across Ottawa neighbourhoods.</div>
+    </div>
+    <div class="stat-item reveal d2">
+      <svg class="stat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="stat-label">Client Reviews</div>
+      <div class="stat-desc">Five-star experiences from buyers, sellers, and investors throughout the Ottawa region.</div>
+    </div>
+    <div class="stat-item reveal d3">
+      <svg class="stat-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.3"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="stat-label">Ottawa &amp; Surrounding Area</div>
+      <div class="stat-desc">Deep coverage from Westboro to Barrhaven, Kanata to Orleans, and every pocket in between.</div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR DIFFERENCE -->
+<section id="difference">
   <div class="container">
-    <div class="teaser-head">
-      <div class="teaser-head-left reveal">
-        <p class="eyebrow">What We Do</p>
-        <h2>Residential.<br>Commercial.<br>Investment.</h2>
+    <div class="diff-inner">
+      <div class="diff-left reveal rl">
+        <span class="eyebrow">Our Difference</span>
+        <h2>Why Clients Choose Accliv Group</h2>
+        <p>Most agents follow the same playbook. We built a different one, grounded in data, structured process, and a professional network that opens doors others cannot.</p>
+        <a href="about.html" class="btn btn-outline">Learn About Us <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <p class="reveal d1" style="font-size:0.92rem;line-height:1.85;color:var(--dim);max-width:400px;padding-bottom:0.25rem;">Three service areas. One Ottawa standard. Our team covers every aspect of your transaction, backed by market knowledge built here and a professional network ready to move when you need it.</p>
-    </div>
-    <div class="teaser-cards">
-      <a href="services.html" class="tsr-card reveal d1">
-        <img src="https://images.unsplash.com/photo-1667930330697-cff20407f95e?w=900&q=85" alt="Real Estate, Ottawa" loading="lazy"/>
-        <div class="tsr-card-body">
-          <div class="tsr-card-name">Residential <svg style="display:inline-block;vertical-align:middle;margin-left:0.5rem;opacity:0.6;" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="diff-points reveal rr">
+        <div class="diff-point">
+          <div class="diff-check"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="diff-point-text">
+            <h4>Engineering-Grade Analysis</h4>
+            <p>Every transaction is modelled before a recommendation is made. Comparables, timing, and risk factors reviewed before any decision.</p>
+          </div>
         </div>
-      </a>
-      <a href="services.html#srv-commercial" class="tsr-card reveal d2">
-        <img src="https://images.unsplash.com/photo-1576616944191-51d3959ed5cc?w=900&q=85" alt="Commercial real estate Ottawa" loading="lazy"/>
-        <div class="tsr-card-body">
-          <div class="tsr-card-name">Commercial <svg style="display:inline-block;vertical-align:middle;margin-left:0.5rem;opacity:0.6;" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="diff-point">
+          <div class="diff-check"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="diff-point-text">
+            <h4>Deep Ottawa Market Knowledge</h4>
+            <p>Residential, commercial, and investment expertise built in Ottawa. Not just geography, actual market intelligence from the ground up.</p>
+          </div>
         </div>
-      </a>
-      <a href="services.html" class="tsr-card reveal d3">
-        <img src="https://images.unsplash.com/photo-1760140410958-6168e226b376?w=900&q=85" alt="Property Investment, Ottawa" loading="lazy"/>
-        <div class="tsr-card-body">
-          <div class="tsr-card-name">Investment <svg style="display:inline-block;vertical-align:middle;margin-left:0.5rem;opacity:0.6;" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="diff-point">
+          <div class="diff-check"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="diff-point-text">
+            <h4>Royal LePage Network Access</h4>
+            <p>Backed by one of Canada's most recognized brokerages and a network of 18,000+ agents worldwide. Our reach extends far beyond what any solo agent can offer.</p>
+          </div>
         </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="manifesto">
-  <div class="container">
-    <div class="manifesto-inner">
-      <div class="mf-rule"></div>
-      <p class="mf-q reveal">"Real estate isn't a transaction.<br>It's the foundation every <em>next chapter</em> is built on."</p>
-      <p class="mf-attr reveal d1">The Accliv Philosophy</p>
-      <div class="mf-rule" style="margin-top:4rem;margin-bottom:0;"></div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-img-wrap reveal rl">
-        <div class="about-gold-bar"></div>
-        <img class="about-img-main" src="https://images.unsplash.com/photo-1629067518107-278ab6005e1f?w=900&q=85" alt="Ottawa Parliament stonework"/>
-        <img class="about-img-secondary" src="https://images.unsplash.com/photo-1771544597107-8e8d57a3e1b4?w=400&q=80" alt="Ottawa residential neighbourhood" loading="lazy"/>
-      </div>
-      <div class="about-copy reveal rr">
-        <p class="eyebrow">The Founder</p>
-        <h2>An Engineer's Approach to Real Estate.</h2>
-        <p>Before any offer or listing strategy, our team builds the case from the data up. Comparable sales, timing, risk factors, every variable is modelled before a recommendation is made.</p>
-        <p>Every aspect of your transaction is managed by our experienced team from the first market assessment through to legal review, financing, and closing. Nothing falls through the cracks.</p>
-        <div class="divider"></div>
-        <div class="founder-row">
-          <img class="founder-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Akshay Chauhan"/>
-          <div><div class="founder-name">Akshay Chauhan</div><div class="founder-title">REALTOR&reg; at Royal LePage Performance Realty | Ottawa</div></div>
-        </div>
-        <a href="about.html" class="btn btn-dark" style="margin-top:2rem;">Meet the Founder <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FEATURED LISTINGS -->
+<section id="featured">
+  <div class="container">
+    <div class="feat-head reveal">
+      <div>
+        <span class="eyebrow">Featured Listings</span>
+        <h2>Ottawa Properties</h2>
+      </div>
+      <a href="listings.html" class="btn btn-outline">View All Listings <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="listing-grid">
+      <a href="listings.html" class="listing-card reveal d1">
+        <div class="listing-img-wrap">
+          <img src="https://images.unsplash.com/photo-1667930330697-cff20407f95e?w=800&q=80" alt="Ottawa residential property" loading="lazy"/>
+          <span class="listing-tag">For Sale</span>
+        </div>
+        <div class="listing-body">
+          <div class="listing-price">$749,900</div>
+          <div class="listing-address">Westboro, Ottawa ON</div>
+          <div class="listing-details">
+            <span class="listing-detail"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"/></svg> 3 Bed</span>
+            <span class="listing-detail"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h16M4 18h16" stroke-linecap="round"/></svg> 2 Bath</span>
+            <span class="listing-detail">1,850 sqft</span>
+          </div>
+        </div>
+      </a>
+      <a href="listings.html" class="listing-card reveal d2">
+        <div class="listing-img-wrap">
+          <img src="https://images.unsplash.com/photo-1603721676975-501b3cc752e0?w=800&q=80" alt="Ottawa commercial property" loading="lazy"/>
+          <span class="listing-tag gold">Commercial</span>
+        </div>
+        <div class="listing-body">
+          <div class="listing-price">$1,250,000</div>
+          <div class="listing-address">Centretown, Ottawa ON</div>
+          <div class="listing-details">
+            <span class="listing-detail">4,200 sqft</span>
+            <span class="listing-detail">Office Space</span>
+          </div>
+        </div>
+      </a>
+      <a href="listings.html" class="listing-card reveal d3">
+        <div class="listing-img-wrap">
+          <img src="https://images.unsplash.com/photo-1771544597107-8e8d57a3e1b4?w=800&q=80" alt="Ottawa investment property" loading="lazy"/>
+          <span class="listing-tag">Investment</span>
+        </div>
+        <div class="listing-body">
+          <div class="listing-price">$624,000</div>
+          <div class="listing-address">Barrhaven, Ottawa ON</div>
+          <div class="listing-details">
+            <span class="listing-detail"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"/></svg> 4 Bed</span>
+            <span class="listing-detail"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h16M4 18h16" stroke-linecap="round"/></svg> 3 Bath</span>
+            <span class="listing-detail">2,100 sqft</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WORK WITH US -->
+<section id="work-with-us">
+  <div class="container">
+    <div class="wwu-intro reveal">
+      <span class="eyebrow">How We Can Help</span>
+      <h2>Work With Us</h2>
+    </div>
+  </div>
+  <div class="wwu-grid">
+    <a href="services.html" class="wwu-tile">
+      <div class="wwu-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1667930330697-cff20407f95e?w=900&q=80');"></div>
+      <div class="wwu-tile-body">
+        <div class="wwu-tile-num">01</div>
+        <div class="wwu-tile-title">Buy</div>
+        <div class="wwu-tile-desc">Residential and commercial property search with full advisory support, from first look to final close.</div>
+        <div class="wwu-tile-link">Learn More <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </a>
+    <a href="services.html" class="wwu-tile">
+      <div class="wwu-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1603721676975-501b3cc752e0?w=900&q=80');"></div>
+      <div class="wwu-tile-body">
+        <div class="wwu-tile-num">02</div>
+        <div class="wwu-tile-title">Sell</div>
+        <div class="wwu-tile-desc">Precision pricing, strategic preparation, and negotiation expertise from listing day to keys handed over.</div>
+        <div class="wwu-tile-link">Learn More <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </a>
+    <a href="services.html#srv-commercial" class="wwu-tile">
+      <div class="wwu-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1576616944191-51d3959ed5cc?w=900&q=80');"></div>
+      <div class="wwu-tile-body">
+        <div class="wwu-tile-num">03</div>
+        <div class="wwu-tile-title">Commercial</div>
+        <div class="wwu-tile-desc">Office, retail, and industrial transactions handled with sector-specific expertise and market knowledge.</div>
+        <div class="wwu-tile-link">Learn More <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </a>
+    <a href="services.html" class="wwu-tile">
+      <div class="wwu-tile-bg" style="background-image:url('https://images.unsplash.com/photo-1760140410958-6168e226b376?w=900&q=80');"></div>
+      <div class="wwu-tile-body">
+        <div class="wwu-tile-num">04</div>
+        <div class="wwu-tile-title">Invest</div>
+        <div class="wwu-tile-desc">Build your Ottawa portfolio with data-backed property analysis, acquisition strategy, and long-term planning.</div>
+        <div class="wwu-tile-link">Learn More <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </a>
+  </div>
+  <div class="wwu-bottom">
+    <div class="container">
+      <p>Not sure where to start? Let us guide you through every option.</p>
+      <a href="contact.html" class="btn btn-gold">Get in Touch <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES HUB -->
 <section id="resources-hub">
   <div class="container">
     <div class="rh-head reveal">
-      <p class="eyebrow">Resources & Insights</p>
+      <span class="eyebrow">Resources &amp; Insights</span>
       <h2>Everything You Need to Make a Good Decision</h2>
-      <p>Guides, market intelligence, and free tools built for Ottawa buyers, sellers, and investors, available now, no sign-up required for most.</p>
+      <p>Guides, market intelligence, and free tools built for Ottawa buyers, sellers, and investors. Available now, no sign-up required.</p>
     </div>
     <div class="rh-grid">
       <a href="buyer-guide.html" class="rh-card reveal d1">
         <div class="rh-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#b8922d" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="rh-title">Ottawa Buyer's Guide</div>
         <p class="rh-desc">6 steps from pre-approval to keys. Costs, conditions, and Ottawa-specific strategy.</p>
-        <div class="rh-link">Read Guide <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="rh-link">Read Guide <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </a>
       <a href="seller-guide.html" class="rh-card reveal d2">
         <div class="rh-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#b8922d" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="rh-title">Ottawa Seller's Guide</div>
         <p class="rh-desc">Pricing strategy, staging priorities, offer negotiation, and what it costs to sell in Ottawa.</p>
-        <div class="rh-link">Read Guide <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="rh-link">Read Guide <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </a>
       <a href="market.html" class="rh-card reveal d3">
         <div class="rh-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#b8922d" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="rh-title">Ottawa Market Update</div>
         <p class="rh-desc">Q1 2026 stats, neighbourhood breakdown, and what the data means for buyers and sellers right now.</p>
-        <div class="rh-link">View Update <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="rh-link">View Update <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </a>
       <a href="insights.html" class="rh-card reveal d4">
         <div class="rh-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#b8922d" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="rh-title">Ottawa Insights</div>
         <p class="rh-desc">Articles on neighbourhood comparisons, buying strategy, and Ottawa market intelligence.</p>
-        <div class="rh-link">Read Articles <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="rh-link">Read Articles <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       </a>
     </div>
   </div>
 </section>
 
-<section id="cta">
-  <div class="cta-bg"></div>
-  <div class="container">
-    <div class="cta-inner">
-      <p class="eyebrow" style="justify-content:center">Start Here</p>
-      <h2>Ready to <em>Rise?</em></h2>
-      <p>The first call costs nothing. The research starts before you arrive. If Ottawa real estate is on your mind, it's worth a conversation.</p>
-      <a href="contact.html" class="btn btn-gold">Book a Free Consultation <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer id="footer">
   <div class="container">
     <div class="foot-compact">
@@ -427,24 +545,31 @@
 
 <script>
   const nav = document.getElementById('navbar'), btt = document.getElementById('btt');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); btt.classList.toggle('on', window.scrollY > 400); }, { passive: true });
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    btt.classList.toggle('on', window.scrollY > 400);
+  }, { passive: true });
   btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
   const ham = document.getElementById('hamburger'), mob = document.getElementById('mobNav');
-  ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : ''; });
-  document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = ''; }));
-  const words = ['Residential.', 'Commercial.', 'Investment.', 'Ottawa.', 'Results.'];
-  let wi = 0, ci = 0, del = false;
-  const el = document.getElementById('typed');
-  function type() { const w = words[wi]; if (!del) { el.textContent = w.substring(0, ++ci); if (ci === w.length) { del = true; setTimeout(type, 2400); return; } setTimeout(type, 95); } else { el.textContent = w.substring(0, --ci); if (ci === 0) { del = false; wi = (wi + 1) % words.length; setTimeout(type, 500); return; } setTimeout(type, 48); } }
-  type();
-  document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function(e) { const t = document.querySelector(this.getAttribute('href')); if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); } }); });
-  // Scroll progress
-  const sp=document.getElementById('sprog');
-  window.addEventListener('scroll',()=>{if(sp)sp.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';},{passive:true});
-  // Reveal on scroll
-  const ro=new IntersectionObserver((entries)=>entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);}}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(e=>ro.observe(e));
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', () => {
+    ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = '';
+  }));
+
+  const sp = document.getElementById('sprog');
+  window.addEventListener('scroll', () => {
+    if (sp) sp.style.width = ((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100) + '%';
+  }, { passive: true });
+
+  const ro = new IntersectionObserver(entries => entries.forEach(x => {
+    if (x.isIntersecting) { x.target.classList.add('visible'); ro.unobserve(x.target); }
+  }), { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(e => ro.observe(e));
 </script>
 </body>
 </html>
-
