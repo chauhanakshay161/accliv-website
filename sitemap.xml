@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core pages -->
-  <url><loc>https://acclivgroup.com/</loc><lastmod>2024-06-30</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://acclivgroup.com/about.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://acclivgroup.com/services.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://acclivgroup.com/listings.html</loc><lastmod>2024-06-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/reviews.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://acclivgroup.com/contact.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/</loc><lastmod>2026-07-01</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://acclivgroup.com/about.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://acclivgroup.com/services.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://acclivgroup.com/listings.html</loc><lastmod>2026-07-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/reviews.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://acclivgroup.com/contact.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <!-- Guides -->
-  <url><loc>https://acclivgroup.com/buyer-guide.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://acclivgroup.com/seller-guide.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://acclivgroup.com/resources.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/market.html</loc><lastmod>2024-06-30</lastmod><changefreq>quarterly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/buyer-guide.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://acclivgroup.com/seller-guide.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://acclivgroup.com/resources.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/market.html</loc><lastmod>2026-07-01</lastmod><changefreq>quarterly</changefreq><priority>0.8</priority></url>
   <!-- Insights / Blog -->
-  <url><loc>https://acclivgroup.com/insights.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/first-time-buyer-ottawa.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/ottawa-market-2024.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/westboro-vs-barrhaven.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/insights.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/first-time-buyer-ottawa.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/ottawa-market-2024.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/westboro-vs-barrhaven.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <!-- Neighbourhood guides -->
-  <url><loc>https://acclivgroup.com/westboro.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/barrhaven.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/kanata.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/glebe.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/orleans.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/nepean.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/stittsville.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/manotick.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://acclivgroup.com/riverside-south.html</loc><lastmod>2024-06-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/westboro.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/barrhaven.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/kanata.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/glebe.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/orleans.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/nepean.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/stittsville.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/manotick.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://acclivgroup.com/riverside-south.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <!-- Legal -->
-  <url><loc>https://acclivgroup.com/privacy.html</loc><lastmod>2024-06-30</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://acclivgroup.com/privacy.html</loc><lastmod>2026-07-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
