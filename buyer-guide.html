@@ -63,15 +63,17 @@
     .guide-main{}
     .guide-side{position:sticky;top:8rem;}
     /* STEPS */
-    .guide-step{margin-bottom:6rem;padding-bottom:6rem;border-bottom:1px solid rgba(10,22,40,0.07);}
+    .guide-step{margin-bottom:5rem;padding-bottom:5rem;border-bottom:1px solid rgba(10,22,40,0.07);}
     .guide-step:last-of-type{border-bottom:none;}
-    .step-header{display:flex;align-items:flex-start;gap:2rem;margin-bottom:1.75rem;}
-    .step-num{font-family:var(--serif);font-size:4.5rem;font-weight:300;color:rgba(201,168,76,0.18);line-height:1;flex-shrink:0;width:80px;}
-    .step-titles{}
-    .step-label{font-size:0.65rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;}
-    .step-h{font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:400;line-height:1.15;color:var(--navy);}
-    .guide-step p{font-size:0.95rem;line-height:1.9;color:var(--dim);margin-bottom:1rem;}
-    .guide-step ul{padding-left:0;list-style:none;margin-bottom:1.25rem;}
+    .step-header{display:flex;align-items:flex-start;gap:1.75rem;margin-bottom:1.5rem;}
+    .step-num{font-family:var(--serif);font-size:4rem;font-weight:300;color:rgba(201,168,76,0.2);line-height:1;flex-shrink:0;width:70px;padding-top:0.15rem;}
+    .step-titles{border-left:2px solid rgba(201,168,76,0.25);padding-left:1.5rem;}
+    .step-label{font-size:0.68rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem;}
+    .step-label::before{content:'';display:block;width:16px;height:1px;background:var(--gold);}
+    .step-h{font-family:var(--serif);font-size:clamp(1.65rem,2.8vw,2.3rem);font-weight:500;line-height:1.12;color:#0a1628;margin-bottom:0;}
+    .guide-step p{font-size:0.95rem;line-height:1.9;color:var(--dim);margin-bottom:1rem;margin-top:1.1rem;}
+    .guide-step p:first-of-type{margin-top:1.25rem;}
+    .guide-step ul{padding-left:0;list-style:none;margin-bottom:1.25rem;margin-top:0.5rem;}
     .guide-step li{font-size:0.93rem;line-height:1.8;color:var(--dim);padding:0.3rem 0 0.3rem 1.4rem;position:relative;}.guide-step li::before{content:'—';position:absolute;left:0;color:var(--gold);font-weight:600;}
     .callout{background:var(--off);border-left:3px solid var(--gold);border-radius:3px;padding:1.25rem 1.5rem;margin:1.5rem 0;}
     .callout-label{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;}
@@ -79,7 +81,7 @@
     /* COSTS GRID */
     #costs{padding:6rem 0;background:var(--off);}
     .costs-head{max-width:600px;margin-bottom:3rem;}
-    .costs-head h2{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:400;line-height:1.1;margin:0.5rem 0 1rem;}
+    .costs-head h2{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:500;line-height:1.1;margin:0.5rem 0 1rem;color:var(--navy);}
     .costs-head p{font-size:0.95rem;color:var(--dim);line-height:1.8;}
     .costs-table{width:100%;border-collapse:collapse;}
     .costs-table thead th{font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);text-align:left;padding:0.75rem 1rem;background:var(--navy);border-bottom:2px solid var(--border);}
