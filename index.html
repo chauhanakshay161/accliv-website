@@ -87,7 +87,7 @@
     .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,146,45,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,146,45,0.04) 1px, transparent 1px); background-size: 70px 70px; z-index: 1; }
     .hero-left { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; padding: 9rem 4rem 8rem; }
     .hero-right { position: relative; overflow: hidden; }
-    .hero-right-img { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1782751935265-3a6ef9f6c266?w=1200&q=85'); background-size: cover; background-position: center; }
+    .hero-right-img { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1720050238968-0f591061438d?w=1200&q=85'); background-size: cover; background-position: center; }
     .hero-right-grad { position: absolute; inset: 0; background: linear-gradient(to right, var(--navy) 0%, rgba(13,31,60,0.15) 50%, transparent 100%); }
     .hero-h1 { font-family: var(--serif); font-size: clamp(3.8rem, 7vw, 9rem); font-weight: 300; line-height: 1; color: var(--white); margin-bottom: 0.5rem; }
     .hero-h1 .typed-gold { color: var(--gold); font-style: italic; }
@@ -99,12 +99,13 @@
 
 
     /* SERVICES TEASER */
-    #services-teaser { padding: 11rem 0; background: var(--off); }
-    .teaser-head { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
-    .teaser-head h2 { font-family: var(--serif); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 300; line-height: 1.05; margin-top: 0.5rem; }
-    .teaser-head p { font-size: 0.96rem; line-height: 1.85; color: var(--dim); }
-    .teaser-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
-    .tsr-card { position: relative; height: 580px; overflow: hidden; border-radius: 2px; display: flex; flex-direction: column; justify-content: flex-end; }
+    #services-teaser { padding: 10rem 0; background: var(--white); }
+    .teaser-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 4rem; margin-bottom: 3.5rem; }
+    .teaser-head-left { flex: 0 0 auto; }
+    .teaser-head h2 { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.0; margin-top: 0.5rem; }
+    .teaser-head p { font-size: 0.92rem; line-height: 1.85; color: var(--dim); max-width: 420px; }
+    .teaser-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+    .tsr-card { position: relative; height: 500px; overflow: hidden; border-radius: 2px; display: flex; flex-direction: column; justify-content: flex-end; }
     .tsr-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) saturate(0.8); }
     .tsr-card-body { position: relative; z-index: 2; padding: 3rem; background: linear-gradient(to top, rgba(13,31,60,0.88) 0%, rgba(13,31,60,0.1) 60%, transparent 100%); }
     .tsr-card-name { font-family: var(--serif); font-size: 2.6rem; font-weight: 300; color: var(--white); margin-bottom: 1.5rem; letter-spacing: 0.01em; }
@@ -180,7 +181,7 @@
 
     @media (max-width: 1024px) {
       #hero { grid-template-columns: 1fr; } .hero-right { display: none; } .hero-left { padding: 9rem 2rem 7rem; }
-      .teaser-head { grid-template-columns: 1fr; gap: 1.5rem; } .teaser-cards { grid-template-columns: 1fr; }
+      .teaser-head { flex-direction: column; align-items: flex-start; gap: 1.5rem; } .teaser-head p { max-width: 100%; } .teaser-cards { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 4rem; } .about-img-secondary { display: none; }
       .foot-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
     }
@@ -279,8 +280,11 @@
 <section id="services-teaser">
   <div class="container">
     <div class="teaser-head">
-      <div class="reveal"><p class="eyebrow">What We Do</p><h2>Residential. Commercial.<br>Investment. Ottawa.</h2></div>
-      <p class="reveal d1 body-text" style="font-size:0.96rem;line-height:1.85;color:var(--dim);">Whether you are buying residential or commercial property, or building an investment portfolio, our experienced team covers every aspect of your transaction, backed by deep Ottawa market knowledge and a network of specialists built specifically for this market.</p>
+      <div class="teaser-head-left reveal">
+        <p class="eyebrow">What We Do</p>
+        <h2>Residential.<br>Commercial.<br>Investment.</h2>
+      </div>
+      <p class="reveal d1" style="font-size:0.92rem;line-height:1.85;color:var(--dim);max-width:400px;padding-bottom:0.25rem;">Three service areas. One Ottawa standard. Our team covers every aspect of your transaction, backed by market knowledge built here and a professional network ready to move when you need it.</p>
     </div>
     <div class="teaser-cards">
       <a href="services.html" class="tsr-card reveal d1">
@@ -321,8 +325,8 @@
     <div class="about-grid">
       <div class="about-img-wrap reveal rl">
         <div class="about-gold-bar"></div>
-        <img class="about-img-main" src="https://images.unsplash.com/photo-1782751935265-3a6ef9f6c266?w=900&q=85" alt="Akshay Chauhan, Accliv Group"/>
-        <img class="about-img-secondary" src="https://images.unsplash.com/photo-1782751935265-3a6ef9f6c266?w=400&q=80" alt="Ottawa residential real estate property" loading="lazy"/>
+        <img class="about-img-main" src="https://images.unsplash.com/photo-1629067518107-278ab6005e1f?w=900&q=85" alt="Ottawa Parliament stonework"/>
+        <img class="about-img-secondary" src="https://images.unsplash.com/photo-1771544597107-8e8d57a3e1b4?w=400&q=80" alt="Ottawa residential neighbourhood" loading="lazy"/>
       </div>
       <div class="about-copy reveal rr">
         <p class="eyebrow">The Founder</p>
